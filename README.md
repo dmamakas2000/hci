@@ -3,7 +3,7 @@
 
 ## Creators
 
-| Fyll Name  | University's Registration Number |
+| Full Name  | University's Registration Number |
 | ------------- |:-------------:|
 | Petros Tsotsi      | 3180193     |
 | Dimitrios Mamakas      | 3180102    |
