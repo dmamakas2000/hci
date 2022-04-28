@@ -18,27 +18,15 @@ import gr.aueb.hci.menu.MainMenu;
 
 public class StartingFrame extends JFrame {
 
+    /**
+     * Content pane.
+     */
     private JPanel contentPane;
 
-    private static StartingFrame frame;
-
     /**
-     * Launch the application.
+     * Font constant.
      */
-    public static void main( final String[] args ) {
-        EventQueue.invokeLater( new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    StartingFrame.frame = new StartingFrame();
-                    StartingFrame.frame.setVisible( true );
-                }
-                catch ( final Exception e ) {
-                    e.printStackTrace();
-                }
-            }
-        } );
-    }
+    private static final String ARIAL = "Arial";
 
     /**
      * Create the frame.
@@ -53,23 +41,22 @@ public class StartingFrame extends JFrame {
         setContentPane( this.contentPane );
         this.contentPane.setLayout( null );
 
-        final JLabel lblNewLabel = new JLabel( "\u039A\u03B1\u03BB\u03CE\u03C2 \u03BF\u03C1\u03AF\u03C3\u03B1\u03C4\u03B5!" );
-        lblNewLabel.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
-        lblNewLabel.setBounds( 217, 143, 358, 79 );
-        this.contentPane.add( lblNewLabel );
+        final JLabel welcomeLabel = new JLabel( "\u039A\u03B1\u03BB\u03CE\u03C2 \u03BF\u03C1\u03AF\u03C3\u03B1\u03C4\u03B5!" );
+        welcomeLabel.setFont( new Font( StartingFrame.ARIAL, Font.PLAIN, 50 ) );
+        welcomeLabel.setBounds( 217, 143, 358, 79 );
+        this.contentPane.add( welcomeLabel );
 
-        final JButton btnNewButton = new JButton(
+        final JButton goIntoMainMenuButton = new JButton(
                 "\u0395\u03BA\u03BA\u03AF\u03BD\u03B7\u03C3\u03B7 \u03B5\u03C6\u03B1\u03C1\u03BC\u03BF\u03B3\u03AE\u03C2" );
-        btnNewButton.setForeground( Color.WHITE );
-        btnNewButton.setBackground( new Color( 0, 153, 102 ) );
-        btnNewButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
-        btnNewButton.setBounds( 99, 508, 582, 67 );
-
-        btnNewButton.addActionListener( new ActionListener() {
-
+        goIntoMainMenuButton.setForeground( Color.WHITE );
+        goIntoMainMenuButton.setBackground( new Color( 138, 237, 172 ) );
+        goIntoMainMenuButton.setFocusPainted( false );
+        goIntoMainMenuButton.setFont( new Font( StartingFrame.ARIAL, Font.PLAIN, 30 ) );
+        goIntoMainMenuButton.setBounds( 99, 508, 582, 67 );
+        goIntoMainMenuButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                StartingFrame.frame.dispose();
+                StartingFrame.this.dispose();
                 final AirConditionStartupAlert alert = new AirConditionStartupAlert();
                 alert.setVisible( true );
                 new java.util.Timer().schedule( new java.util.TimerTask() {
@@ -82,7 +69,24 @@ public class StartingFrame extends JFrame {
                 }, 2000 );
             }
         } );
+        this.contentPane.add( goIntoMainMenuButton );
+    }
 
-        this.contentPane.add( btnNewButton );
+    /**
+     * Launch the application.
+     */
+    public static void main( final String[] args ) {
+        EventQueue.invokeLater( new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final StartingFrame startingFrame = new StartingFrame();
+                    startingFrame.setVisible( true );
+                }
+                catch ( final Exception e ) {
+                    e.printStackTrace();
+                }
+            }
+        } );
     }
 }
