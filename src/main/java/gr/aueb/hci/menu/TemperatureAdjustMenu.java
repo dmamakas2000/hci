@@ -16,36 +16,35 @@ import javax.swing.border.EmptyBorder;
 
 public class TemperatureAdjustMenu extends JFrame {
 
+    /**
+     * Serial version UID.
+     */
+    private static final long serialVersionUID = 4749057480869479912L;
+
+    /**
+     * Content pane.
+     */
     private JPanel contentPane;
 
-    private static TemperatureAdjustMenu menu;
-
+    /**
+     * Temperature constants.
+     */
     private static final int STARTING_TEMPERATURE = 25;
     private static final int MAX_TEMPERATURE = 35;
     private static final int MIN_TEMPERATURE = 15;
 
+    /**
+     * Font.
+     */
+    private static final String ARIAL = "Arial";
+
+    /**
+     * Attributes.
+     */
     private int temperature = TemperatureAdjustMenu.STARTING_TEMPERATURE;
 
     /**
-     * Launch the application.
-     */
-    public static void main( final String[] args ) {
-        EventQueue.invokeLater( new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TemperatureAdjustMenu.menu = new TemperatureAdjustMenu();
-                    TemperatureAdjustMenu.menu.setVisible( true );
-                }
-                catch ( final Exception e ) {
-                    e.printStackTrace();
-                }
-            }
-        } );
-    }
-
-    /**
-     * Create the frame.
+     * Default constructor.
      */
     public TemperatureAdjustMenu() {
         setResizable( false );
@@ -58,27 +57,28 @@ public class TemperatureAdjustMenu extends JFrame {
         setContentPane( this.contentPane );
         this.contentPane.setLayout( null );
 
-        final JLabel lblNewLabel = new JLabel( String.valueOf( TemperatureAdjustMenu.STARTING_TEMPERATURE ) );
-        lblNewLabel.setFont( new Font( "Arial", Font.PLAIN, 80 ) );
-        lblNewLabel.setBounds( 355, 11, 110, 151 );
-        this.contentPane.add( lblNewLabel );
+        final JLabel temperatureLabel = new JLabel( String.valueOf( TemperatureAdjustMenu.STARTING_TEMPERATURE ) );
+        temperatureLabel.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 80 ) );
+        temperatureLabel.setBounds( 355, 11, 110, 151 );
+        this.contentPane.add( temperatureLabel );
 
-        final JLabel lblNewLabel_1 = new JLabel( "\u00B0C" );
-        lblNewLabel_1.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
-        lblNewLabel_1.setBounds( 462, 62, 56, 68 );
-        this.contentPane.add( lblNewLabel_1 );
+        final JLabel celciusLabel = new JLabel( "\u00B0C" );
+        celciusLabel.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 50 ) );
+        celciusLabel.setBounds( 462, 62, 56, 68 );
+        this.contentPane.add( celciusLabel );
 
         final JButton increaseTempButton = new JButton(
                 "\u0391\u03BD\u03AD\u03B2\u03B1\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (+)" );
-        increaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        increaseTempButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
         increaseTempButton.setBounds( 450, 283, 386, 46 );
+        increaseTempButton.setFocusPainted( false );
         increaseTempButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 TemperatureAdjustMenu.this.temperature += 1;
                 if ( TemperatureAdjustMenu.this.temperature < TemperatureAdjustMenu.MAX_TEMPERATURE
                         && TemperatureAdjustMenu.this.temperature > TemperatureAdjustMenu.MIN_TEMPERATURE ) {
-                    lblNewLabel.setText( String.valueOf( TemperatureAdjustMenu.this.temperature ) );
+                    temperatureLabel.setText( String.valueOf( TemperatureAdjustMenu.this.temperature ) );
                 }
                 else if ( TemperatureAdjustMenu.this.temperature >= TemperatureAdjustMenu.MAX_TEMPERATURE ) {
                     // Temperature greater than 35 degrees
@@ -94,15 +94,16 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton decreaseTempButton = new JButton(
                 "\u039C\u03B5\u03AF\u03C9\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (-)" );
-        decreaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        decreaseTempButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
         decreaseTempButton.setBounds( 34, 283, 371, 46 );
+        decreaseTempButton.setFocusPainted( false );
         decreaseTempButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 TemperatureAdjustMenu.this.temperature -= 1;
                 if ( TemperatureAdjustMenu.this.temperature < TemperatureAdjustMenu.MAX_TEMPERATURE
                         && TemperatureAdjustMenu.this.temperature > TemperatureAdjustMenu.MIN_TEMPERATURE ) {
-                    lblNewLabel.setText( String.valueOf( TemperatureAdjustMenu.this.temperature ) );
+                    temperatureLabel.setText( String.valueOf( TemperatureAdjustMenu.this.temperature ) );
                 }
                 else if ( TemperatureAdjustMenu.this.temperature >= TemperatureAdjustMenu.MAX_TEMPERATURE ) {
                     // Temperature greater than 35 degrees
@@ -117,16 +118,35 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( decreaseTempButton );
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
-        goBackButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        goBackButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
         goBackButton.setBounds( 34, 535, 327, 54 );
+        goBackButton.setFocusPainted( false );
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                TemperatureAdjustMenu.menu.dispose();
+                TemperatureAdjustMenu.this.dispose();
                 final MainMenu mainMenu = new MainMenu( TemperatureAdjustMenu.this.temperature );
                 mainMenu.setVisible( true );
             }
         } );
         this.contentPane.add( goBackButton );
+    }
+
+    /**
+     * Launch the application.
+     */
+    public static void main( final String[] args ) {
+        EventQueue.invokeLater( new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final TemperatureAdjustMenu menu = new TemperatureAdjustMenu();
+                    menu.setVisible( true );
+                }
+                catch ( final Exception e ) {
+                    e.printStackTrace();
+                }
+            }
+        } );
     }
 }
