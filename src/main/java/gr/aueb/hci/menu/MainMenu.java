@@ -15,6 +15,9 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.alerts.CoolingAlert;
+import gr.aueb.hci.alerts.HeatingAlert;
+
 public class MainMenu extends JFrame {
 
     /**
@@ -109,6 +112,22 @@ public class MainMenu extends JFrame {
         heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         heatingButton.setFocusPainted( false );
+        heatingButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                final HeatingAlert heatingAlert = new HeatingAlert();
+                heatingAlert.setVisible( true );
+                MainMenu.this.setVisible( false );
+                new java.util.Timer().schedule( new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        heatingAlert.setVisible( false );
+                        MainMenu.this.setVisible( true );
+                        MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                    }
+                }, 2000 );
+            }
+        } );
         this.contentPane.add( heatingButton );
 
         final JLabel inActionLabel = new JLabel( "\u03A3\u03B5 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1" );
@@ -135,6 +154,22 @@ public class MainMenu extends JFrame {
         coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         coolingButton.setFocusPainted( false );
+        coolingButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                final CoolingAlert coolingAlert = new CoolingAlert();
+                coolingAlert.setVisible( true );
+                MainMenu.this.setVisible( false );
+                new java.util.Timer().schedule( new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        coolingAlert.setVisible( false );
+                        MainMenu.this.setVisible( true );
+                        MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                    }
+                }, 2000 );
+            }
+        } );
         this.contentPane.add( coolingButton );
 
         final JButton needHelpButton = new JButton( "" );
