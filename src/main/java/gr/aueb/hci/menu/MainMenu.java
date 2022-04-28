@@ -18,16 +18,17 @@ import javax.swing.border.EmptyBorder;
 public class MainMenu extends JFrame {
 
     /**
-     * Serial version ID.
+     * Serial version UID.
      */
     private static final long serialVersionUID = 7391903381566791295L;
 
     /**
      * Icons.
      */
-    private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire4.png" );
-    private ImageIcon snowFlakeIcon = new ImageIcon( "assets/images/cool/snowflake3.png" );
-    private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/question1.png" );
+    private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
+    private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
+    private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
+    private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/question_icon.png" );
 
     /**
      * Font constant.
@@ -104,7 +105,7 @@ public class MainMenu extends JFrame {
         heatingButton.setBackground( Color.WHITE );
         heatingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
         heatingButton.setBounds( 141, 349, 517, 57 );
-        heatingButton.setIcon( new ImageIcon( "icon2.png" ) );
+        heatingButton.setIcon( this.fireIconForButton );
         heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         heatingButton.setFocusPainted( false );
@@ -130,7 +131,7 @@ public class MainMenu extends JFrame {
         coolingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
         coolingButton.setBackground( Color.WHITE );
         coolingButton.setBounds( 141, 417, 517, 57 );
-        coolingButton.setIcon( this.snowFlakeIcon );
+        coolingButton.setIcon( this.snowFlakeIconForButton );
         coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         coolingButton.setFocusPainted( false );
@@ -139,7 +140,7 @@ public class MainMenu extends JFrame {
         final JButton needHelpButton = new JButton( "" );
         needHelpButton.setBackground( Color.WHITE );
         needHelpButton.setBounds( 674, 555, 94, 47 );
-        needHelpButton.setIcon( this.needHelpIcon );
+        needHelpButton.setIcon( this.needHelpIconForButton );
         needHelpButton.setFocusPainted( false );
         this.contentPane.add( needHelpButton );
 

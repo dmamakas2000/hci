@@ -19,6 +19,11 @@ import gr.aueb.hci.menu.MainMenu;
 public class StartingFrame extends JFrame {
 
     /**
+     * Serial version UID.
+     */
+    private static final long serialVersionUID = 660117750451006902L;
+
+    /**
      * Content pane.
      */
     private JPanel contentPane;
@@ -29,7 +34,7 @@ public class StartingFrame extends JFrame {
     private static final String ARIAL = "Arial";
 
     /**
-     * Create the frame.
+     * Default constructor.
      */
     public StartingFrame() {
         setResizable( false );
