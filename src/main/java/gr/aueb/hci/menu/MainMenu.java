@@ -34,7 +34,7 @@ public class MainMenu extends JFrame {
     private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
     private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
     private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
-    private ImageIcon needHelpIconForButton = new ImageIcon( "icons8-info-64.png" );
+    private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
 
     /**
      * Font constant.
