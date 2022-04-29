@@ -5,11 +5,14 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
@@ -31,7 +34,7 @@ public class MainMenu extends JFrame {
     private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
     private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
     private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
-    private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/question_icon.png" );
+    private ImageIcon needHelpIconForButton = new ImageIcon( "icons8-info-64.png" );
 
     /**
      * Font constant.
@@ -43,10 +46,17 @@ public class MainMenu extends JFrame {
      */
     private static final int START_TEMPERATURE = 0;
 
+    private String dateTimeString;
     /**
      * Content pane.
      */
     private JPanel contentPane;
+
+    private LocalDateTime dateTime;
+
+    private static final String HELP_MESSAGE = "Βρίσκεστε στην κεντρική οθόνη ελέγχου του κλιματιστικού.\n"
+            + "· Πατήστε θέρμανση για να ζεσταθείτε.\n" + "· Πατήστε 'Ψύξη' για να δροσιστείτε.\n"
+            + "· Πατήστε 'Ρύθμιση θερμοκρασίας' για να προσαρμόσετε την θερμοκρασία εκεί που επιθυμείτε.";
 
     /**
      * Main constructor (parsing temperature).
@@ -85,18 +95,72 @@ public class MainMenu extends JFrame {
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         setContentPane( this.contentPane );
         this.contentPane.setLayout( null );
+
+        this.dateTime = LocalDateTime.now();
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "E, MMM dd yyyy HH:mm" );
+        final String formattedDate = this.dateTime.format( formatter );
+        final String day = formattedDate.substring( 0, 3 );
+        final String month = formattedDate.substring( 5, 8 );
+        final String dayNum = formattedDate.substring( 9, 11 );
+        final String yearAndTime = formattedDate.substring( 12 );
+        this.dateTimeString = translator( day, month, dayNum, yearAndTime );
+    }
+
+    private String translator( final String day, final String month, final String numDate, final String yearTime ) {
+        String translatedDay = "";
+        switch ( day ) {
+            case "Δευ":
+                translatedDay = "Δευτέρα";
+                break;
+
+            case "Τρι":
+                translatedDay = "Τρίτη";
+                break;
+
+            case "Τετ":
+                translatedDay = "Τετάρτη";
+                break;
+
+            case "Πεμ":
+                translatedDay = "Πέμπτη";
+                break;
+
+            case "Παρ":
+                translatedDay = "Παρασκευή";
+                break;
+
+            case "Σαβ":
+                translatedDay = "Σάββατο";
+                break;
+
+            case "Κυρ":
+                translatedDay = "Κυριακή";
+                break;
+        }
+
+        String translatedMonth = "";
+        switch ( month ) {
+            case "Απρ":
+                translatedMonth = "Απριλίου";
+                break;
+
+            case "Μαι":
+                translatedMonth = "Μαίου";
+                break;
+        }
+
+        return translatedDay + ", " + numDate + " " + translatedMonth + " " + yearTime;
     }
 
     private void createMainMenuComponents() {
         final JLabel cityLabel = new JLabel( "\u0391\u03B8\u03AE\u03BD\u03B1" );
         cityLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 40 ) );
-        cityLabel.setBounds( 32, 30, 148, 87 );
+        cityLabel.setBounds( 32, 9, 148, 87 );
         this.contentPane.add( cityLabel );
 
-        final JLabel dateLabel = new JLabel(
-                "\u0394\u03B5\u03C5\u03C4\u03AD\u03C1\u03B1 28 \u039C\u03B1\u03C1\u03C4\u03AF\u03BF\u03C5, 19:18 \u039C\u039C" );
-        dateLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 28 ) );
-        dateLabel.setBounds( 32, 107, 560, 73 );
+        final JLabel dateLabel = new JLabel( this.dateTimeString );
+        dateLabel.setFont( new Font( "Arial", Font.PLAIN, 20 ) );
+        dateLabel.setBounds( 31, 89, 560, 53 );
         this.contentPane.add( dateLabel );
 
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
@@ -135,10 +199,9 @@ public class MainMenu extends JFrame {
         inActionLabel.setBounds( 32, 267, 302, 47 );
         this.contentPane.add( inActionLabel );
 
-        final JLabel needHelpLabel = new JLabel(
-                "\u03A7\u03C1\u03B5\u03B9\u03AC\u03B6\u03B5\u03C3\u03C4\u03B5 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1;" );
+        final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 25 ) );
-        needHelpLabel.setBounds( 24, 571, 225, 30 );
+        needHelpLabel.setBounds( 473, 572, 185, 30 );
         this.contentPane.add( needHelpLabel );
 
         final JLabel fireLabelIcon = new JLabel( "" );
@@ -174,9 +237,16 @@ public class MainMenu extends JFrame {
 
         final JButton needHelpButton = new JButton( "" );
         needHelpButton.setBackground( Color.WHITE );
-        needHelpButton.setBounds( 674, 555, 94, 47 );
+        needHelpButton.setBounds( 674, 529, 94, 73 );
         needHelpButton.setIcon( this.needHelpIconForButton );
         needHelpButton.setFocusPainted( false );
+        needHelpButton.setBorder( null );
+        needHelpButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                JOptionPane.showMessageDialog( null, MainMenu.HELP_MESSAGE, "Κεντρικό μενού", 1 );
+            }
+        } );
         this.contentPane.add( needHelpButton );
 
         final JButton temperatureAdjustButton = new JButton(

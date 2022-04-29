@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -43,6 +44,9 @@ public class TemperatureAdjustMenu extends JFrame {
      */
     private int temperature = TemperatureAdjustMenu.STARTING_TEMPERATURE;
 
+    private static final String HELP_MESSAGE = "Βρίσκεστε στην οθόνη ρύθμισης θερμοκρασίας."
+            + "· Επιλέξτε την επιθυμητή θερμοκρασία και στην συνέχεια πατήστε αποθήκευση για να την επιλέξετε.";
+
     /**
      * Default constructor.
      */
@@ -69,6 +73,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton increaseTempButton = new JButton(
                 "\u0391\u03BD\u03AD\u03B2\u03B1\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (+)" );
+        increaseTempButton.setBackground( Color.WHITE );
         increaseTempButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
         increaseTempButton.setBounds( 450, 283, 386, 46 );
         increaseTempButton.setFocusPainted( false );
@@ -94,6 +99,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton decreaseTempButton = new JButton(
                 "\u039C\u03B5\u03AF\u03C9\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (-)" );
+        decreaseTempButton.setBackground( Color.WHITE );
         decreaseTempButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
         decreaseTempButton.setBounds( 34, 283, 371, 46 );
         decreaseTempButton.setFocusPainted( false );
@@ -118,10 +124,28 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( decreaseTempButton );
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
+        goBackButton.setBackground( Color.WHITE );
         goBackButton.setFont( new Font( TemperatureAdjustMenu.ARIAL, Font.PLAIN, 30 ) );
-        goBackButton.setBounds( 34, 535, 327, 54 );
+        goBackButton.setBounds( 34, 578, 327, 54 );
         goBackButton.setFocusPainted( false );
         goBackButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                TemperatureAdjustMenu.this.dispose();
+                final MainMenu mainMenu = new MainMenu();
+                mainMenu.setVisible( true );
+            }
+        } );
+        this.contentPane.add( goBackButton );
+
+        final JButton saveChangesButton = new JButton(
+                "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
+        saveChangesButton.setBackground( Color.WHITE );
+        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        saveChangesButton.setFocusPainted( false );
+        saveChangesButton.setBounds( 266, 414, 360, 54 );
+        saveChangesButton.setFocusPainted( false );
+        saveChangesButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 TemperatureAdjustMenu.this.dispose();
@@ -129,7 +153,26 @@ public class TemperatureAdjustMenu extends JFrame {
                 mainMenu.setVisible( true );
             }
         } );
-        this.contentPane.add( goBackButton );
+        this.contentPane.add( saveChangesButton );
+
+        final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
+        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        needHelpLabel.setBounds( 503, 582, 202, 46 );
+        this.contentPane.add( needHelpLabel );
+
+        final JButton needHelpButton = new JButton( "" );
+        needHelpButton.setBackground( Color.WHITE );
+        needHelpButton.setBounds( 715, 555, 98, 73 );
+        needHelpButton.setFocusPainted( false );
+        needHelpButton.setBorder( null );
+        needHelpButton.setIcon( new ImageIcon( "icons8-info-64.png" ) );
+        needHelpButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                JOptionPane.showMessageDialog( null, TemperatureAdjustMenu.HELP_MESSAGE, "Μενού τηλεκοντρόλ", 1 );
+            }
+        } );
+        this.contentPane.add( needHelpButton );
     }
 
     /**

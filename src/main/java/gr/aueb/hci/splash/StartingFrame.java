@@ -6,9 +6,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
@@ -32,6 +34,9 @@ public class StartingFrame extends JFrame {
      * Font constant.
      */
     private static final String ARIAL = "Arial";
+
+    private static final String HELP_MESSAGE = "Καλωσορίσατε! Βρίσκεστε στην αρχική οθόνη της εφαρμογής.\n"
+            + "Επιλέξτε 'Εκκίνηση εφαρμογής' για να ξεκινήσετε το κλιματιστικό.";
 
     /**
      * Default constructor.
@@ -57,7 +62,7 @@ public class StartingFrame extends JFrame {
         goIntoMainMenuButton.setBackground( new Color( 138, 237, 172 ) );
         goIntoMainMenuButton.setFocusPainted( false );
         goIntoMainMenuButton.setFont( new Font( StartingFrame.ARIAL, Font.PLAIN, 30 ) );
-        goIntoMainMenuButton.setBounds( 99, 508, 582, 67 );
+        goIntoMainMenuButton.setBounds( 99, 390, 582, 67 );
         goIntoMainMenuButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -75,6 +80,25 @@ public class StartingFrame extends JFrame {
             }
         } );
         this.contentPane.add( goIntoMainMenuButton );
+
+        final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
+        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        needHelpLabel.setBounds( 420, 536, 201, 61 );
+        this.contentPane.add( needHelpLabel );
+
+        final JButton infoButton = new JButton( "" );
+        infoButton.setBackground( Color.WHITE );
+        infoButton.setBounds( 631, 514, 131, 85 );
+        infoButton.setIcon( new ImageIcon( "icons8-info-64.png" ) );
+        infoButton.setBorder( null );
+        infoButton.setFocusPainted( false );
+        infoButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                JOptionPane.showMessageDialog( null, StartingFrame.HELP_MESSAGE );
+            }
+        } );
+        this.contentPane.add( infoButton );
     }
 
     /**
