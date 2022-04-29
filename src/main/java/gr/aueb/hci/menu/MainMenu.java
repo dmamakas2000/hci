@@ -46,14 +46,18 @@ public class MainMenu extends JFrame {
      */
     private static final int START_TEMPERATURE = 0;
 
+    /**
+     * Date-time attribute.
+     */
     private String dateTimeString;
     /**
      * Content pane.
      */
     private JPanel contentPane;
 
-    private LocalDateTime dateTime;
-
+    /**
+     * Help message appeared.
+     */
     private static final String HELP_MESSAGE = "Βρίσκεστε στην κεντρική οθόνη ελέγχου του κλιματιστικού.\n"
             + "· Πατήστε θέρμανση για να ζεσταθείτε.\n" + "· Πατήστε 'Ψύξη' για να δροσιστείτε.\n"
             + "· Πατήστε 'Ρύθμιση θερμοκρασίας' για να προσαρμόσετε την θερμοκρασία εκεί που επιθυμείτε.";
@@ -80,12 +84,15 @@ public class MainMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
         temperatureLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 78 ) );
-        temperatureLabel.setBounds( 32, 172, 141, 93 );
+        temperatureLabel.setBounds( 32, 127, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
         this.createMainMenuComponents();
     }
 
+    /**
+     * Initializes main common components.
+     */
     private void init() {
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
@@ -96,9 +103,9 @@ public class MainMenu extends JFrame {
         setContentPane( this.contentPane );
         this.contentPane.setLayout( null );
 
-        this.dateTime = LocalDateTime.now();
+        // Current date-time initialization
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "E, MMM dd yyyy HH:mm" );
-        final String formattedDate = this.dateTime.format( formatter );
+        final String formattedDate = LocalDateTime.now().format( formatter );
         final String day = formattedDate.substring( 0, 3 );
         final String month = formattedDate.substring( 5, 8 );
         final String dayNum = formattedDate.substring( 9, 11 );
@@ -106,66 +113,23 @@ public class MainMenu extends JFrame {
         this.dateTimeString = translator( day, month, dayNum, yearAndTime );
     }
 
-    private String translator( final String day, final String month, final String numDate, final String yearTime ) {
-        String translatedDay = "";
-        switch ( day ) {
-            case "Δευ":
-                translatedDay = "Δευτέρα";
-                break;
-
-            case "Τρι":
-                translatedDay = "Τρίτη";
-                break;
-
-            case "Τετ":
-                translatedDay = "Τετάρτη";
-                break;
-
-            case "Πεμ":
-                translatedDay = "Πέμπτη";
-                break;
-
-            case "Παρ":
-                translatedDay = "Παρασκευή";
-                break;
-
-            case "Σαβ":
-                translatedDay = "Σάββατο";
-                break;
-
-            case "Κυρ":
-                translatedDay = "Κυριακή";
-                break;
-        }
-
-        String translatedMonth = "";
-        switch ( month ) {
-            case "Απρ":
-                translatedMonth = "Απριλίου";
-                break;
-
-            case "Μαι":
-                translatedMonth = "Μαίου";
-                break;
-        }
-
-        return translatedDay + ", " + numDate + " " + translatedMonth + " " + yearTime;
-    }
-
+    /**
+     * Creates more main common components.
+     */
     private void createMainMenuComponents() {
         final JLabel cityLabel = new JLabel( "\u0391\u03B8\u03AE\u03BD\u03B1" );
         cityLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 40 ) );
-        cityLabel.setBounds( 32, 9, 148, 87 );
+        cityLabel.setBounds( 32, 9, 131, 62 );
         this.contentPane.add( cityLabel );
 
         final JLabel dateLabel = new JLabel( this.dateTimeString );
         dateLabel.setFont( new Font( "Arial", Font.PLAIN, 20 ) );
-        dateLabel.setBounds( 31, 89, 560, 53 );
+        dateLabel.setBounds( 32, 71, 737, 53 );
         this.contentPane.add( dateLabel );
 
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
         celciusLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 52 ) );
-        celciusLabel.setBounds( 128, 200, 71, 53 );
+        celciusLabel.setBounds( 128, 155, 71, 53 );
         this.contentPane.add( celciusLabel );
 
         final JButton heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
@@ -196,7 +160,7 @@ public class MainMenu extends JFrame {
 
         final JLabel inActionLabel = new JLabel( "\u03A3\u03B5 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1" );
         inActionLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 40 ) );
-        inActionLabel.setBounds( 32, 267, 302, 47 );
+        inActionLabel.setBounds( 32, 222, 302, 47 );
         this.contentPane.add( inActionLabel );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
@@ -266,6 +230,96 @@ public class MainMenu extends JFrame {
             }
         } );
         this.contentPane.add( temperatureAdjustButton );
+    }
+
+    /**
+     * Translates a given String constants into the preferred format.
+     *
+     * @param day Current day.
+     * @param month Current month.
+     * @param numDate Current date.
+     * @param yearTime Current year.
+     * @return Concatenated string containing all those attributes.
+     */
+    private String translator( final String day, final String month, final String numDate, final String yearTime ) {
+        String translatedDay = "";
+        switch ( day ) {
+            case "Δευ":
+                translatedDay = "Δευτέρα";
+                break;
+
+            case "Τρι":
+                translatedDay = "Τρίτη";
+                break;
+
+            case "Τετ":
+                translatedDay = "Τετάρτη";
+                break;
+
+            case "Πεμ":
+                translatedDay = "Πέμπτη";
+                break;
+
+            case "Παρ":
+                translatedDay = "Παρασκευή";
+                break;
+
+            case "Σαβ":
+                translatedDay = "Σάββατο";
+                break;
+
+            case "Κυρ":
+                translatedDay = "Κυριακή";
+                break;
+
+            default:
+                translatedDay = day;
+                break;
+        }
+
+        String translatedMonth = "";
+        switch ( month ) {
+            case "Απρ":
+                translatedMonth = "Απριλίου";
+                break;
+
+            case "Μαι":
+                translatedMonth = "Μαίου";
+                break;
+
+            case "Ιουν":
+                translatedMonth = "Ιουνίου";
+                break;
+
+            case "Ιουλ":
+                translatedMonth = "Ιουλίου";
+                break;
+
+            case "Αυγ":
+                translatedMonth = "Αυγούστου";
+                break;
+
+            case "Σεπ":
+                translatedMonth = "Σεπτεμβρίου";
+                break;
+
+            case "Οκτ":
+                translatedMonth = "Οκτωβρίου";
+                break;
+
+            case "Νοε":
+                translatedMonth = "Νοεμβρίου";
+                break;
+
+            case "Δεκ":
+                translatedMonth = "Δεκεμβρίου";
+                break;
+
+            default:
+                translatedMonth = month;
+                break;
+        }
+        return translatedDay + ", " + numDate + " " + translatedMonth + " " + yearTime;
     }
 
     /**
