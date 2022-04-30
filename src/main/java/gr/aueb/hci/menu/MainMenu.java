@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
+import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.splash.StartingFrame;
 
 public class MainMenu extends JFrame {
@@ -39,11 +40,6 @@ public class MainMenu extends JFrame {
     private ImageIcon shutDownIcon = new ImageIcon( "assets/images/shutdown/shutdown_icon.png" );
 
     /**
-     * Font constant.
-     */
-    private static final String ARIAL = "Arial";
-
-    /**
      * Starting temperature constant.
      */
     private static final int START_TEMPERATURE = 0;
@@ -58,7 +54,7 @@ public class MainMenu extends JFrame {
     private JPanel contentPane;
 
     /**
-     * Help message appeared.
+     * Help message.
      */
     private static final String HELP_MESSAGE = "Βρίσκεστε στην κεντρική οθόνη ελέγχου του κλιματιστικού.\n"
             + "· Πατήστε θέρμανση για να ζεσταθείτε.\n" + "· Πατήστε 'Ψύξη' για να δροσιστείτε.\n"
@@ -71,7 +67,7 @@ public class MainMenu extends JFrame {
         init();
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( temp ) );
-        temperatureLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 78 ) );
+        temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
         temperatureLabel.setBounds( 32, 191, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
@@ -85,7 +81,7 @@ public class MainMenu extends JFrame {
         init();
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
-        temperatureLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 78 ) );
+        temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
         temperatureLabel.setBounds( 32, 127, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
@@ -98,7 +94,7 @@ public class MainMenu extends JFrame {
     private void init() {
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-        setBounds( 100, 100, 806, 660 );
+        setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
@@ -120,7 +116,7 @@ public class MainMenu extends JFrame {
      */
     private void createMainMenuComponents() {
         final JLabel cityLabel = new JLabel( "\u0391\u03B8\u03AE\u03BD\u03B1" );
-        cityLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 40 ) );
+        cityLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
         cityLabel.setBounds( 32, 9, 131, 62 );
         this.contentPane.add( cityLabel );
 
@@ -130,13 +126,13 @@ public class MainMenu extends JFrame {
         this.contentPane.add( dateLabel );
 
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
-        celciusLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 52 ) );
+        celciusLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 52 ) );
         celciusLabel.setBounds( 128, 155, 71, 53 );
         this.contentPane.add( celciusLabel );
 
         final JButton heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
         heatingButton.setBackground( Color.WHITE );
-        heatingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
+        heatingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         heatingButton.setBounds( 141, 337, 517, 57 );
         heatingButton.setIcon( this.fireIconForButton );
         heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
@@ -161,12 +157,12 @@ public class MainMenu extends JFrame {
         this.contentPane.add( heatingButton );
 
         final JLabel inActionLabel = new JLabel( "\u03A3\u03B5 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1" );
-        inActionLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 40 ) );
+        inActionLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
         inActionLabel.setBounds( 32, 222, 302, 47 );
         this.contentPane.add( inActionLabel );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 25 ) );
+        needHelpLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 520, 553, 185, 30 );
         this.contentPane.add( needHelpLabel );
 
@@ -176,7 +172,7 @@ public class MainMenu extends JFrame {
         this.contentPane.add( fireLabelIcon );
 
         final JButton coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
-        coolingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
+        coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         coolingButton.setBackground( Color.WHITE );
         coolingButton.setBounds( 141, 405, 517, 57 );
         coolingButton.setIcon( this.snowFlakeIconForButton );
@@ -219,7 +215,7 @@ public class MainMenu extends JFrame {
                 "\u03A1\u03CD\u03B8\u03BC\u03B9\u03C3\u03B7 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1\u03C2" );
         temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
-        temperatureAdjustButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
+        temperatureAdjustButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         temperatureAdjustButton.setBackground( Color.WHITE );
         temperatureAdjustButton.setBounds( 141, 473, 517, 57 );
         temperatureAdjustButton.setFocusPainted( false );
