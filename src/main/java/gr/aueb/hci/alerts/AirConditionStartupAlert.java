@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.singleton.Singleton;
+
 public class AirConditionStartupAlert extends JFrame {
 
     /**
@@ -35,7 +37,7 @@ public class AirConditionStartupAlert extends JFrame {
         setBackground( Color.WHITE );
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-        setBounds( 100, 100, 806, 660 );
+        setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
@@ -44,12 +46,12 @@ public class AirConditionStartupAlert extends JFrame {
 
         final JLabel verificationMessageLabel = new JLabel(
                 "\u03A4\u03BF \u03BA\u03BB\u03B9\u03BC\u03B1\u03C4\u03B9\u03C3\u03C4\u03B9\u03BA\u03CC \u03B5\u03BA\u03BA\u03AF\u03BD\u03B7\u03C3\u03B5 " );
-        verificationMessageLabel.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
+        verificationMessageLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
         verificationMessageLabel.setBounds( 111, 55, 635, 125 );
         this.contentPane.add( verificationMessageLabel );
 
         final JLabel verificationMessageLabel1 = new JLabel( "\u03B5\u03C0\u03B9\u03C4\u03C5\u03C7\u03CE\u03C2!" );
-        verificationMessageLabel1.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
+        verificationMessageLabel1.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
         verificationMessageLabel1.setBounds( 285, 143, 250, 68 );
         this.contentPane.add( verificationMessageLabel1 );
 
