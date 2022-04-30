@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
 import gr.aueb.hci.singleton.Singleton;
@@ -238,9 +239,17 @@ public class MainMenu extends JFrame {
         switchOffButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final StartingFrame startingFrame = new StartingFrame();
                 MainMenu.this.dispose();
-                startingFrame.setVisible( true );
+                final AirConditionShutdownAlert alert = new AirConditionShutdownAlert();
+                alert.setVisible( true );
+                new java.util.Timer().schedule( new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        final StartingFrame startingFrame = new StartingFrame();
+                        startingFrame.setVisible( true );
+                        alert.dispose();
+                    }
+                }, 2000 );
             }
         } );
         this.contentPane.add( switchOffButton );
