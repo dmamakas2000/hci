@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.alerts.AirConditionStartupAlert;
 import gr.aueb.hci.menu.MainMenu;
+import gr.aueb.hci.singleton.Singleton;
 
 public class StartingFrame extends JFrame {
 
@@ -30,11 +31,6 @@ public class StartingFrame extends JFrame {
      */
     private JPanel contentPane;
 
-    /**
-     * Font constant.
-     */
-    private static final String ARIAL = "Arial";
-
     private static final String HELP_MESSAGE = "Καλωσορίσατε! Βρίσκεστε στην αρχική οθόνη της εφαρμογής.\n"
             + "Επιλέξτε 'Εκκίνηση εφαρμογής' για να ξεκινήσετε το κλιματιστικό.";
 
@@ -44,7 +40,7 @@ public class StartingFrame extends JFrame {
     public StartingFrame() {
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-        setBounds( 100, 100, 806, 660 );
+        setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
@@ -52,7 +48,7 @@ public class StartingFrame extends JFrame {
         this.contentPane.setLayout( null );
 
         final JLabel welcomeLabel = new JLabel( "\u039A\u03B1\u03BB\u03CE\u03C2 \u03BF\u03C1\u03AF\u03C3\u03B1\u03C4\u03B5!" );
-        welcomeLabel.setFont( new Font( StartingFrame.ARIAL, Font.PLAIN, 50 ) );
+        welcomeLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
         welcomeLabel.setBounds( 217, 143, 358, 79 );
         this.contentPane.add( welcomeLabel );
 
@@ -61,7 +57,7 @@ public class StartingFrame extends JFrame {
         goIntoMainMenuButton.setForeground( Color.WHITE );
         goIntoMainMenuButton.setBackground( new Color( 138, 237, 172 ) );
         goIntoMainMenuButton.setFocusPainted( false );
-        goIntoMainMenuButton.setFont( new Font( StartingFrame.ARIAL, Font.PLAIN, 30 ) );
+        goIntoMainMenuButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
         goIntoMainMenuButton.setBounds( 99, 390, 582, 67 );
         goIntoMainMenuButton.addActionListener( new ActionListener() {
             @Override
