@@ -163,7 +163,7 @@ public class MainMenu extends JFrame {
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 25 ) );
-        needHelpLabel.setBounds( 520, 553, 185, 30 );
+        needHelpLabel.setBounds( 509, 553, 185, 30 );
         this.contentPane.add( needHelpLabel );
 
         final JLabel fireLabelIcon = new JLabel( "" );

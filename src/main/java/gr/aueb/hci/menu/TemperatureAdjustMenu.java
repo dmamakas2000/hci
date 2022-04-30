@@ -30,6 +30,11 @@ public class TemperatureAdjustMenu extends JFrame {
     private JPanel contentPane;
 
     /**
+     * Icons.
+     */
+    ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
+
+    /**
      * Temperature constants.
      */
     private static final int STARTING_TEMPERATURE = 25;
@@ -74,8 +79,8 @@ public class TemperatureAdjustMenu extends JFrame {
         final JButton increaseTempButton = new JButton(
                 "\u0391\u03BD\u03AD\u03B2\u03B1\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (+)" );
         increaseTempButton.setBackground( Color.WHITE );
-        increaseTempButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
-        increaseTempButton.setBounds( 396, 283, 386, 46 );
+        increaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        increaseTempButton.setBounds( 396, 283, 371, 46 );
         increaseTempButton.setFocusPainted( false );
         increaseTempButton.addActionListener( new ActionListener() {
             @Override
@@ -100,7 +105,7 @@ public class TemperatureAdjustMenu extends JFrame {
         final JButton decreaseTempButton = new JButton(
                 "\u039C\u03B5\u03AF\u03C9\u03C3\u03B5 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1 (-)" );
         decreaseTempButton.setBackground( Color.WHITE );
-        decreaseTempButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
+        decreaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         decreaseTempButton.setBounds( 15, 283, 371, 46 );
         decreaseTempButton.setFocusPainted( false );
         decreaseTempButton.addActionListener( new ActionListener() {
@@ -125,8 +130,8 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
-        goBackButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
-        goBackButton.setBounds( 15, 539, 327, 54 );
+        goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        goBackButton.setBounds( 15, 539, 327, 46 );
         goBackButton.setFocusPainted( false );
         goBackButton.addActionListener( new ActionListener() {
             @Override
@@ -141,9 +146,9 @@ public class TemperatureAdjustMenu extends JFrame {
         final JButton saveChangesButton = new JButton(
                 "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
         saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setBounds( 220, 340, 360, 54 );
+        saveChangesButton.setBounds( 220, 340, 360, 46 );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.addActionListener( new ActionListener() {
             @Override
@@ -156,8 +161,8 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( saveChangesButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
-        needHelpLabel.setBounds( 453, 543, 202, 46 );
+        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        needHelpLabel.setBounds( 472, 539, 182, 46 );
         this.contentPane.add( needHelpLabel );
 
         final JButton needHelpButton = new JButton( "" );
@@ -165,7 +170,7 @@ public class TemperatureAdjustMenu extends JFrame {
         needHelpButton.setBounds( 649, 528, 98, 73 );
         needHelpButton.setFocusPainted( false );
         needHelpButton.setBorder( null );
-        needHelpButton.setIcon( new ImageIcon( "icons8-info-64.png" ) );
+        needHelpButton.setIcon( this.needHelpIcon );
         needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {

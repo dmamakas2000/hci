@@ -31,6 +31,14 @@ public class StartingFrame extends JFrame {
      */
     private JPanel contentPane;
 
+    /**
+     * Icons.
+     */
+    private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
+
+    /**
+     * Help message.
+     */
     private static final String HELP_MESSAGE = "Καλωσορίσατε! Βρίσκεστε στην αρχική οθόνη της εφαρμογής.\n"
             + "Επιλέξτε 'Εκκίνηση εφαρμογής' για να ξεκινήσετε το κλιματιστικό.";
 
@@ -85,13 +93,13 @@ public class StartingFrame extends JFrame {
         final JButton infoButton = new JButton( "" );
         infoButton.setBackground( Color.WHITE );
         infoButton.setBounds( 631, 514, 131, 85 );
-        infoButton.setIcon( new ImageIcon( "icons8-info-64.png" ) );
+        infoButton.setIcon( this.needHelpIcon );
         infoButton.setBorder( null );
         infoButton.setFocusPainted( false );
         infoButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                JOptionPane.showMessageDialog( null, StartingFrame.HELP_MESSAGE );
+                JOptionPane.showMessageDialog( null, StartingFrame.HELP_MESSAGE, "Αρχική οθόνη", 1 );
             }
         } );
         this.contentPane.add( infoButton );
