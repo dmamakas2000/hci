@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
+import gr.aueb.hci.splash.StartingFrame;
 
 public class MainMenu extends JFrame {
 
@@ -135,7 +136,7 @@ public class MainMenu extends JFrame {
         final JButton heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
         heatingButton.setBackground( Color.WHITE );
         heatingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
-        heatingButton.setBounds( 141, 349, 517, 57 );
+        heatingButton.setBounds( 141, 337, 517, 57 );
         heatingButton.setIcon( this.fireIconForButton );
         heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -165,18 +166,18 @@ public class MainMenu extends JFrame {
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 25 ) );
-        needHelpLabel.setBounds( 473, 572, 185, 30 );
+        needHelpLabel.setBounds( 520, 553, 185, 30 );
         this.contentPane.add( needHelpLabel );
 
         final JLabel fireLabelIcon = new JLabel( "" );
-        fireLabelIcon.setBounds( 452, 89, 292, 241 );
+        fireLabelIcon.setBounds( 325, 85, 292, 241 );
         fireLabelIcon.setIcon( this.fireIcon );
         this.contentPane.add( fireLabelIcon );
 
         final JButton coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
         coolingButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
         coolingButton.setBackground( Color.WHITE );
-        coolingButton.setBounds( 141, 417, 517, 57 );
+        coolingButton.setBounds( 141, 405, 517, 57 );
         coolingButton.setIcon( this.snowFlakeIconForButton );
         coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -219,7 +220,7 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
         temperatureAdjustButton.setFont( new Font( MainMenu.ARIAL, Font.PLAIN, 26 ) );
         temperatureAdjustButton.setBackground( Color.WHITE );
-        temperatureAdjustButton.setBounds( 141, 485, 517, 57 );
+        temperatureAdjustButton.setBounds( 141, 473, 517, 57 );
         temperatureAdjustButton.setFocusPainted( false );
         temperatureAdjustButton.addActionListener( new ActionListener() {
             @Override
@@ -230,6 +231,22 @@ public class MainMenu extends JFrame {
             }
         } );
         this.contentPane.add( temperatureAdjustButton );
+
+        final JButton switchOffButton = new JButton( "" );
+        switchOffButton.setBackground( Color.WHITE );
+        switchOffButton.setBounds( 669, 155, 100, 100 );
+        switchOffButton.setIcon( new ImageIcon( "icons8-shutdown-96.png" ) );
+        switchOffButton.setFocusPainted( false );
+        switchOffButton.setBorder( null );
+        switchOffButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                final StartingFrame startingFrame = new StartingFrame();
+                MainMenu.this.dispose();
+                startingFrame.setVisible( true );
+            }
+        } );
+        this.contentPane.add( switchOffButton );
     }
 
     /**
