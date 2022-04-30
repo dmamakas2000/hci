@@ -36,6 +36,7 @@ public class MainMenu extends JFrame {
     private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
     private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
     private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
+    private ImageIcon shutDownIcon = new ImageIcon( "assets/images/shutdown/shutdown_icon.png" );
 
     /**
      * Font constant.
@@ -235,7 +236,7 @@ public class MainMenu extends JFrame {
         final JButton switchOffButton = new JButton( "" );
         switchOffButton.setBackground( Color.WHITE );
         switchOffButton.setBounds( 669, 155, 100, 100 );
-        switchOffButton.setIcon( new ImageIcon( "icons8-shutdown-96.png" ) );
+        switchOffButton.setIcon( this.shutDownIcon );
         switchOffButton.setFocusPainted( false );
         switchOffButton.setBorder( null );
         switchOffButton.addActionListener( new ActionListener() {
