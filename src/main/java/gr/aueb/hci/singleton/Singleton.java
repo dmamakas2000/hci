@@ -1,8 +1,10 @@
 package gr.aueb.hci.singleton;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public final class Singleton {
     private static Singleton instance;
 
@@ -16,6 +18,12 @@ public final class Singleton {
      * Main font.
      */
     private final String font = "Arial";
+
+    public enum State {
+        COOL, HEAT, START
+    }
+
+    private State state = State.START;
 
     private Singleton() {
     }

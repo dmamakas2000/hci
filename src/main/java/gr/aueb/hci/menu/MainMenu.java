@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
 import gr.aueb.hci.singleton.Singleton;
+import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
 
 public class MainMenu extends JFrame {
@@ -44,7 +46,7 @@ public class MainMenu extends JFrame {
     /**
      * Starting temperature constant.
      */
-    private static final int START_TEMPERATURE = 20;
+    private static final int START_TEMPERATURE = 25;
 
     /**
      * Date-time attribute.
@@ -82,7 +84,7 @@ public class MainMenu extends JFrame {
         temperatureLabel.setBounds( 32, 127, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
-        this.createMainMenuComponents();
+        this.createMainMenuComponents( Integer.valueOf( temperatureLabel.getText() ) );
     }
 
     /**
@@ -96,7 +98,7 @@ public class MainMenu extends JFrame {
         temperatureLabel.setBounds( 32, 127, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
-        this.createMainMenuComponents();
+        this.createMainMenuComponents( Integer.valueOf( temperatureLabel.getText() ) );
     }
 
     /**
@@ -125,7 +127,7 @@ public class MainMenu extends JFrame {
     /**
      * Creates more main common components.
      */
-    private void createMainMenuComponents() {
+    private void createMainMenuComponents( final int temp ) {
         final JLabel cityLabel = new JLabel( "\u0391\u03B8\u03AE\u03BD\u03B1" );
         cityLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
         cityLabel.setBounds( 32, 9, 131, 62 );
@@ -152,6 +154,7 @@ public class MainMenu extends JFrame {
         heatingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
+                Singleton.getInstance().setState( State.HEAT );
                 final HeatingAlert heatingAlert = new HeatingAlert();
                 heatingAlert.setVisible( true );
                 MainMenu.this.setVisible( false );
@@ -203,6 +206,7 @@ public class MainMenu extends JFrame {
                 new java.util.Timer().schedule( new java.util.TimerTask() {
                     @Override
                     public void run() {
+                        Singleton.getInstance().setState( State.COOL );
                         coolingAlert.setVisible( false );
                         MainMenu.this.setVisible( true );
                         MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
@@ -241,7 +245,7 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final TemperatureAdjustMenu temperatureAdjustMenu = new TemperatureAdjustMenu();
+                final TemperatureAdjustMenu temperatureAdjustMenu = new TemperatureAdjustMenu( temp );
                 temperatureAdjustMenu.setVisible( true );
                 MainMenu.this.dispose();
             }
@@ -270,6 +274,27 @@ public class MainMenu extends JFrame {
                 }, 2000 );
             }
         } );
+
+        if ( Objects.nonNull( Singleton.getInstance().getState() ) ) {
+            switch ( Singleton.getInstance().getState() ) {
+                case HEAT:
+                    MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
+                    MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                    MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                    MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
+                    MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                    break;
+
+                case COOL:
+                    MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
+                    MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                    MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
+                    MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                    MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                    break;
+            }
+        }
+
         this.contentPane.add( this.switchOffButton );
     }
 
