@@ -154,22 +154,57 @@ public class MainMenu extends JFrame {
         heatingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                Singleton.getInstance().setState( State.HEAT );
-                final HeatingAlert heatingAlert = new HeatingAlert();
-                heatingAlert.setVisible( true );
-                MainMenu.this.setVisible( false );
-                new java.util.Timer().schedule( new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        heatingAlert.setVisible( false );
-                        MainMenu.this.setVisible( true );
-                        MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
-                        MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
-                        MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
-                        MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                        MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                if ( Singleton.getInstance().getState().equals( State.HEAT ) ) {
+                    // If we already are in a heating state
+                    JOptionPane.showMessageDialog( null, "Το κλιματιστικό βρίσκεται ήδη σε κατάσταση θέρμανσης",
+                            "Κύριο μενού - Αλλαγή κατάστασης", 1 );
+                }
+                else if ( Singleton.getInstance().getState().equals( State.COOL ) ) {
+                    final Object[] options1 = { "Ναι", "Όχι" };
+
+                    final JPanel panel = new JPanel();
+                    panel.add( new JLabel(
+                            "Αυτή τη στιγμή βρίσκεστε σε λειτουργία ψύξης. Θέλετε να μεταβείτε σε κατάσταση θέρμανσης;" ) );
+
+                    final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
+                            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
+                    if ( result == JOptionPane.YES_OPTION ) {
+                        Singleton.getInstance().setState( State.HEAT );
+                        final HeatingAlert heatingAlert = new HeatingAlert();
+                        heatingAlert.setVisible( true );
+                        MainMenu.this.setVisible( false );
+                        new java.util.Timer().schedule( new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                heatingAlert.setVisible( false );
+                                MainMenu.this.setVisible( true );
+                                MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
+                                MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                                MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                                MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
+                                MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                            }
+                        }, 2000 );
                     }
-                }, 2000 );
+                }
+                else {
+                    Singleton.getInstance().setState( State.HEAT );
+                    final HeatingAlert heatingAlert = new HeatingAlert();
+                    heatingAlert.setVisible( true );
+                    MainMenu.this.setVisible( false );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            heatingAlert.setVisible( false );
+                            MainMenu.this.setVisible( true );
+                            MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
+                            MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                            MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                            MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
+                            MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                        }
+                    }, 2000 );
+                }
             }
         } );
         this.contentPane.add( heatingButton );
@@ -200,22 +235,57 @@ public class MainMenu extends JFrame {
         coolingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final CoolingAlert coolingAlert = new CoolingAlert();
-                coolingAlert.setVisible( true );
-                MainMenu.this.setVisible( false );
-                new java.util.Timer().schedule( new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        Singleton.getInstance().setState( State.COOL );
-                        coolingAlert.setVisible( false );
-                        MainMenu.this.setVisible( true );
-                        MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
-                        MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
-                        MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
-                        MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
-                        MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                if ( Singleton.getInstance().getState().equals( State.COOL ) ) {
+                    // If we already are in a cooling state
+                    JOptionPane.showMessageDialog( null, "Το κλιματιστικό βρίσκεται ήδη σε κατάσταση ψύξης",
+                            "Κύριο μενού - Αλλαγή κατάστασης", 1 );
+                }
+                else if ( Singleton.getInstance().getState().equals( State.HEAT ) ) {
+                    final Object[] options1 = { "Ναι", "Όχι" };
+
+                    final JPanel panel = new JPanel();
+                    panel.add( new JLabel(
+                            "Αυτή τη στιγμή βρίσκεστε σε λειτουργία θέρμανσης. Θέλετε να μεταβείτε σε κατάσταση ψύξης;" ) );
+
+                    final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
+                            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
+                    if ( result == JOptionPane.YES_OPTION ) {
+                        final CoolingAlert coolingAlert = new CoolingAlert();
+                        coolingAlert.setVisible( true );
+                        MainMenu.this.setVisible( false );
+                        new java.util.Timer().schedule( new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                Singleton.getInstance().setState( State.COOL );
+                                coolingAlert.setVisible( false );
+                                MainMenu.this.setVisible( true );
+                                MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
+                                MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                                MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
+                                MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                                MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                            }
+                        }, 2000 );
                     }
-                }, 2000 );
+                }
+                else {
+                    final CoolingAlert coolingAlert = new CoolingAlert();
+                    coolingAlert.setVisible( true );
+                    MainMenu.this.setVisible( false );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Singleton.getInstance().setState( State.COOL );
+                            coolingAlert.setVisible( false );
+                            MainMenu.this.setVisible( true );
+                            MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
+                            MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                            MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
+                            MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                            MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                        }
+                    }, 2000 );
+                }
             }
         } );
         this.contentPane.add( coolingButton );
