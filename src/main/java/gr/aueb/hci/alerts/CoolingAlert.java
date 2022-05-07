@@ -23,7 +23,7 @@ public class CoolingAlert extends JFrame {
     /**
      * Icon.
      */
-    private ImageIcon snowFlakeIcon = new ImageIcon( "assets/images/cool/snowflake_icon_big.png" );
+    private ImageIcon snowFlakeIcon = new ImageIcon( "assets/images/cool/snowflake.png" );
 
     /**
      * Content pane.

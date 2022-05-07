@@ -35,6 +35,7 @@ public class MainMenu extends JFrame {
      * Icons.
      */
     private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
+    private ImageIcon snowFlakeIcon = new ImageIcon( "assets/images/cool/snowflake.png" );
     private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
     private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
     private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
@@ -43,12 +44,21 @@ public class MainMenu extends JFrame {
     /**
      * Starting temperature constant.
      */
-    private static final int START_TEMPERATURE = 0;
+    private static final int START_TEMPERATURE = 20;
 
     /**
      * Date-time attribute.
      */
     private String dateTimeString;
+
+    private JLabel statusLabelIcon;
+
+    private JButton needHelpButton;
+
+    private JButton switchOffButton;
+
+    private JLabel inActionLabel;
+
     /**
      * Content pane.
      */
@@ -69,7 +79,7 @@ public class MainMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( temp ) );
         temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
-        temperatureLabel.setBounds( 32, 191, 141, 93 );
+        temperatureLabel.setBounds( 32, 127, 141, 93 );
         this.contentPane.add( temperatureLabel );
 
         this.createMainMenuComponents();
@@ -150,27 +160,31 @@ public class MainMenu extends JFrame {
                     public void run() {
                         heatingAlert.setVisible( false );
                         MainMenu.this.setVisible( true );
+                        MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
                         MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                        MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                        MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
+                        MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
                     }
                 }, 2000 );
             }
         } );
         this.contentPane.add( heatingButton );
 
-        final JLabel inActionLabel = new JLabel( "\u03A3\u03B5 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1" );
-        inActionLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
-        inActionLabel.setBounds( 32, 222, 302, 47 );
-        this.contentPane.add( inActionLabel );
+        this.inActionLabel = new JLabel(
+                "\u03A3\u03B5 \u03B1\u03BD\u03B1\u03BC\u03BF\u03BD\u03AE \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1\u03C2" );
+        this.inActionLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
+        this.inActionLabel.setBounds( 32, 222, 446, 47 );
+        this.contentPane.add( this.inActionLabel );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 509, 553, 185, 30 );
         this.contentPane.add( needHelpLabel );
 
-        final JLabel fireLabelIcon = new JLabel( "" );
-        fireLabelIcon.setBounds( 325, 85, 292, 241 );
-        fireLabelIcon.setIcon( this.fireIcon );
-        this.contentPane.add( fireLabelIcon );
+        this.statusLabelIcon = new JLabel( "" );
+        this.statusLabelIcon.setBounds( 270, 9, 292, 241 );
+        this.contentPane.add( this.statusLabelIcon );
 
         final JButton coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
         coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
@@ -191,26 +205,30 @@ public class MainMenu extends JFrame {
                     public void run() {
                         coolingAlert.setVisible( false );
                         MainMenu.this.setVisible( true );
+                        MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
                         MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                        MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
+                        MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                        MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                     }
                 }, 2000 );
             }
         } );
         this.contentPane.add( coolingButton );
 
-        final JButton needHelpButton = new JButton( "" );
-        needHelpButton.setBackground( Color.WHITE );
-        needHelpButton.setBounds( 674, 529, 94, 73 );
-        needHelpButton.setIcon( this.needHelpIconForButton );
-        needHelpButton.setFocusPainted( false );
-        needHelpButton.setBorder( null );
-        needHelpButton.addActionListener( new ActionListener() {
+        this.needHelpButton = new JButton( "" );
+        this.needHelpButton.setBackground( Color.WHITE );
+        this.needHelpButton.setBounds( 674, 529, 94, 73 );
+        this.needHelpButton.setIcon( this.needHelpIconForButton );
+        this.needHelpButton.setFocusPainted( false );
+        this.needHelpButton.setBorder( null );
+        this.needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 JOptionPane.showMessageDialog( null, MainMenu.HELP_MESSAGE, "Κεντρικό μενού", 1 );
             }
         } );
-        this.contentPane.add( needHelpButton );
+        this.contentPane.add( this.needHelpButton );
 
         final JButton temperatureAdjustButton = new JButton(
                 "\u03A1\u03CD\u03B8\u03BC\u03B9\u03C3\u03B7 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1\u03C2" );
@@ -230,13 +248,13 @@ public class MainMenu extends JFrame {
         } );
         this.contentPane.add( temperatureAdjustButton );
 
-        final JButton switchOffButton = new JButton( "" );
-        switchOffButton.setBackground( Color.WHITE );
-        switchOffButton.setBounds( 669, 155, 100, 100 );
-        switchOffButton.setIcon( this.shutDownIcon );
-        switchOffButton.setFocusPainted( false );
-        switchOffButton.setBorder( null );
-        switchOffButton.addActionListener( new ActionListener() {
+        this.switchOffButton = new JButton( "" );
+        this.switchOffButton.setBackground( Color.WHITE );
+        this.switchOffButton.setBounds( 669, 155, 100, 100 );
+        this.switchOffButton.setIcon( this.shutDownIcon );
+        this.switchOffButton.setFocusPainted( false );
+        this.switchOffButton.setBorder( null );
+        this.switchOffButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 MainMenu.this.dispose();
@@ -252,7 +270,7 @@ public class MainMenu extends JFrame {
                 }, 2000 );
             }
         } );
-        this.contentPane.add( switchOffButton );
+        this.contentPane.add( this.switchOffButton );
     }
 
     /**

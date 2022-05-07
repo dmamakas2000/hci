@@ -25,7 +25,7 @@ public class HeatingAlert extends JFrame {
      */
     private JPanel contentPane;
 
-    ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire_big.png" );
+    ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
 
     /**
      * Create the frame.
