@@ -3,7 +3,11 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -54,6 +58,16 @@ public class AirConditionShutdownAlert extends JFrame {
         verificationLabel.setBounds( 293, 202, 263, 213 );
         verificationLabel.setIcon( this.verificationIcon );
         this.contentPane.add( verificationLabel );
+
+        try {
+            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/end.wav" ) );
+            final Clip clip = AudioSystem.getClip();
+            clip.open( audio );
+            clip.start();
+        }
+        catch ( final Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     /**

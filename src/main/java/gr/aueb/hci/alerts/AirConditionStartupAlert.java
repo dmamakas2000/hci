@@ -69,12 +69,10 @@ public class AirConditionStartupAlert extends JFrame {
             final Clip clip = AudioSystem.getClip();
             clip.open( audio );
             clip.start();
-            // Thread.sleep( clip.getMicrosecondLength() / 1000 );
         }
         catch ( final Exception e ) {
             e.printStackTrace();
         }
-
     }
 
     /**

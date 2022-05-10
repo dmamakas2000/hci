@@ -61,7 +61,7 @@ public class StartingFrame extends JFrame {
         this.contentPane.add( welcomeLabel );
 
         final JButton goIntoMainMenuButton = new JButton(
-                "\u0395\u03BA\u03BA\u03AF\u03BD\u03B7\u03C3\u03B7 \u03B5\u03C6\u03B1\u03C1\u03BC\u03BF\u03B3\u03AE\u03C2" );
+                "\u0395\u03BA\u03BA\u03AF\u03BD\u03B7\u03C3\u03B7 \u03BA\u03BB\u03B9\u03BC\u03B1\u03C4\u03B9\u03C3\u03C4\u03B9\u03BA\u03BF\u03CD" );
         goIntoMainMenuButton.setForeground( Color.WHITE );
         goIntoMainMenuButton.setBackground( new Color( 138, 237, 172 ) );
         goIntoMainMenuButton.setFocusPainted( false );

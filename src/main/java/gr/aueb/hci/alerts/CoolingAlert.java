@@ -3,7 +3,11 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -58,6 +62,16 @@ public class CoolingAlert extends JFrame {
         iconLabel.setBounds( 296, 252, 248, 202 );
         iconLabel.setIcon( this.snowFlakeIcon );
         this.contentPane.add( iconLabel );
+
+        try {
+            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/cool.wav" ) );
+            final Clip clip = AudioSystem.getClip();
+            clip.open( audio );
+            clip.start();
+        }
+        catch ( final Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     /**

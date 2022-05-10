@@ -184,7 +184,7 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                                 MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
                             }
-                        }, 2000 );
+                        }, 3000 );
                     }
                 }
                 else {
@@ -203,7 +203,7 @@ public class MainMenu extends JFrame {
                             MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                             MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
                         }
-                    }, 2000 );
+                    }, 3000 );
                 }
             }
         } );
@@ -265,7 +265,7 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                             }
-                        }, 2000 );
+                        }, 3000 );
                     }
                 }
                 else {
@@ -284,7 +284,7 @@ public class MainMenu extends JFrame {
                             MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                         }
-                    }, 2000 );
+                    }, 3000 );
                 }
             }
         } );
@@ -341,7 +341,7 @@ public class MainMenu extends JFrame {
                         startingFrame.setVisible( true );
                         alert.dispose();
                     }
-                }, 2000 );
+                }, 3000 );
             }
         } );
 

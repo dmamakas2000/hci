@@ -3,7 +3,11 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -55,6 +59,16 @@ public class HeatingAlert extends JFrame {
         fire.setBounds( 291, 244, 241, 198 );
         fire.setIcon( this.fireIcon );
         this.contentPane.add( fire );
+
+        try {
+            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/heat.wav" ) );
+            final Clip clip = AudioSystem.getClip();
+            clip.open( audio );
+            clip.start();
+        }
+        catch ( final Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     /**
