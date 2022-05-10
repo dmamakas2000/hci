@@ -1,11 +1,14 @@
 package gr.aueb.hci.splash;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +38,7 @@ public class StartingFrame extends JFrame {
      * Icons.
      */
     private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
+    private ImageIcon hermes = new ImageIcon( "./assets/images/hermes/3_AUEB-emblem-HR.png" );
 
     /**
      * Help message.
@@ -55,18 +59,17 @@ public class StartingFrame extends JFrame {
         setContentPane( this.contentPane );
         this.contentPane.setLayout( null );
 
-        final JLabel welcomeLabel = new JLabel( "\u039A\u03B1\u03BB\u03CE\u03C2 \u03BF\u03C1\u03AF\u03C3\u03B1\u03C4\u03B5!" );
-        welcomeLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
-        welcomeLabel.setBounds( 217, 143, 358, 79 );
-        this.contentPane.add( welcomeLabel );
-
         final JButton goIntoMainMenuButton = new JButton(
                 "\u0395\u03BA\u03BA\u03AF\u03BD\u03B7\u03C3\u03B7 \u03BA\u03BB\u03B9\u03BC\u03B1\u03C4\u03B9\u03C3\u03C4\u03B9\u03BA\u03BF\u03CD" );
-        goIntoMainMenuButton.setForeground( Color.WHITE );
-        goIntoMainMenuButton.setBackground( new Color( 138, 237, 172 ) );
+        goIntoMainMenuButton.setForeground( new Color( 118, 33, 36 ) );
+        goIntoMainMenuButton.setBackground( Color.WHITE );
         goIntoMainMenuButton.setFocusPainted( false );
+
+        goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 1 ) );
+        goIntoMainMenuButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+
         goIntoMainMenuButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
-        goIntoMainMenuButton.setBounds( 99, 390, 582, 67 );
+        goIntoMainMenuButton.setBounds( 132, 331, 503, 67 );
         goIntoMainMenuButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -83,10 +86,23 @@ public class StartingFrame extends JFrame {
                 }, 3000 );
             }
         } );
+
+        goIntoMainMenuButton.addMouseListener( new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered( final java.awt.event.MouseEvent evt ) {
+                goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 2 ) );
+            }
+
+            @Override
+            public void mouseExited( final java.awt.event.MouseEvent evt ) {
+                goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 1 ) );
+            }
+        } );
+
         this.contentPane.add( goIntoMainMenuButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 30 ) );
+        needHelpLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
         needHelpLabel.setBounds( 420, 536, 201, 61 );
         this.contentPane.add( needHelpLabel );
 
@@ -103,6 +119,23 @@ public class StartingFrame extends JFrame {
             }
         } );
         this.contentPane.add( infoButton );
+
+        final Panel panel = new Panel();
+        panel.setBounds( 0, 0, 792, 163 );
+        panel.setBackground( new Color( 118, 33, 36 ) );
+        this.contentPane.add( panel );
+        panel.setLayout( null );
+
+        final JLabel welcomeLabel = new JLabel( "Aueb Condition" );
+        welcomeLabel.setBounds( 411, 53, 371, 59 );
+        panel.add( welcomeLabel );
+        welcomeLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.ITALIC, 50 ) );
+        welcomeLabel.setForeground( new Color( 255, 255, 255 ) );
+
+        final JLabel hermesLabel = new JLabel( "" );
+        hermesLabel.setBounds( 29, 0, 186, 163 );
+        hermesLabel.setIcon( this.hermes );
+        panel.add( hermesLabel );
     }
 
     /**

@@ -33,6 +33,7 @@ public class TemperatureAdjustMenu extends JFrame {
      * Icons.
      */
     ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
+    ImageIcon thermometerIcon = new ImageIcon( "assets/images/thermometer/thermometer_icon.png" );
 
     /**
      * Temperature constants.
@@ -215,6 +216,11 @@ public class TemperatureAdjustMenu extends JFrame {
             }
         } );
         this.contentPane.add( needHelpButton );
+
+        final JLabel thermometerLabel = new JLabel( "" );
+        thermometerLabel.setBounds( 220, 22, 96, 128 );
+        thermometerLabel.setIcon( this.thermometerIcon );
+        this.contentPane.add( thermometerLabel );
     }
 
     /**
