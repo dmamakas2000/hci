@@ -3,7 +3,11 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -59,6 +63,18 @@ public class AirConditionStartupAlert extends JFrame {
         verificationIconLabel.setBounds( 301, 258, 262, 213 );
         verificationIconLabel.setIcon( this.verificationIcon );
         this.contentPane.add( verificationIconLabel );
+
+        try {
+            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/start.wav" ) );
+            final Clip clip = AudioSystem.getClip();
+            clip.open( audio );
+            clip.start();
+            // Thread.sleep( clip.getMicrosecondLength() / 1000 );
+        }
+        catch ( final Exception e ) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

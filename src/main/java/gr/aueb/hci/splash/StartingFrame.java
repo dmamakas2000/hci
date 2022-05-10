@@ -80,7 +80,7 @@ public class StartingFrame extends JFrame {
                         final MainMenu menu = new MainMenu();
                         menu.setVisible( true );
                     }
-                }, 2000 );
+                }, 3000 );
             }
         } );
         this.contentPane.add( goIntoMainMenuButton );
