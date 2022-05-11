@@ -1,7 +1,6 @@
 package gr.aueb.hci.splash;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -22,45 +21,16 @@ public class SplashScreenFrame extends JFrame {
      */
     private static final long serialVersionUID = 6823520611301615602L;
 
+    /**
+     * Content pane.
+     */
     private JPanel contentPane;
 
     private JProgressBar progressBar;
 
     private JLabel percentage;
 
-    /**
-     * Launch the application.
-     */
-    public static void main( final String[] args ) {
-        EventQueue.invokeLater( new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final SplashScreenFrame frame = new SplashScreenFrame();
-                    frame.setVisible( true );
-                    try {
-                        for ( int i = 0; i < 101; i++ ) {
-                            Thread.sleep( 100 );
-                            frame.getPercentage().setText( String.valueOf( i ) );
-                            frame.getProgressBar().setValue( i );
-                        }
-
-                    }
-                    catch ( final InterruptedException e ) {
-                        e.printStackTrace();
-                    }
-                }
-                catch ( final Exception e ) {
-                    e.printStackTrace();
-                }
-            }
-        } );
-    }
-
-    /**
-     * Create the frame.
-     */
-    public SplashScreenFrame() {
+    public void createGUI() {
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
@@ -76,7 +46,43 @@ public class SplashScreenFrame extends JFrame {
 
         this.percentage = new JLabel( "0" );
         this.percentage.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
-        this.percentage.setBounds( 381, 365, 55, 73 );
+        this.percentage.setBounds( 352, 365, 147, 73 );
         this.contentPane.add( this.percentage );
+        this.setVisible( true );
+    }
+
+    public void runningPBar() {
+        int i = 0;
+
+        while ( i <= 100 ) {
+            try {
+                Thread.sleep( 50 );
+                this.progressBar.setValue( i );
+                this.percentage.setText( Integer.toString( i ) + "%" );
+                i++;
+                if ( i == 100 ) {
+
+                }
+            }
+            catch ( final Exception e ) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /**
+     * Launch the application.
+     */
+    public static void main( final String[] args ) {
+        new SplashScreenFrame();
+    }
+
+    /**
+     * Create the frame.
+     */
+    public SplashScreenFrame() {
+        createGUI();
+        runningPBar();
     }
 }
