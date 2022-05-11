@@ -11,9 +11,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.singleton.Singleton;
-import lombok.Getter;
 
-@Getter
 public class SplashScreenFrame extends JFrame {
 
     /**
@@ -26,10 +24,24 @@ public class SplashScreenFrame extends JFrame {
      */
     private JPanel contentPane;
 
+    /**
+     * Progress bar.
+     */
     private JProgressBar progressBar;
 
+    /**
+     * Percentage.
+     */
     private JLabel percentage;
 
+    /**
+     * Welcome label
+     */
+    private JLabel welcomeLabel;
+
+    /**
+     * Creates the GUI.
+     */
     public void createGUI() {
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
@@ -48,9 +60,17 @@ public class SplashScreenFrame extends JFrame {
         this.percentage.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
         this.percentage.setBounds( 352, 365, 147, 73 );
         this.contentPane.add( this.percentage );
+
+        this.welcomeLabel = new JLabel( "\u039A\u03B1\u03BB\u03CE\u03C2 \u03BF\u03C1\u03AF\u03C3\u03B1\u03C4\u03B5!" );
+        this.welcomeLabel.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
+        this.welcomeLabel.setBounds( 219, 169, 429, 59 );
+        this.contentPane.add( this.welcomeLabel );
         this.setVisible( true );
     }
 
+    /**
+     * Updates the status bar.
+     */
     public void runningPBar() {
         int i = 0;
 
@@ -61,7 +81,10 @@ public class SplashScreenFrame extends JFrame {
                 this.percentage.setText( Integer.toString( i ) + "%" );
                 i++;
                 if ( i == 100 ) {
-
+                    // Start the application
+                    final StartingFrame frame = new StartingFrame();
+                    this.dispose();
+                    frame.setVisible( true );
                 }
             }
             catch ( final Exception e ) {
@@ -72,17 +95,18 @@ public class SplashScreenFrame extends JFrame {
     }
 
     /**
+     * Default constructor.
+     */
+    public SplashScreenFrame() {
+        setResizable( false );
+        createGUI();
+        runningPBar();
+    }
+
+    /**
      * Launch the application.
      */
     public static void main( final String[] args ) {
         new SplashScreenFrame();
-    }
-
-    /**
-     * Create the frame.
-     */
-    public SplashScreenFrame() {
-        createGUI();
-        runningPBar();
     }
 }
