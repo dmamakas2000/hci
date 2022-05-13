@@ -44,6 +44,7 @@ public class MainMenu extends JFrame {
     private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
     private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
     private ImageIcon shutDownIcon = new ImageIcon( "assets/images/shutdown/shutdown_icon.png" );
+    private ImageIcon adjustIcon = new ImageIcon( "assets/images/adjust/adjust-icon.png" );
 
     /**
      * Starting temperature constant.
@@ -311,13 +312,16 @@ public class MainMenu extends JFrame {
         this.contentPane.add( this.needHelpButton );
 
         final JButton temperatureAdjustButton = new JButton(
-                "\u03A1\u03CD\u03B8\u03BC\u03B9\u03C3\u03B7 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1\u03C2" );
+                "\u03A1\u03CD\u03B8\u03BC\u03B9\u03C3\u03B7 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1\u03C2     " );
         temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
         temperatureAdjustButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         temperatureAdjustButton.setBackground( Color.WHITE );
         temperatureAdjustButton.setBounds( 141, 473, 517, 57 );
         temperatureAdjustButton.setFocusPainted( false );
+        temperatureAdjustButton.setIcon( this.adjustIcon );
+        temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
+        temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
         temperatureAdjustButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         temperatureAdjustButton.addActionListener( new ActionListener() {
             @Override
