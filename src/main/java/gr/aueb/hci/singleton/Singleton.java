@@ -18,6 +18,7 @@ public final class Singleton {
      * Main font.
      */
     private final String font = "Arial";
+    private final String frameIcon = "assets/images/window/transparent-empty.png";
 
     public enum State {
         COOL, HEAT, START

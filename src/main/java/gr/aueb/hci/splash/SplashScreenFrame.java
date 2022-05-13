@@ -45,7 +45,7 @@ public class SplashScreenFrame extends JFrame {
      */
     public void createGUI() {
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
+        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );

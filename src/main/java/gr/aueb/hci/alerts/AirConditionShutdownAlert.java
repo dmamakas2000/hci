@@ -36,7 +36,7 @@ public class AirConditionShutdownAlert extends JFrame {
      * Create the frame.
      */
     public AirConditionShutdownAlert() {
-        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
+        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();

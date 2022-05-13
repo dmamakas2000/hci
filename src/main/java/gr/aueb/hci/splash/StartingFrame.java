@@ -51,7 +51,7 @@ public class StartingFrame extends JFrame {
      * Default constructor.
      */
     public StartingFrame() {
-        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
+        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
