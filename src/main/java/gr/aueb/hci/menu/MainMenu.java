@@ -1,6 +1,7 @@
 package gr.aueb.hci.menu;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -153,6 +154,7 @@ public class MainMenu extends JFrame {
         heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         heatingButton.setFocusPainted( false );
+        heatingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         heatingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -234,6 +236,7 @@ public class MainMenu extends JFrame {
         coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         coolingButton.setFocusPainted( false );
+        coolingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         coolingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -293,6 +296,7 @@ public class MainMenu extends JFrame {
         this.contentPane.add( coolingButton );
 
         this.needHelpButton = new JButton( "" );
+        this.needHelpButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.needHelpButton.setBackground( Color.WHITE );
         this.needHelpButton.setBounds( 674, 529, 94, 73 );
         this.needHelpButton.setIcon( this.needHelpIconForButton );
@@ -314,6 +318,7 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.setBackground( Color.WHITE );
         temperatureAdjustButton.setBounds( 141, 473, 517, 57 );
         temperatureAdjustButton.setFocusPainted( false );
+        temperatureAdjustButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         temperatureAdjustButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -325,6 +330,7 @@ public class MainMenu extends JFrame {
         this.contentPane.add( temperatureAdjustButton );
 
         this.switchOffButton = new JButton( "" );
+        this.switchOffButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.switchOffButton.setBackground( Color.WHITE );
         this.switchOffButton.setBounds( 669, 155, 100, 100 );
         this.switchOffButton.setIcon( this.shutDownIcon );

@@ -1,6 +1,7 @@
 package gr.aueb.hci.menu;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -88,6 +89,7 @@ public class TemperatureAdjustMenu extends JFrame {
         increaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         increaseTempButton.setBounds( 396, 283, 371, 46 );
         increaseTempButton.setFocusPainted( false );
+        increaseTempButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         increaseTempButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -114,6 +116,7 @@ public class TemperatureAdjustMenu extends JFrame {
         decreaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         decreaseTempButton.setBounds( 15, 283, 371, 46 );
         decreaseTempButton.setFocusPainted( false );
+        decreaseTempButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         decreaseTempButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -139,6 +142,7 @@ public class TemperatureAdjustMenu extends JFrame {
         goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         goBackButton.setBounds( 15, 539, 327, 46 );
         goBackButton.setFocusPainted( false );
+        goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -179,6 +183,7 @@ public class TemperatureAdjustMenu extends JFrame {
         saveChangesButton.setBackground( Color.WHITE );
         saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
+        saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 220, 340, 360, 46 );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.addActionListener( new ActionListener() {
@@ -210,6 +215,7 @@ public class TemperatureAdjustMenu extends JFrame {
         needHelpButton.setBounds( 649, 528, 98, 73 );
         needHelpButton.setFocusPainted( false );
         needHelpButton.setBorder( null );
+        needHelpButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         needHelpButton.setIcon( this.needHelpIcon );
         needHelpButton.addActionListener( new ActionListener() {
             @Override

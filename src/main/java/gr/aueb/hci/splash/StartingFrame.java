@@ -113,6 +113,7 @@ public class StartingFrame extends JFrame {
         infoButton.setBounds( 631, 514, 131, 85 );
         infoButton.setIcon( this.needHelpIcon );
         infoButton.setBorder( null );
+        infoButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         infoButton.setFocusPainted( false );
         infoButton.addActionListener( new ActionListener() {
             @Override
