@@ -374,6 +374,12 @@ public class MainMenu extends JFrame {
                     MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                     break;
+
+                default:
+                    MainMenu.this.contentPane.setBackground( new Color( 255, 255, 255 ) );
+                    MainMenu.this.inActionLabel.setText( "Σε αναμονή λειτουργίας" );
+                    break;
+
             }
         }
 
