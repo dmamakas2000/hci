@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,6 +51,7 @@ public class StartingFrame extends JFrame {
      * Default constructor.
      */
     public StartingFrame() {
+        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );

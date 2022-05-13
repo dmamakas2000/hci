@@ -2,6 +2,7 @@ package gr.aueb.hci.splash;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -44,6 +45,7 @@ public class SplashScreenFrame extends JFrame {
      */
     public void createGUI() {
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );
@@ -53,6 +55,7 @@ public class SplashScreenFrame extends JFrame {
 
         this.progressBar = new JProgressBar();
         this.progressBar.setForeground( Color.BLACK );
+        this.progressBar.setBorder( null );
         this.progressBar.setBounds( 122, 473, 562, 50 );
         this.contentPane.add( this.progressBar );
 

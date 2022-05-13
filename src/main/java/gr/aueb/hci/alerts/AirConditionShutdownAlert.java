@@ -3,6 +3,7 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.io.File;
 
 import javax.sound.sampled.AudioInputStream;
@@ -35,6 +36,7 @@ public class AirConditionShutdownAlert extends JFrame {
      * Create the frame.
      */
     public AirConditionShutdownAlert() {
+        setIconImage( Toolkit.getDefaultToolkit().getImage( "assets/images/window/transparent-empty.png" ) );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
