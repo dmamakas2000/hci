@@ -223,7 +223,7 @@ public class MainMenu extends JFrame {
         this.contentPane.add( needHelpLabel );
 
         this.statusLabelIcon = new JLabel( "" );
-        this.statusLabelIcon.setBounds( 270, 9, 292, 241 );
+        this.statusLabelIcon.setBounds( 330, 9, 292, 241 );
         this.contentPane.add( this.statusLabelIcon );
 
         final JButton coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
