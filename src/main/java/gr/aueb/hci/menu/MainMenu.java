@@ -265,6 +265,7 @@ public class MainMenu extends JFrame {
                                 Singleton.getInstance().setState( State.COOL );
                                 coolingAlert.setVisible( false );
                                 MainMenu.this.setVisible( true );
+                                coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
                                 MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
@@ -365,6 +366,8 @@ public class MainMenu extends JFrame {
                     MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                    heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                    coolingButton.setBackground( new Color( 255, 255, 255 ) );
                     break;
 
                 case COOL:
@@ -373,9 +376,13 @@ public class MainMenu extends JFrame {
                     MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                    heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                    coolingButton.setBackground( new Color( 1, 1, 1 ) );
                     break;
 
                 default:
+                    heatingButton.setBackground( new Color( 255, 245, 204 ) );
+                    coolingButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.contentPane.setBackground( new Color( 255, 255, 255 ) );
                     MainMenu.this.inActionLabel.setText( "Σε αναμονή λειτουργίας" );
                     break;
