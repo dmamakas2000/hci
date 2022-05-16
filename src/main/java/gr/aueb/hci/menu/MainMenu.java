@@ -59,8 +59,9 @@ public class MainMenu extends JFrame {
     private JLabel statusLabelIcon;
 
     private JButton needHelpButton;
-
     private JButton switchOffButton;
+    private JButton heatingButton;
+    private JButton coolingButton;
 
     private JLabel inActionLabel;
 
@@ -147,16 +148,16 @@ public class MainMenu extends JFrame {
         celciusLabel.setBounds( 128, 155, 71, 53 );
         this.contentPane.add( celciusLabel );
 
-        final JButton heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
-        heatingButton.setBackground( Color.WHITE );
-        heatingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
-        heatingButton.setBounds( 141, 291, 517, 57 );
-        heatingButton.setIcon( this.fireIconForButton );
-        heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
-        heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
-        heatingButton.setFocusPainted( false );
-        heatingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        heatingButton.addActionListener( new ActionListener() {
+        this.heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
+        this.heatingButton.setBackground( Color.WHITE );
+        this.heatingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
+        this.heatingButton.setBounds( 141, 291, 517, 57 );
+        this.heatingButton.setIcon( this.fireIconForButton );
+        this.heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
+        this.heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
+        this.heatingButton.setFocusPainted( false );
+        this.heatingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        this.heatingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 if ( Singleton.getInstance().getState().equals( State.HEAT ) ) {
@@ -186,6 +187,8 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
                                 MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
                                 MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                                MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                                MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                                 MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
                             }
@@ -205,6 +208,8 @@ public class MainMenu extends JFrame {
                             MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
                             MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
                             MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
+                            MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                            MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                             MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
                         }
@@ -212,7 +217,7 @@ public class MainMenu extends JFrame {
                 }
             }
         } );
-        this.contentPane.add( heatingButton );
+        this.contentPane.add( this.heatingButton );
 
         this.inActionLabel = new JLabel(
                 "\u03A3\u03B5 \u03B1\u03BD\u03B1\u03BC\u03BF\u03BD\u03AE \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1\u03C2" );
@@ -229,16 +234,16 @@ public class MainMenu extends JFrame {
         this.statusLabelIcon.setBounds( 330, 9, 292, 241 );
         this.contentPane.add( this.statusLabelIcon );
 
-        final JButton coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
-        coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
-        coolingButton.setBackground( Color.WHITE );
-        coolingButton.setBounds( 141, 359, 517, 57 );
-        coolingButton.setIcon( this.snowFlakeIconForButton );
-        coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
-        coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
-        coolingButton.setFocusPainted( false );
-        coolingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        coolingButton.addActionListener( new ActionListener() {
+        this.coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
+        this.coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
+        this.coolingButton.setBackground( Color.WHITE );
+        this.coolingButton.setBounds( 141, 359, 517, 57 );
+        this.coolingButton.setIcon( this.snowFlakeIconForButton );
+        this.coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
+        this.coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
+        this.coolingButton.setFocusPainted( false );
+        this.coolingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        this.coolingButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 if ( Singleton.getInstance().getState().equals( State.COOL ) ) {
@@ -265,11 +270,13 @@ public class MainMenu extends JFrame {
                                 Singleton.getInstance().setState( State.COOL );
                                 coolingAlert.setVisible( false );
                                 MainMenu.this.setVisible( true );
-                                coolingButton.setBackground( new Color( 255, 255, 255 ) );
+                                MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
                                 MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                                MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                                MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                             }
                         }, 3000 );
@@ -289,13 +296,15 @@ public class MainMenu extends JFrame {
                             MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
+                            MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                            MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
                         }
                     }, 3000 );
                 }
             }
         } );
-        this.contentPane.add( coolingButton );
+        this.contentPane.add( this.coolingButton );
 
         this.needHelpButton = new JButton( "" );
         this.needHelpButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
@@ -366,8 +375,8 @@ public class MainMenu extends JFrame {
                     MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
-                    heatingButton.setBackground( new Color( 255, 255, 255 ) );
-                    coolingButton.setBackground( new Color( 255, 255, 255 ) );
+                    this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                    this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                     break;
 
                 case COOL:
@@ -376,13 +385,13 @@ public class MainMenu extends JFrame {
                     MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
-                    heatingButton.setBackground( new Color( 255, 255, 255 ) );
-                    coolingButton.setBackground( new Color( 1, 1, 1 ) );
+                    this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
+                    this.coolingButton.setBackground( new Color( 1, 1, 1 ) );
                     break;
 
                 default:
-                    heatingButton.setBackground( new Color( 255, 245, 204 ) );
-                    coolingButton.setBackground( new Color( 212, 242, 255 ) );
+                    this.heatingButton.setBackground( new Color( 255, 245, 204 ) );
+                    this.coolingButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.contentPane.setBackground( new Color( 255, 255, 255 ) );
                     MainMenu.this.inActionLabel.setText( "Σε αναμονή λειτουργίας" );
                     break;
