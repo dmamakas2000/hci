@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.singleton.Singleton;
 
 public class TemperatureAdjustMenu extends JFrame {
@@ -140,8 +141,9 @@ public class TemperatureAdjustMenu extends JFrame {
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
         goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        goBackButton.setBounds( 15, 539, 327, 46 );
+        goBackButton.setBounds( 220, 459, 360, 46 );
         goBackButton.setFocusPainted( false );
+        goBackButton.setBorder( new RoundedButton( 20 ) );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.addActionListener( new ActionListener() {
             @Override
@@ -185,6 +187,7 @@ public class TemperatureAdjustMenu extends JFrame {
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 220, 376, 360, 46 );
+        saveChangesButton.setBorder( new RoundedButton( 20 ) );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.addActionListener( new ActionListener() {
             @Override
