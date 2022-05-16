@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
+import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
@@ -238,6 +239,7 @@ public class MainMenu extends JFrame {
         this.coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         this.coolingButton.setBackground( Color.WHITE );
         this.coolingButton.setBounds( 141, 359, 517, 57 );
+        this.coolingButton.setBorder( new RoundedButton( 20 ) );
         this.coolingButton.setIcon( this.snowFlakeIconForButton );
         this.coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         this.coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
