@@ -133,6 +133,15 @@ public class ExtraFunctionsMenu extends JFrame {
         needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.contentPane.add( needHelpLabel );
+
+        final JButton swingMode = new JButton(
+                "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 \u03C0\u03B5\u03C1\u03B9\u03C3\u03C4\u03C1\u03BF\u03C6\u03AE\u03C2" );
+        swingMode.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        swingMode.setFocusPainted( false );
+        swingMode.setBackground( Color.WHITE );
+        swingMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        swingMode.setBounds( 450, 368, 332, 65 );
+        this.contentPane.add( swingMode );
     }
 
     /**
