@@ -223,7 +223,7 @@ public class MainMenu extends JFrame {
         this.inActionLabel = new JLabel(
                 "\u03A3\u03B5 \u03B1\u03BD\u03B1\u03BC\u03BF\u03BD\u03AE \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1\u03C2" );
         this.inActionLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
-        this.inActionLabel.setBounds( 32, 222, 446, 47 );
+        this.inActionLabel.setBounds( 32, 222, 737, 47 );
         this.contentPane.add( this.inActionLabel );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
@@ -348,7 +348,7 @@ public class MainMenu extends JFrame {
         this.switchOffButton = new JButton( "" );
         this.switchOffButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.switchOffButton.setBackground( Color.WHITE );
-        this.switchOffButton.setBounds( 669, 155, 100, 100 );
+        this.switchOffButton.setBounds( 669, 108, 100, 100 );
         this.switchOffButton.setIcon( this.shutDownIcon );
         this.switchOffButton.setFocusPainted( false );
         this.switchOffButton.setBorder( null );
@@ -412,7 +412,37 @@ public class MainMenu extends JFrame {
         extraFunctionsButton.setBackground( Color.WHITE );
         extraFunctionsButton.setBounds( 141, 495, 517, 57 );
         extraFunctionsButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        extraFunctionsButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu();
+                extraFunctionsMenu.setVisible( true );
+                MainMenu.this.dispose();
+            }
+        } );
         this.contentPane.add( extraFunctionsButton );
+
+        switch ( Singleton.getInstance().getExtraState() ) {
+            case ECONOMY:
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (οικονομίας)" );
+                break;
+
+            case INVERTER:
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (ιονιστή)" );
+                break;
+
+            case TURBO:
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (ενίσχυσης)" );
+                break;
+
+            case SWING:
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (περιστροφής)" );
+                break;
+
+            default:
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() );
+                break;
+        }
     }
 
     /**

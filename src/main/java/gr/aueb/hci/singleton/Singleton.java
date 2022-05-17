@@ -24,7 +24,12 @@ public final class Singleton {
         COOL, HEAT, START
     }
 
+    public enum ExtraState {
+        ECONOMY, INVERTER, SWING, TURBO, START
+    }
+
     private State state = State.START;
+    private ExtraState extraState = ExtraState.START;
 
     private Singleton() {
     }

@@ -17,7 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.alerts.ExtraFunctionalityAlert;
 import gr.aueb.hci.singleton.Singleton;
+import gr.aueb.hci.singleton.Singleton.ExtraState;
 
 public class ExtraFunctionsMenu extends JFrame {
 
@@ -79,6 +81,32 @@ public class ExtraFunctionsMenu extends JFrame {
         inverterMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         inverterMode.setFocusPainted( false );
         inverterMode.setBounds( 31, 266, 332, 65 );
+        inverterMode.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( Singleton.getInstance().getState().toString().equals( "START" ) ) {
+                    // Do not let switch into swing mode
+                    JOptionPane.showMessageDialog( null,
+                            "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+                else {
+                    // Switch into inverter mode
+                    Singleton.getInstance().setExtraState( ExtraState.INVERTER );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.INVERTER );
+                    ExtraFunctionsMenu.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu();
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+            }
+        } );
         this.contentPane.add( inverterMode );
 
         final JButton turboMode = new JButton( "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 TURBO" );
@@ -87,6 +115,32 @@ public class ExtraFunctionsMenu extends JFrame {
         turboMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         turboMode.setFocusPainted( false );
         turboMode.setBounds( 31, 368, 332, 65 );
+        turboMode.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( Singleton.getInstance().getState().toString().equals( "START" ) ) {
+                    // Do not let switch into swing mode
+                    JOptionPane.showMessageDialog( null,
+                            "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+                else {
+                    // Switch into turbo mode
+                    Singleton.getInstance().setExtraState( ExtraState.TURBO );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.TURBO );
+                    ExtraFunctionsMenu.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu();
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+            }
+        } );
         this.contentPane.add( turboMode );
 
         final JButton economyMode = new JButton(
@@ -96,6 +150,32 @@ public class ExtraFunctionsMenu extends JFrame {
         economyMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         economyMode.setFocusPainted( false );
         economyMode.setBounds( 450, 266, 332, 65 );
+        economyMode.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( Singleton.getInstance().getState().toString().equals( "START" ) ) {
+                    // Do not let switch into swing mode
+                    JOptionPane.showMessageDialog( null,
+                            "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+                else {
+                    // Switch into economy mode
+                    Singleton.getInstance().setExtraState( ExtraState.ECONOMY );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.ECONOMY );
+                    ExtraFunctionsMenu.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu();
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+            }
+        } );
         this.contentPane.add( economyMode );
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
@@ -141,6 +221,32 @@ public class ExtraFunctionsMenu extends JFrame {
         swingMode.setBackground( Color.WHITE );
         swingMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         swingMode.setBounds( 450, 368, 332, 65 );
+        swingMode.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( Singleton.getInstance().getState().toString().equals( "START" ) ) {
+                    // Do not let switch into swing mode
+                    JOptionPane.showMessageDialog( null,
+                            "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+                else {
+                    // Switch into swing mode
+                    Singleton.getInstance().setExtraState( ExtraState.SWING );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.SWING );
+                    ExtraFunctionsMenu.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu();
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+            }
+        } );
         this.contentPane.add( swingMode );
     }
 
