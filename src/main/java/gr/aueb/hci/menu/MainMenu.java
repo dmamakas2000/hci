@@ -65,6 +65,7 @@ public class MainMenu extends JFrame {
     private JButton coolingButton;
 
     private JLabel inActionLabel;
+    private JLabel temperatureLabel;
 
     /**
      * Content pane.
@@ -84,12 +85,12 @@ public class MainMenu extends JFrame {
     public MainMenu( final int temp ) {
         init();
 
-        final JLabel temperatureLabel = new JLabel( String.valueOf( temp ) );
-        temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
-        temperatureLabel.setBounds( 32, 127, 141, 93 );
-        this.contentPane.add( temperatureLabel );
+        this.temperatureLabel = new JLabel( String.valueOf( temp ) );
+        this.temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
+        this.temperatureLabel.setBounds( 32, 127, 141, 93 );
+        this.contentPane.add( this.temperatureLabel );
 
-        this.createMainMenuComponents( Integer.valueOf( temperatureLabel.getText() ) );
+        this.createMainMenuComponents( Integer.valueOf( this.temperatureLabel.getText() ) );
     }
 
     /**
@@ -415,7 +416,8 @@ public class MainMenu extends JFrame {
         extraFunctionsButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu();
+                final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu(
+                        Integer.valueOf( MainMenu.this.temperatureLabel.getText() ) );
                 extraFunctionsMenu.setVisible( true );
                 MainMenu.this.dispose();
             }

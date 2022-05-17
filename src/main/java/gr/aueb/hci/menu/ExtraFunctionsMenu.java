@@ -51,7 +51,7 @@ public class ExtraFunctionsMenu extends JFrame {
     /**
      * Default constructor.
      */
-    public ExtraFunctionsMenu() {
+    public ExtraFunctionsMenu( final int temp ) {
         setBackground( Color.WHITE );
         setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
@@ -100,7 +100,7 @@ public class ExtraFunctionsMenu extends JFrame {
                         @Override
                         public void run() {
                             alert.dispose();
-                            final MainMenu menu = new MainMenu();
+                            final MainMenu menu = new MainMenu( temp );
                             menu.setVisible( true );
                         }
                     }, 3000 );
@@ -134,7 +134,7 @@ public class ExtraFunctionsMenu extends JFrame {
                         @Override
                         public void run() {
                             alert.dispose();
-                            final MainMenu menu = new MainMenu();
+                            final MainMenu menu = new MainMenu( temp );
                             menu.setVisible( true );
                         }
                     }, 3000 );
@@ -169,7 +169,7 @@ public class ExtraFunctionsMenu extends JFrame {
                         @Override
                         public void run() {
                             alert.dispose();
-                            final MainMenu menu = new MainMenu();
+                            final MainMenu menu = new MainMenu( temp );
                             menu.setVisible( true );
                         }
                     }, 3000 );
@@ -187,7 +187,7 @@ public class ExtraFunctionsMenu extends JFrame {
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final MainMenu menu = new MainMenu();
+                final MainMenu menu = new MainMenu( temp );
                 ExtraFunctionsMenu.this.dispose();
                 menu.setVisible( true );
             }
@@ -240,7 +240,7 @@ public class ExtraFunctionsMenu extends JFrame {
                         @Override
                         public void run() {
                             alert.dispose();
-                            final MainMenu menu = new MainMenu();
+                            final MainMenu menu = new MainMenu( temp );
                             menu.setVisible( true );
                         }
                     }, 3000 );
@@ -258,7 +258,7 @@ public class ExtraFunctionsMenu extends JFrame {
             @Override
             public void run() {
                 try {
-                    final ExtraFunctionsMenu frame = new ExtraFunctionsMenu();
+                    final ExtraFunctionsMenu frame = new ExtraFunctionsMenu( 25 );
                     frame.setVisible( true );
                 }
                 catch ( final Exception e ) {
