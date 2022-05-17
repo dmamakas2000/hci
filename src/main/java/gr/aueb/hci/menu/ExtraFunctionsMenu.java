@@ -80,7 +80,7 @@ public class ExtraFunctionsMenu extends JFrame {
         inverterMode.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         inverterMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         inverterMode.setFocusPainted( false );
-        inverterMode.setBounds( 31, 266, 332, 65 );
+        inverterMode.setBounds( 31, 211, 332, 65 );
         inverterMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -114,7 +114,7 @@ public class ExtraFunctionsMenu extends JFrame {
         turboMode.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         turboMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         turboMode.setFocusPainted( false );
-        turboMode.setBounds( 31, 368, 332, 65 );
+        turboMode.setBounds( 31, 313, 332, 65 );
         turboMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -149,7 +149,7 @@ public class ExtraFunctionsMenu extends JFrame {
         economyMode.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         economyMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         economyMode.setFocusPainted( false );
-        economyMode.setBounds( 450, 266, 332, 65 );
+        economyMode.setBounds( 450, 211, 332, 65 );
         economyMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -220,7 +220,7 @@ public class ExtraFunctionsMenu extends JFrame {
         swingMode.setFocusPainted( false );
         swingMode.setBackground( Color.WHITE );
         swingMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        swingMode.setBounds( 450, 368, 332, 65 );
+        swingMode.setBounds( 450, 313, 332, 65 );
         swingMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -248,6 +248,29 @@ public class ExtraFunctionsMenu extends JFrame {
             }
         } );
         this.contentPane.add( swingMode );
+
+        final JButton disconnectExtraFunction = new JButton(
+                "\u0391\u03C0\u03B5\u03BD\u03B5\u03C1\u03B3\u03BF\u03C0\u03BF\u03AF\u03B7\u03C3\u03B7 \u03C3\u03CD\u03BD\u03B8\u03B5\u03C4\u03B7\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1\u03C2" );
+        disconnectExtraFunction.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        disconnectExtraFunction.setFocusPainted( false );
+        disconnectExtraFunction.setBackground( Color.WHITE );
+        disconnectExtraFunction.setBounds( 175, 423, 478, 65 );
+        disconnectExtraFunction.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        disconnectExtraFunction.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( Singleton.getInstance().getExtraState().toString().equals( "START" ) ) {
+                    JOptionPane.showMessageDialog( null, "Δεν έχετε ενεργοποιήσει κάποια επιπλέον λειτουργία!",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+                else {
+                    Singleton.getInstance().setExtraState( ExtraState.START );
+                    JOptionPane.showMessageDialog( null, "Έχετε απενεργοποιήσει τις επιπλέον λειτουργίες επιτυχώς!",
+                            "Μενού πρόσθετων επιλογών", 1 );
+                }
+            }
+        } );
+        this.contentPane.add( disconnectExtraFunction );
     }
 
     /**

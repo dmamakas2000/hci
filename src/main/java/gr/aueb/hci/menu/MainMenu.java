@@ -99,12 +99,12 @@ public class MainMenu extends JFrame {
     public MainMenu() {
         init();
 
-        final JLabel temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
-        temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
-        temperatureLabel.setBounds( 32, 127, 141, 93 );
-        this.contentPane.add( temperatureLabel );
+        this.temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
+        this.temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
+        this.temperatureLabel.setBounds( 32, 127, 141, 93 );
+        this.contentPane.add( this.temperatureLabel );
 
-        this.createMainMenuComponents( Integer.valueOf( temperatureLabel.getText() ) );
+        this.createMainMenuComponents( Integer.valueOf( this.temperatureLabel.getText() ) );
     }
 
     /**
