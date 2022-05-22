@@ -46,7 +46,14 @@ public class ExtraFunctionsMenu extends JFrame {
     /**
      * Help message.
      */
-    private static final String HELP_MESSAGE = "Επιλέξτε μία από τις παρακάτω επιπλέον λειτουργίες για καλύτερα αποτελέσματα.";
+    private static final String HELP_MESSAGE = "Βρίσκεστε στην οθόνη σύνθετων λειτουργιών. \n Έχετε τις εξής διαθέσιμες επιλογές: \n \n"
+            + "· <<Επιλογή λειτουργίας περιστροφής>> \t Εάν επιθυμείτε να ενεργοποιήσετε την περιοδική περιστροφή του φτερού του κλιματιστικού σας. \n \n"
+            + "· <<Επιλογή λειρουργίας αφύγρανσης>> \t Εάν επιθυμείτε το κλιματιστικό σας να αφαιρεί την υγρασία κατά την διάρκεια της λειτουργίας του. \n \n"
+            + "· <<Επιλογή λειτουργίας ενίσχυσης>> \t \t \t \t \t  Εάν επιθυμείτε το κλιματιστικό σας να λειτουργεί πιο έντονα και γρήγορα. \n \n"
+            + "· <<Επιλογή λειτουργίας οικονομίας>> \t \t \t \t  Εάν επιθυμείτε το κλιματιστικό να λειτουργεί πραγματοποιώντας εξοικονόμηση ρεύματος. \n \n \n"
+            + "Σε περίπτωση που θέλετε να απενεργοποιήσετε κάποια σύνθετη λειτουργία που έχετε ήδη ενεργοποιήσει, πατήστε <<Απενεργοποίηση σύνθετης λειτουργίας>>. \n \n"
+            + "Σε περίπτωση που θέλετε να επιστρέψετε στην αρχική οθόνη χωρίς κάποια επιπλέον αλλαγή πατήστε <<Πήγαινε με πίσω>>"
+            + "· \n";
 
     /**
      * Default constructor.
@@ -88,7 +95,7 @@ public class ExtraFunctionsMenu extends JFrame {
                     // Do not let switch into swing mode
                     JOptionPane.showMessageDialog( null,
                             "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
-                            "Μενού πρόσθετων επιλογών", 1 );
+                            "Μενού σύνθετων επιλογών", 1 );
                 }
                 else {
                     // Switch into inverter mode
@@ -122,7 +129,7 @@ public class ExtraFunctionsMenu extends JFrame {
                     // Do not let switch into swing mode
                     JOptionPane.showMessageDialog( null,
                             "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
-                            "Μενού πρόσθετων επιλογών", 1 );
+                            "Μενού σύνθετων επιλογών", 1 );
                 }
                 else {
                     // Switch into turbo mode
@@ -157,7 +164,7 @@ public class ExtraFunctionsMenu extends JFrame {
                     // Do not let switch into swing mode
                     JOptionPane.showMessageDialog( null,
                             "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
-                            "Μενού πρόσθετων επιλογών", 1 );
+                            "Μενού σύνθετων επιλογών", 1 );
                 }
                 else {
                     // Switch into economy mode
@@ -204,7 +211,7 @@ public class ExtraFunctionsMenu extends JFrame {
         this.needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                JOptionPane.showMessageDialog( null, ExtraFunctionsMenu.HELP_MESSAGE, "Μενού πρόσθετων επιλογών", 1 );
+                JOptionPane.showMessageDialog( null, ExtraFunctionsMenu.HELP_MESSAGE, "Μενού βοήθειας σύνθετων επιλογών", 1 );
             }
         } );
         this.contentPane.add( this.needHelpButton );
@@ -228,7 +235,7 @@ public class ExtraFunctionsMenu extends JFrame {
                     // Do not let switch into swing mode
                     JOptionPane.showMessageDialog( null,
                             "Βρίσκεστε σε κατάσταση αναμονής λειτουργίας, και για να επιλέξετε την συγκεκριμένη επιλογή πρέπει πρώτα να εισέρθετε σε κατάσταση θέρμανσης ή ψύξης.",
-                            "Μενού πρόσθετων επιλογών", 1 );
+                            "Μενού σύνθετων λειτουργιών", 1 );
                 }
                 else {
                     // Switch into swing mode

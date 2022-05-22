@@ -52,8 +52,10 @@ public class TemperatureAdjustMenu extends JFrame {
     /**
      * Help message.
      */
-    private static final String HELP_MESSAGE = "Βρίσκεστε στην οθόνη ρύθμισης θερμοκρασίας."
-            + "· Επιλέξτε την επιθυμητή θερμοκρασία και στην συνέχεια πατήστε αποθήκευση για να την επιλέξετε.";
+    private static final String HELP_MESSAGE = "Βρίσκεστε στην οθόνη ρύθμισης θερμοκρασίας. \n \n"
+            + "Στην οθόνη απεικονίζεται η θερμοκρασία που αυτή τη στιγμή έχει επιλεγεί. \nΜπορείτε να την αυξομειώσετε πατώντας στις επιλογές \n<<+>> και <<->>, οι οποίες βρίσκονται τοποθετημένες πάνω και \nκάτω από την θερμοκρασία αντίστοιχα. "
+            + "Αφότου επιλέξετε την επιθυμητή θερμοκρασία, \nμπορείτε να πατήσετε <<Επιβεβαίωση αλλαγών>> προκειμένου να ρυθμιστεί \nη θερμορασία του κλιματιστικού σας αντίστοιχα.\n\n"
+            + "Εάν δεν επιθυμείτε να πραγματοποιήσετε κάποια αλλαγή μπορείτε να πατήσετε την επιλογή \n<<Πήγαινε με πίσω>> προκειμένου να ανακατευθυνθείτε ξανά στο κεντρικό μενού";
 
     /**
      * Initializes main common components.
@@ -223,7 +225,7 @@ public class TemperatureAdjustMenu extends JFrame {
         needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                JOptionPane.showMessageDialog( null, TemperatureAdjustMenu.HELP_MESSAGE, "Μενού τηλεκοντρόλ", 1 );
+                JOptionPane.showMessageDialog( null, TemperatureAdjustMenu.HELP_MESSAGE, "Μενού βοήθειας ρύθμισης θερμοκρασίας", 1 );
             }
         } );
         this.contentPane.add( needHelpButton );

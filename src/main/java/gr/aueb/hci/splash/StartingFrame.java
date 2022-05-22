@@ -44,8 +44,8 @@ public class StartingFrame extends JFrame {
     /**
      * Help message.
      */
-    private static final String HELP_MESSAGE = "Καλωσορίσατε! Βρίσκεστε στην αρχική οθόνη της εφαρμογής.\n"
-            + "Επιλέξτε 'Εκκίνηση εφαρμογής' για να ξεκινήσετε το κλιματιστικό.";
+    private static final String HELP_MESSAGE = "Καλωσορίσατε! Βρίσκεστε στην αρχική οθόνη εκκίνησης του κλιματιστικού. \n \n"
+            + "Επιλέξτε <<Εκκίνηση κλιματιστικού>> προκειμένου να ξεκινήσετε το κλιματιστικό σας.";
 
     /**
      * Default constructor.
@@ -118,7 +118,7 @@ public class StartingFrame extends JFrame {
         infoButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                JOptionPane.showMessageDialog( null, StartingFrame.HELP_MESSAGE, "Αρχική οθόνη", 1 );
+                JOptionPane.showMessageDialog( null, StartingFrame.HELP_MESSAGE, "Μενού βοήθειας αρχικής οθόνης", 1 );
             }
         } );
         this.contentPane.add( infoButton );
