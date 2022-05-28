@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
-import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
@@ -162,6 +161,7 @@ public class MainMenu extends JFrame {
         this.heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         this.heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         this.heatingButton.setFocusPainted( false );
+        this.heatingButton.setContentAreaFilled( false );
         this.heatingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.heatingButton.addActionListener( new ActionListener() {
             @Override
@@ -244,11 +244,11 @@ public class MainMenu extends JFrame {
         this.coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         this.coolingButton.setBackground( Color.WHITE );
         this.coolingButton.setBounds( 141, 359, 517, 57 );
-        this.coolingButton.setBorder( new RoundedButton( 20 ) );
         this.coolingButton.setIcon( this.snowFlakeIconForButton );
         this.coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         this.coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
         this.coolingButton.setFocusPainted( false );
+        this.coolingButton.setContentAreaFilled( false );
         this.coolingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.coolingButton.addActionListener( new ActionListener() {
             @Override
@@ -320,6 +320,7 @@ public class MainMenu extends JFrame {
         this.needHelpButton.setIcon( this.needHelpIconForButton );
         this.needHelpButton.setFocusPainted( false );
         this.needHelpButton.setBorder( null );
+        this.needHelpButton.setContentAreaFilled( false );
         this.needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -337,6 +338,7 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.setBounds( 141, 427, 517, 57 );
         temperatureAdjustButton.setFocusPainted( false );
         temperatureAdjustButton.setIcon( this.adjustIcon );
+        temperatureAdjustButton.setContentAreaFilled( false );
         temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
         temperatureAdjustButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
@@ -356,6 +358,7 @@ public class MainMenu extends JFrame {
         this.switchOffButton.setBounds( 669, 108, 100, 100 );
         this.switchOffButton.setIcon( this.shutDownIcon );
         this.switchOffButton.setFocusPainted( false );
+        this.switchOffButton.setContentAreaFilled( false );
         this.switchOffButton.setBorder( null );
         this.switchOffButton.addActionListener( new ActionListener() {
             @Override
@@ -416,6 +419,7 @@ public class MainMenu extends JFrame {
         extraFunctionsButton.setFocusPainted( false );
         extraFunctionsButton.setBackground( Color.WHITE );
         extraFunctionsButton.setBounds( 141, 495, 517, 57 );
+        extraFunctionsButton.setContentAreaFilled( false );
         extraFunctionsButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         extraFunctionsButton.addActionListener( new ActionListener() {
             @Override

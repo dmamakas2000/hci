@@ -88,6 +88,7 @@ public class ExtraFunctionsMenu extends JFrame {
         inverterMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         inverterMode.setFocusPainted( false );
         inverterMode.setBounds( 31, 211, 332, 65 );
+        inverterMode.setContentAreaFilled( false );
         inverterMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -122,6 +123,7 @@ public class ExtraFunctionsMenu extends JFrame {
         turboMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         turboMode.setFocusPainted( false );
         turboMode.setBounds( 31, 313, 332, 65 );
+        turboMode.setContentAreaFilled( false );
         turboMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -157,6 +159,7 @@ public class ExtraFunctionsMenu extends JFrame {
         economyMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         economyMode.setFocusPainted( false );
         economyMode.setBounds( 450, 211, 332, 65 );
+        economyMode.setContentAreaFilled( false );
         economyMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -191,6 +194,7 @@ public class ExtraFunctionsMenu extends JFrame {
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.setFocusPainted( false );
         goBackButton.setBounds( 31, 533, 332, 65 );
+        goBackButton.setContentAreaFilled( false );
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -208,6 +212,7 @@ public class ExtraFunctionsMenu extends JFrame {
         this.needHelpButton.setIcon( this.needHelpIconForButton );
         this.needHelpButton.setFocusPainted( false );
         this.needHelpButton.setBorder( null );
+        this.needHelpButton.setContentAreaFilled( false );
         this.needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -228,6 +233,7 @@ public class ExtraFunctionsMenu extends JFrame {
         swingMode.setBackground( Color.WHITE );
         swingMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         swingMode.setBounds( 450, 313, 332, 65 );
+        swingMode.setContentAreaFilled( false );
         swingMode.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -262,6 +268,7 @@ public class ExtraFunctionsMenu extends JFrame {
         disconnectExtraFunction.setFocusPainted( false );
         disconnectExtraFunction.setBackground( Color.WHITE );
         disconnectExtraFunction.setBounds( 175, 423, 478, 65 );
+        disconnectExtraFunction.setContentAreaFilled( false );
         disconnectExtraFunction.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         disconnectExtraFunction.addActionListener( new ActionListener() {
             @Override

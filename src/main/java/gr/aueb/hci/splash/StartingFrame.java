@@ -20,6 +20,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.alerts.AirConditionStartupAlert;
+import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.menu.MainMenu;
 import gr.aueb.hci.singleton.Singleton;
 
@@ -69,7 +70,8 @@ public class StartingFrame extends JFrame {
 
         goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 1 ) );
         goIntoMainMenuButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-
+        goIntoMainMenuButton.setContentAreaFilled( false );
+        goIntoMainMenuButton.setBorder( new RoundedButton( 20 ) );
         goIntoMainMenuButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
         goIntoMainMenuButton.setBounds( 132, 331, 503, 67 );
         goIntoMainMenuButton.addActionListener( new ActionListener() {
@@ -89,23 +91,11 @@ public class StartingFrame extends JFrame {
             }
         } );
 
-        goIntoMainMenuButton.addMouseListener( new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseEntered( final java.awt.event.MouseEvent evt ) {
-                goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 2 ) );
-            }
-
-            @Override
-            public void mouseExited( final java.awt.event.MouseEvent evt ) {
-                goIntoMainMenuButton.setBorder( BorderFactory.createLineBorder( new Color( 118, 33, 36 ), 1 ) );
-            }
-        } );
-
         this.contentPane.add( goIntoMainMenuButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 30 ) );
-        needHelpLabel.setBounds( 420, 536, 201, 61 );
+        needHelpLabel.setBounds( 455, 525, 201, 61 );
         this.contentPane.add( needHelpLabel );
 
         final JButton infoButton = new JButton( "" );
@@ -115,6 +105,7 @@ public class StartingFrame extends JFrame {
         infoButton.setBorder( null );
         infoButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         infoButton.setFocusPainted( false );
+        infoButton.setContentAreaFilled( false );
         infoButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
