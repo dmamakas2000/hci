@@ -14,10 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.singleton.Singleton;
 
 public class TemperatureAdjustMenu extends JFrame {
@@ -30,7 +30,7 @@ public class TemperatureAdjustMenu extends JFrame {
     /**
      * Content pane.
      */
-    private JPanel contentPane;
+    private TestPanel contentPane;
 
     /**
      * Icons.
@@ -66,7 +66,7 @@ public class TemperatureAdjustMenu extends JFrame {
         setBackground( Color.WHITE );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
-        this.contentPane = new JPanel();
+        this.contentPane = new TestPanel();
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         setContentPane( this.contentPane );
@@ -83,14 +83,15 @@ public class TemperatureAdjustMenu extends JFrame {
     private void createTemperatureAdjustMenuComponents( final JLabel temperatureLabel, final int temperature ) {
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
         celciusLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
-        celciusLabel.setBounds( 433, 165, 56, 68 );
+        celciusLabel.setBounds( 325, 232, 56, 68 );
         this.contentPane.add( celciusLabel );
 
         final JButton increaseTempButton = new JButton( "+" );
-        increaseTempButton.setBackground( Color.WHITE );
         increaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
-        increaseTempButton.setBounds( 347, 60, 89, 46 );
+        increaseTempButton.setBounds( 239, 127, 89, 46 );
         increaseTempButton.setFocusPainted( false );
+        increaseTempButton.setOpaque( false );
+        increaseTempButton.setContentAreaFilled( false );
         increaseTempButton.setBorder( null );
         increaseTempButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         increaseTempButton.addActionListener( new ActionListener() {
@@ -114,11 +115,12 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( increaseTempButton );
 
         final JButton decreaseTempButton = new JButton( "-" );
-        decreaseTempButton.setBackground( Color.WHITE );
         decreaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
-        decreaseTempButton.setBounds( 347, 281, 89, 46 );
+        decreaseTempButton.setBounds( 239, 348, 89, 46 );
         decreaseTempButton.setFocusPainted( false );
         decreaseTempButton.setBorder( null );
+        decreaseTempButton.setOpaque( false );
+        decreaseTempButton.setContentAreaFilled( false );
         decreaseTempButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         decreaseTempButton.addActionListener( new ActionListener() {
             @Override
@@ -140,12 +142,13 @@ public class TemperatureAdjustMenu extends JFrame {
         } );
         this.contentPane.add( decreaseTempButton );
 
-        final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
+        final JButton goBackButton = new JButton(
+                " \u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
         goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        goBackButton.setBounds( 220, 459, 360, 46 );
+        goBackButton.setBounds( 32, 539, 300, 55 );
         goBackButton.setFocusPainted( false );
-        goBackButton.setBorder( new RoundedButton( 20 ) );
+        goBackButton.setIcon( new ImageIcon( "icons8-previous-32.png" ) );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.addActionListener( new ActionListener() {
             @Override
@@ -182,15 +185,19 @@ public class TemperatureAdjustMenu extends JFrame {
         } );
         this.contentPane.add( goBackButton );
 
-        final JButton saveChangesButton = new JButton(
-                "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
+        final JButton saveChangesButton = new JButton();
         saveChangesButton.setBackground( Color.WHITE );
         saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        saveChangesButton.setBounds( 220, 376, 360, 46 );
-        saveChangesButton.setBorder( new RoundedButton( 20 ) );
+        saveChangesButton.setBounds( 563, 208, 100, 100 );
         saveChangesButton.setFocusPainted( false );
+        saveChangesButton.setIcon( new ImageIcon( "icons8-check-circle-96.png" ) );
+        saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
+        saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
+        saveChangesButton.setOpaque( false );
+        saveChangesButton.setContentAreaFilled( false );
+        saveChangesButton.setBorder( null );
         saveChangesButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
@@ -216,10 +223,11 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( needHelpLabel );
 
         final JButton needHelpButton = new JButton( "" );
-        needHelpButton.setBackground( Color.WHITE );
         needHelpButton.setBounds( 649, 528, 98, 73 );
         needHelpButton.setFocusPainted( false );
         needHelpButton.setBorder( null );
+        needHelpButton.setOpaque( false );
+        needHelpButton.setContentAreaFilled( false );
         needHelpButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         needHelpButton.setIcon( this.needHelpIcon );
         needHelpButton.addActionListener( new ActionListener() {
@@ -231,7 +239,7 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( needHelpButton );
 
         final JLabel thermometerLabel = new JLabel( "" );
-        thermometerLabel.setBounds( 220, 123, 96, 128 );
+        thermometerLabel.setBounds( 112, 190, 96, 128 );
         thermometerLabel.setIcon( this.thermometerIcon );
         this.contentPane.add( thermometerLabel );
     }
@@ -262,10 +270,16 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( 25 ) );
         temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 80 ) );
-        temperatureLabel.setBounds( 326, 114, 110, 151 );
+        temperatureLabel.setBounds( 218, 181, 110, 151 );
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, 25 );
+
+        final JLabel lblNewLabel = new JLabel(
+                "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
+        lblNewLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        lblNewLabel.setBounds( 478, 319, 269, 39 );
+        this.contentPane.add( lblNewLabel );
     }
 
     /**

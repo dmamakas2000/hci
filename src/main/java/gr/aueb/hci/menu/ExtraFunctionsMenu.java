@@ -117,7 +117,8 @@ public class ExtraFunctionsMenu extends JFrame {
         } );
         this.contentPane.add( inverterMode );
 
-        final JButton turboMode = new JButton( "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 TURBO" );
+        final JButton turboMode = new JButton(
+                "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 \u03B5\u03BD\u03AF\u03C3\u03C7\u03C5\u03C3\u03B7\u03C2" );
         turboMode.setBackground( Color.WHITE );
         turboMode.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         turboMode.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );

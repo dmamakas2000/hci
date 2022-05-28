@@ -156,7 +156,7 @@ public class MainMenu extends JFrame {
         this.heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
         this.heatingButton.setBackground( Color.WHITE );
         this.heatingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
-        this.heatingButton.setBounds( 141, 291, 517, 57 );
+        this.heatingButton.setBounds( 172, 291, 450, 57 );
         this.heatingButton.setIcon( this.fireIconForButton );
         this.heatingButton.setVerticalTextPosition( SwingConstants.CENTER );
         this.heatingButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -240,10 +240,10 @@ public class MainMenu extends JFrame {
         this.statusLabelIcon.setBounds( 330, 9, 292, 241 );
         this.contentPane.add( this.statusLabelIcon );
 
-        this.coolingButton = new JButton( "\u03A8\u03CD\u03BE\u03B7      " );
+        this.coolingButton = new JButton( "     \u03A8\u03CD\u03BE\u03B7        " );
         this.coolingButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         this.coolingButton.setBackground( Color.WHITE );
-        this.coolingButton.setBounds( 141, 359, 517, 57 );
+        this.coolingButton.setBounds( 172, 359, 450, 57 );
         this.coolingButton.setIcon( this.snowFlakeIconForButton );
         this.coolingButton.setVerticalTextPosition( SwingConstants.CENTER );
         this.coolingButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -335,9 +335,9 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
         temperatureAdjustButton.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 26 ) );
         temperatureAdjustButton.setBackground( Color.WHITE );
-        temperatureAdjustButton.setBounds( 141, 427, 517, 57 );
+        temperatureAdjustButton.setBounds( 172, 427, 450, 57 );
         temperatureAdjustButton.setFocusPainted( false );
-        temperatureAdjustButton.setIcon( this.adjustIcon );
+        temperatureAdjustButton.setIcon( new ImageIcon( "icons8-hot-48.png" ) );
         temperatureAdjustButton.setContentAreaFilled( false );
         temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -412,13 +412,14 @@ public class MainMenu extends JFrame {
         this.contentPane.add( this.switchOffButton );
 
         final JButton extraFunctionsButton = new JButton(
-                "\u03A0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2" );
+                "\u03A0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2    " );
         extraFunctionsButton.setVerticalTextPosition( SwingConstants.CENTER );
         extraFunctionsButton.setHorizontalTextPosition( SwingConstants.LEADING );
         extraFunctionsButton.setFont( new Font( "Arial", Font.PLAIN, 26 ) );
         extraFunctionsButton.setFocusPainted( false );
         extraFunctionsButton.setBackground( Color.WHITE );
-        extraFunctionsButton.setBounds( 141, 495, 517, 57 );
+        extraFunctionsButton.setBounds( 172, 495, 450, 57 );
+        extraFunctionsButton.setIcon( new ImageIcon( "icons8-setting-64.png" ) );
         extraFunctionsButton.setContentAreaFilled( false );
         extraFunctionsButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         extraFunctionsButton.addActionListener( new ActionListener() {
