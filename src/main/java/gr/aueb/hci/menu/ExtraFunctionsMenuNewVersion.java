@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -74,6 +75,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
      */
     public ExtraFunctionsMenuNewVersion() {
         setResizable( false );
+        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         this.c = getContentPane();
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
@@ -82,14 +84,14 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.setLayout( null );
 
         this.economyMode.setBackground( Color.WHITE );
-        this.economyMode.setBounds( 454, 236, 206, 26 );
+        this.economyMode.setBounds( 485, 236, 206, 26 );
         this.economyMode.setColored( true );
         this.economyMode.setSelectedColor( ColorDef.GREEN_LCD );
         this.economyMode.setText( "(Απενεργοποιημένο)" );
         this.pan.add( this.economyMode );
 
         this.turboMode.setBackground( Color.WHITE );
-        this.turboMode.setBounds( 454, 286, 206, 26 );
+        this.turboMode.setBounds( 485, 286, 206, 26 );
         this.turboMode.setColored( true );
         this.turboMode.setSelectedColor( ColorDef.RED );
         this.turboMode.setRised( false );
@@ -97,7 +99,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.turboMode );
 
         this.swingMode.setBackground( Color.WHITE );
-        this.swingMode.setBounds( 454, 336, 206, 26 );
+        this.swingMode.setBounds( 485, 336, 206, 26 );
         this.swingMode.setColored( true );
         this.swingMode.setSelectedColor( ColorDef.YELLOW );
         this.swingMode.setRised( false );
@@ -105,7 +107,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.swingMode );
 
         this.inverterMode.setBackground( Color.WHITE );
-        this.inverterMode.setBounds( 454, 386, 206, 26 );
+        this.inverterMode.setBounds( 485, 386, 206, 26 );
         this.inverterMode.setColored( true );
         this.inverterMode.setSelectedColor( ColorDef.CYAN );
         this.inverterMode.setRised( false );
@@ -126,19 +128,19 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( lblNewLabel_1 );
 
         this.economyLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.economyLabel.setBounds( 63, 236, 273, 26 );
+        this.economyLabel.setBounds( 94, 236, 273, 26 );
 
         this.pan.add( this.economyLabel );
         this.turboLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.turboLabel.setBounds( 63, 286, 273, 26 );
+        this.turboLabel.setBounds( 94, 286, 273, 26 );
 
         this.pan.add( this.turboLabel );
         this.swingLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.swingLabel.setBounds( 63, 336, 273, 26 );
+        this.swingLabel.setBounds( 94, 336, 273, 26 );
 
         this.pan.add( this.swingLabel );
         this.inverterLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.inverterLabel.setBounds( 63, 386, 273, 26 );
+        this.inverterLabel.setBounds( 94, 386, 273, 26 );
 
         this.pan.add( this.inverterLabel );
 
@@ -268,7 +270,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.setFocusPainted( false );
-        goBackButton.setBounds( 31, 553, 230, 45 );
+        goBackButton.setBounds( 31, 553, 273, 45 );
+        goBackButton.setIcon( new ImageIcon( "icons8-previous-32.png" ) );
         goBackButton.setContentAreaFilled( false );
         goBackButton.addActionListener( new ActionListener() {
             @Override
