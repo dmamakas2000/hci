@@ -8,12 +8,12 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-public class TemperatureAdjustMenuPanel extends JPanel {
+public class ExtraFunctionsMenuPanel extends JPanel {
 
     /**
      * Generated serial version UID.
      */
-    private static final long serialVersionUID = -3486180005084278822L;
+    private static final long serialVersionUID = -1813449087016414410L;
 
     @Override
     protected void paintComponent( final Graphics g ) {
@@ -22,8 +22,8 @@ public class TemperatureAdjustMenuPanel extends JPanel {
         g2d.setRenderingHint( RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY );
         final int w = getWidth(), h = getHeight();
         final Color color1 = new Color( 255, 255, 255 );
-        final Color color2 = new Color( 171, 222, 237 );
-        final GradientPaint gp = new GradientPaint( 0, 0, color1, w, h, color2 );
+        final Color color2 = new Color( 247, 243, 230 );
+        final GradientPaint gp = new GradientPaint( 2, 345, color1, w, h, color2 );
         g2d.setPaint( gp );
         g2d.fillRect( 0, 0, w, h );
     }

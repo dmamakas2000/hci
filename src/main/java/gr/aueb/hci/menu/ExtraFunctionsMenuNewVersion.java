@@ -16,12 +16,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.checkbox.ColorDef;
 import gr.aueb.hci.checkbox.SteelCheckBox;
+import gr.aueb.hci.panels.ExtraFunctionsMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 
 public class ExtraFunctionsMenuNewVersion extends JFrame {
@@ -33,7 +33,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
 
     Container c;
 
-    private JPanel pan = new JPanel();
+    private ExtraFunctionsMenuPanel pan = new ExtraFunctionsMenuPanel();
 
     private JButton needHelpButton;
 
