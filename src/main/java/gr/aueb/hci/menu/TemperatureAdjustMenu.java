@@ -256,7 +256,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( temp ) );
         temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 80 ) );
-        temperatureLabel.setBounds( 323, 114, 110, 151 );
+        temperatureLabel.setBounds( 218, 181, 110, 151 );
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, temp );

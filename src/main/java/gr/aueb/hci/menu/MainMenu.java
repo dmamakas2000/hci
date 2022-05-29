@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
+import gr.aueb.hci.panels.MainMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
@@ -69,7 +70,7 @@ public class MainMenu extends JFrame {
     /**
      * Content pane.
      */
-    private JPanel contentPane;
+    private MainMenuPanel contentPane;
 
     /**
      * Help message.
@@ -118,7 +119,17 @@ public class MainMenu extends JFrame {
         setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
-        this.contentPane = new JPanel();
+
+        if ( Singleton.getInstance().getState().equals( State.HEAT ) ) {
+            this.contentPane = new MainMenuPanel( State.HEAT );
+        }
+        else if ( Singleton.getInstance().getState().equals( State.COOL ) ) {
+            this.contentPane = new MainMenuPanel( State.COOL );
+        }
+        else {
+            this.contentPane = new MainMenuPanel( State.START );
+        }
+
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         setContentPane( this.contentPane );
@@ -191,7 +202,7 @@ public class MainMenu extends JFrame {
                                 heatingAlert.setVisible( false );
                                 MainMenu.this.setVisible( true );
                                 MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
-                                MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
+                                MainMenu.this.contentPane.setState( State.HEAT );
                                 MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
@@ -211,6 +222,7 @@ public class MainMenu extends JFrame {
                         public void run() {
                             heatingAlert.setVisible( false );
                             MainMenu.this.setVisible( true );
+                            MainMenu.this.contentPane.setState( State.HEAT );
                             MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.fireIcon );
                             MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
                             MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
@@ -279,7 +291,7 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.setVisible( true );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
-                                MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                                MainMenu.this.contentPane.setState( State.COOL );
                                 MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
@@ -300,7 +312,7 @@ public class MainMenu extends JFrame {
                             coolingAlert.setVisible( false );
                             MainMenu.this.setVisible( true );
                             MainMenu.this.statusLabelIcon.setIcon( MainMenu.this.snowFlakeIcon );
-                            MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
+                            MainMenu.this.contentPane.setState( State.COOL );
                             MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
@@ -363,6 +375,7 @@ public class MainMenu extends JFrame {
         this.switchOffButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
+                Singleton.getInstance().setState( State.START );
                 MainMenu.this.dispose();
                 final AirConditionShutdownAlert alert = new AirConditionShutdownAlert();
                 alert.setVisible( true );
