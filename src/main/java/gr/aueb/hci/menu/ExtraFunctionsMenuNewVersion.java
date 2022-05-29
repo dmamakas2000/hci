@@ -16,13 +16,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.alerts.ExtraFunctionalityAlert;
 import gr.aueb.hci.checkbox.ColorDef;
 import gr.aueb.hci.checkbox.SteelCheckBox;
 import gr.aueb.hci.panels.ExtraFunctionsMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
+import gr.aueb.hci.singleton.Singleton.ExtraState;
 
 public class ExtraFunctionsMenuNewVersion extends JFrame {
 
@@ -73,7 +76,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
     /**
      * Create the frame.
      */
-    public ExtraFunctionsMenuNewVersion() {
+    public ExtraFunctionsMenuNewVersion( final int temp ) {
         setResizable( false );
         setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         this.c = getContentPane();
@@ -83,7 +86,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         this.pan.setLayout( null );
 
-        this.economyMode.setBounds( 485, 236, 206, 26 );
+        this.economyMode.setBounds( 485, 217, 206, 26 );
         this.economyMode.setColored( true );
         this.economyMode.setFocusPainted( false );
         this.economyMode.setContentAreaFilled( false );
@@ -92,7 +95,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.economyMode );
 
         this.turboMode.setBackground( Color.WHITE );
-        this.turboMode.setBounds( 485, 286, 206, 26 );
+        this.turboMode.setBounds( 485, 267, 206, 26 );
         this.turboMode.setColored( true );
         this.turboMode.setFocusPainted( false );
         this.turboMode.setContentAreaFilled( false );
@@ -102,7 +105,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.turboMode );
 
         this.swingMode.setBackground( Color.WHITE );
-        this.swingMode.setBounds( 485, 336, 206, 26 );
+        this.swingMode.setBounds( 485, 317, 206, 26 );
         this.swingMode.setColored( true );
         this.swingMode.setFocusPainted( false );
         this.swingMode.setContentAreaFilled( false );
@@ -112,7 +115,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.swingMode );
 
         this.inverterMode.setBackground( Color.WHITE );
-        this.inverterMode.setBounds( 485, 386, 206, 26 );
+        this.inverterMode.setBounds( 485, 367, 206, 26 );
         this.inverterMode.setColored( true );
         this.inverterMode.setFocusPainted( false );
         this.inverterMode.setContentAreaFilled( false );
@@ -135,19 +138,19 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( lblNewLabel_1 );
 
         this.economyLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.economyLabel.setBounds( 94, 236, 273, 26 );
+        this.economyLabel.setBounds( 94, 217, 273, 26 );
 
         this.pan.add( this.economyLabel );
         this.turboLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.turboLabel.setBounds( 94, 286, 273, 26 );
+        this.turboLabel.setBounds( 94, 267, 273, 26 );
 
         this.pan.add( this.turboLabel );
         this.swingLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.swingLabel.setBounds( 94, 336, 273, 26 );
+        this.swingLabel.setBounds( 94, 317, 273, 26 );
 
         this.pan.add( this.swingLabel );
         this.inverterLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
-        this.inverterLabel.setBounds( 94, 386, 273, 26 );
+        this.inverterLabel.setBounds( 94, 367, 273, 26 );
 
         this.pan.add( this.inverterLabel );
 
@@ -283,7 +286,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final MainMenu menu = new MainMenu( 12 );
+                final MainMenu menu = new MainMenu( temp );
                 ExtraFunctionsMenuNewVersion.this.dispose();
                 menu.setVisible( true );
             }
@@ -311,6 +314,90 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.pan.add( needHelpLabel );
+
+        final JButton saveChangesButton = new JButton( "" );
+        saveChangesButton.setBackground( Color.WHITE );
+        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        saveChangesButton.setFocusPainted( false );
+        saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        saveChangesButton.setBounds( 329, 434, 100, 100 );
+        saveChangesButton.setFocusPainted( false );
+        saveChangesButton.setIcon( new ImageIcon( "icons8-check-circle-96.png" ) );
+        saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
+        saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
+        saveChangesButton.setOpaque( false );
+        saveChangesButton.setContentAreaFilled( false );
+        saveChangesButton.setBorder( null );
+        saveChangesButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                if ( ExtraFunctionsMenuNewVersion.this.economyMode.isSelected() ) {
+                    // Switch into economy mode
+                    Singleton.getInstance().setExtraState( ExtraState.ECONOMY );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.ECONOMY );
+                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu( temp );
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+                else if ( ExtraFunctionsMenuNewVersion.this.turboMode.isSelected() ) {
+                    // Switch into turbo mode
+                    Singleton.getInstance().setExtraState( ExtraState.TURBO );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.TURBO );
+                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu( temp );
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+                else if ( ExtraFunctionsMenuNewVersion.this.swingMode.isSelected() ) {
+                    // Switch into swing mode
+                    Singleton.getInstance().setExtraState( ExtraState.SWING );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.SWING );
+                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu( temp );
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+                else if ( ExtraFunctionsMenuNewVersion.this.inverterMode.isSelected() ) {
+                    // Switch into inverter mode
+                    Singleton.getInstance().setExtraState( ExtraState.INVERTER );
+                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.INVERTER );
+                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    alert.setVisible( true );
+                    new java.util.Timer().schedule( new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alert.dispose();
+                            final MainMenu menu = new MainMenu( temp );
+                            menu.setVisible( true );
+                        }
+                    }, 3000 );
+                }
+                else {
+                    JOptionPane.showMessageDialog( null, "Παρακαλώ επιλέξτε κάποια από εκ των διαθέσιμων σύνθετων λειτουργιών",
+                            "Μενού σύνθετων επιλογών", 1 );
+                }
+            }
+        } );
+        this.pan.add( saveChangesButton );
     }
 
     /**
@@ -321,7 +408,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             @Override
             public void run() {
                 try {
-                    final ExtraFunctionsMenuNewVersion frame = new ExtraFunctionsMenuNewVersion();
+                    final ExtraFunctionsMenuNewVersion frame = new ExtraFunctionsMenuNewVersion( 25 );
                     frame.setVisible( true );
                 }
                 catch ( final Exception e ) {

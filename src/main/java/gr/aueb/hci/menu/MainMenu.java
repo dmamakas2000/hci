@@ -425,10 +425,16 @@ public class MainMenu extends JFrame {
         extraFunctionsButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu(
-                        Integer.valueOf( MainMenu.this.temperatureLabel.getText() ) );
-                extraFunctionsMenu.setVisible( true );
-                MainMenu.this.dispose();
+                if ( Singleton.getInstance().getState().equals( State.START ) ) {
+                    JOptionPane.showMessageDialog( null, "Για να εισέλθετε, πρέπει πρώτα να επιλέξετε λειτουργία θέρμανσης ή ψύξης.",
+                            "Κεντρικό μενού", 1 );
+                }
+                else {
+                    final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu(
+                            Integer.valueOf( MainMenu.this.temperatureLabel.getText() ) );
+                    extraFunctionsMenu.setVisible( true );
+                    MainMenu.this.dispose();
+                }
             }
         } );
         this.contentPane.add( extraFunctionsButton );
