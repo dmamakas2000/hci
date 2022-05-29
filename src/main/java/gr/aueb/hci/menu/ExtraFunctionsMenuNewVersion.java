@@ -83,9 +83,10 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         this.pan.setLayout( null );
 
-        this.economyMode.setBackground( Color.WHITE );
         this.economyMode.setBounds( 485, 236, 206, 26 );
         this.economyMode.setColored( true );
+        this.economyMode.setFocusPainted( false );
+        this.economyMode.setContentAreaFilled( false );
         this.economyMode.setSelectedColor( ColorDef.GREEN_LCD );
         this.economyMode.setText( "(Απενεργοποιημένο)" );
         this.pan.add( this.economyMode );
@@ -93,6 +94,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.turboMode.setBackground( Color.WHITE );
         this.turboMode.setBounds( 485, 286, 206, 26 );
         this.turboMode.setColored( true );
+        this.turboMode.setFocusPainted( false );
+        this.turboMode.setContentAreaFilled( false );
         this.turboMode.setSelectedColor( ColorDef.RED );
         this.turboMode.setRised( false );
         this.turboMode.setText( "(Απενεργοποιημένο)" );
@@ -101,6 +104,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.swingMode.setBackground( Color.WHITE );
         this.swingMode.setBounds( 485, 336, 206, 26 );
         this.swingMode.setColored( true );
+        this.swingMode.setFocusPainted( false );
+        this.swingMode.setContentAreaFilled( false );
         this.swingMode.setSelectedColor( ColorDef.YELLOW );
         this.swingMode.setRised( false );
         this.swingMode.setText( "(Απενεργοποιημένο)" );
@@ -109,6 +114,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.inverterMode.setBackground( Color.WHITE );
         this.inverterMode.setBounds( 485, 386, 206, 26 );
         this.inverterMode.setColored( true );
+        this.inverterMode.setFocusPainted( false );
+        this.inverterMode.setContentAreaFilled( false );
         this.inverterMode.setSelectedColor( ColorDef.CYAN );
         this.inverterMode.setRised( false );
         this.inverterMode.setText( "(Απενεργοποιημένο)" );
@@ -116,15 +123,15 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.c.add( this.pan );
 
         final JLabel lblNewLabel = new JLabel(
-                "\u039C\u03C0\u03BF\u03C1\u03B5\u03AF\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03BC\u03AF\u03B1 \u03B1\u03C0\u03CC \u03C4\u03B9\u03C2" );
+                "\u039C\u03C0\u03BF\u03C1\u03B5\u03AF\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03BC\u03AF\u03B1 \u03B1\u03C0\u03CC \u03C4\u03B9\u03C2 \u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9" );
         lblNewLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 30 ) );
-        lblNewLabel.setBounds( 172, 22, 451, 36 );
+        lblNewLabel.setBounds( 94, 70, 612, 36 );
         this.pan.add( lblNewLabel );
 
         final JLabel lblNewLabel_1 = new JLabel(
-                "\u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9 \u03B4\u03B9\u03B1\u03B8\u03AD\u03C3\u03B9\u03BC\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2" );
+                "\u03B4\u03B9\u03B1\u03B8\u03AD\u03C3\u03B9\u03BC\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2" );
         lblNewLabel_1.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 30 ) );
-        lblNewLabel_1.setBounds( 172, 51, 447, 36 );
+        lblNewLabel_1.setBounds( 245, 99, 329, 36 );
         this.pan.add( lblNewLabel_1 );
 
         this.economyLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
