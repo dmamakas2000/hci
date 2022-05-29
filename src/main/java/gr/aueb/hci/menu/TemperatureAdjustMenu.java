@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.hci.panels.TemperatureAdjustMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 
 public class TemperatureAdjustMenu extends JFrame {
@@ -30,7 +31,7 @@ public class TemperatureAdjustMenu extends JFrame {
     /**
      * Content pane.
      */
-    private TestPanel contentPane;
+    private TemperatureAdjustMenuPanel contentPane;
 
     /**
      * Icons.
@@ -66,7 +67,7 @@ public class TemperatureAdjustMenu extends JFrame {
         setBackground( Color.WHITE );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
-        this.contentPane = new TestPanel();
+        this.contentPane = new TemperatureAdjustMenuPanel();
         this.contentPane.setBackground( Color.WHITE );
         this.contentPane.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         setContentPane( this.contentPane );

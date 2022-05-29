@@ -1,4 +1,4 @@
-package gr.aueb.hci.menu;
+package gr.aueb.hci.panels;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -8,10 +8,10 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-public class TestPanel extends JPanel {
+public class TemperatureAdjustMenuPanel extends JPanel {
 
     /**
-     *
+     * Generated serial version UID.
      */
     private static final long serialVersionUID = -3486180005084278822L;
 
