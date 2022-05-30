@@ -125,6 +125,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.inverterMode );
         this.c.add( this.pan );
 
+        checkForCheckboxes();
+
         final JLabel lblNewLabel = new JLabel(
                 "\u039C\u03C0\u03BF\u03C1\u03B5\u03AF\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03BC\u03AF\u03B1 \u03B1\u03C0\u03CC \u03C4\u03B9\u03C2 \u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9" );
         lblNewLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 30 ) );
@@ -392,12 +394,53 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
                     }, 3000 );
                 }
                 else {
-                    JOptionPane.showMessageDialog( null, "Παρακαλώ επιλέξτε κάποια από εκ των διαθέσιμων σύνθετων λειτουργιών",
-                            "Μενού σύνθετων επιλογών", 1 );
+                    if ( Singleton.getInstance().getExtraState().equals( ExtraState.START ) ) {
+                        JOptionPane.showMessageDialog( null, "Παρακαλώ επιλέξτε κάποια από εκ των διαθέσιμων σύνθετων λειτουργιών",
+                                "Μενού σύνθετων επιλογών", 1 );
+                    }
+                    else {
+                        Singleton.getInstance().setExtraState( ExtraState.START );
+                        JOptionPane.showMessageDialog( null, "Έχετε απενεργοποιήσει τις επιπλέον λειτουργίες επιτυχώς!",
+                                "Μενού πρόσθετων επιλογών", 1 );
+                    }
                 }
             }
         } );
         this.pan.add( saveChangesButton );
+    }
+
+    private void checkForCheckboxes() {
+        switch ( Singleton.getInstance().getExtraState() ) {
+            case ECONOMY:
+                this.economyMode.setSelected( true );
+                break;
+
+            case INVERTER:
+                this.inverterMode.setSelected( true );
+                break;
+
+            case SWING:
+                this.swingMode.setSelected( true );
+                break;
+
+            case TURBO:
+                this.turboMode.setSelected( true );
+                break;
+
+            case START:
+                this.economyMode.setSelected( false );
+                this.inverterMode.setSelected( false );
+                this.swingMode.setSelected( false );
+                this.turboMode.setSelected( false );
+                break;
+
+            default:
+                this.economyMode.setSelected( false );
+                this.inverterMode.setSelected( false );
+                this.swingMode.setSelected( false );
+                this.turboMode.setSelected( false );
+                break;
+        }
     }
 
     /**
