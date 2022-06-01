@@ -171,9 +171,8 @@ public class TemperatureAdjustMenu extends JFrame {
                 if ( temperatureLabel.getText().equals( String.valueOf( temperature ) ) ) {
                     // Temperature was not modified
                     TemperatureAdjustMenu.this.dispose();
-                    final MainMenu mainMenu = new MainMenu();
+                    final MainMenu mainMenu = new MainMenu( temperature );
                     mainMenu.setVisible( true );
-
                 }
                 else {
                     // Temperature was modified
@@ -186,13 +185,19 @@ public class TemperatureAdjustMenu extends JFrame {
                     final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
                             JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
                     if ( result == JOptionPane.YES_OPTION ) {
+                        if ( TemperatureAdjustMenu.this.temperature >= TemperatureAdjustMenu.MAX_TEMPERATURE ) {
+                            TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MAX_TEMPERATURE - 1;
+                        }
+                        else if ( TemperatureAdjustMenu.this.temperature <= TemperatureAdjustMenu.MIN_TEMPERATURE ) {
+                            TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MIN_TEMPERATURE + 1;
+                        }
                         TemperatureAdjustMenu.this.dispose();
                         final MainMenu mainMenu = new MainMenu( TemperatureAdjustMenu.this.temperature );
                         mainMenu.setVisible( true );
                     }
                     else {
                         TemperatureAdjustMenu.this.dispose();
-                        final MainMenu mainMenu = new MainMenu();
+                        final MainMenu mainMenu = new MainMenu( temperature );
                         mainMenu.setVisible( true );
                     }
                 }
@@ -224,6 +229,12 @@ public class TemperatureAdjustMenu extends JFrame {
                 final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
                 if ( result == JOptionPane.YES_OPTION ) {
+                    if ( TemperatureAdjustMenu.this.temperature >= TemperatureAdjustMenu.MAX_TEMPERATURE ) {
+                        TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MAX_TEMPERATURE - 1;
+                    }
+                    else if ( TemperatureAdjustMenu.this.temperature <= TemperatureAdjustMenu.MIN_TEMPERATURE ) {
+                        TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MIN_TEMPERATURE + 1;
+                    }
                     TemperatureAdjustMenu.this.dispose();
                     final MainMenu mainMenu = new MainMenu( TemperatureAdjustMenu.this.temperature );
                     mainMenu.setVisible( true );
