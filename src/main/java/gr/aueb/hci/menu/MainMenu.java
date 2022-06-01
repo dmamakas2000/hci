@@ -54,17 +54,27 @@ public class MainMenu extends JFrame {
     private static final int START_TEMPERATURE = 25;
 
     /**
+     * Font.
+     */
+    private static final String FONT = Singleton.getInstance().getFont();
+
+    /**
      * Date-time attribute.
      */
     private String dateTimeString;
 
-    private JLabel statusLabelIcon;
-
+    /**
+     * Buttons.
+     */
     private JButton needHelpButton;
     private JButton switchOffButton;
     private JButton heatingButton;
     private JButton coolingButton;
 
+    /**
+     * Labels.
+     */
+    private JLabel statusLabelIcon;
     private JLabel inActionLabel;
     private JLabel temperatureLabel;
 
@@ -156,7 +166,7 @@ public class MainMenu extends JFrame {
         this.contentPane.add( cityLabel );
 
         final JLabel dateLabel = new JLabel( this.dateTimeString );
-        dateLabel.setFont( new Font( "Arial", Font.PLAIN, 20 ) );
+        dateLabel.setFont( new Font( MainMenu.FONT, Font.PLAIN, 20 ) );
         dateLabel.setBounds( 32, 71, 737, 53 );
         this.contentPane.add( dateLabel );
 
@@ -429,7 +439,7 @@ public class MainMenu extends JFrame {
                 "\u03A0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2    " );
         extraFunctionsButton.setVerticalTextPosition( SwingConstants.CENTER );
         extraFunctionsButton.setHorizontalTextPosition( SwingConstants.LEADING );
-        extraFunctionsButton.setFont( new Font( "Arial", Font.PLAIN, 26 ) );
+        extraFunctionsButton.setFont( new Font( MainMenu.FONT, Font.PLAIN, 26 ) );
         extraFunctionsButton.setFocusPainted( false );
         extraFunctionsButton.setBackground( Color.WHITE );
         extraFunctionsButton.setBounds( 172, 495, 450, 57 );
@@ -459,7 +469,7 @@ public class MainMenu extends JFrame {
                 break;
 
             case INVERTER:
-                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (ιονιστή)" );
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (αφύγρανσης)" );
                 break;
 
             case TURBO:
