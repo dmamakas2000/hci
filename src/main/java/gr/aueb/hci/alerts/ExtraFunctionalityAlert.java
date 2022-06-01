@@ -19,6 +19,10 @@ import javax.swing.border.EmptyBorder;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.ExtraState;
 
+/**
+ * Extra funtionality alert frame implementation.
+ *
+ */
 public class ExtraFunctionalityAlert extends JFrame {
 
     /**

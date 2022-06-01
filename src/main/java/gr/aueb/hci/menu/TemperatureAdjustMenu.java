@@ -21,6 +21,10 @@ import javax.swing.border.EmptyBorder;
 import gr.aueb.hci.panels.TemperatureAdjustMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Temperature adjust frame implementation.
+ *
+ */
 public class TemperatureAdjustMenu extends JFrame {
 
     /**

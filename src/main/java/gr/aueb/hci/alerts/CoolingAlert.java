@@ -18,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Cooling alert frame implementation.
+ *
+ */
 public class CoolingAlert extends JFrame {
 
     /**

@@ -18,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Start frame alert implementation.
+ *
+ */
 public class AirConditionStartupAlert extends JFrame {
 
     /**

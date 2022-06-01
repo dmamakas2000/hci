@@ -27,6 +27,10 @@ import gr.aueb.hci.panels.ExtraFunctionsMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.ExtraState;
 
+/**
+ * Extra functions frame implementation.
+ *
+ */
 public class ExtraFunctionsMenu extends JFrame {
 
     /**

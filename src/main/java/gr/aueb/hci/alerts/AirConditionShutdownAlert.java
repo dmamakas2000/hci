@@ -18,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Shutdown alert frame implementation.
+ *
+ */
 public class AirConditionShutdownAlert extends JFrame {
 
     /**

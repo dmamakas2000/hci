@@ -24,6 +24,10 @@ import gr.aueb.hci.components.RoundedButton;
 import gr.aueb.hci.menu.MainMenu;
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Starting frame implementation.
+ *
+ */
 public class StartingFrame extends JFrame {
 
     /**

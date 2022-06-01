@@ -29,6 +29,10 @@ import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
 
+/**
+ * Main frame implementation.
+ *
+ */
 public class MainMenu extends JFrame {
 
     /**

@@ -18,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 
 import gr.aueb.hci.singleton.Singleton;
 
+/**
+ * Heating alert frame implementation.
+ *
+ */
 public class HeatingAlert extends JFrame {
 
     /**
