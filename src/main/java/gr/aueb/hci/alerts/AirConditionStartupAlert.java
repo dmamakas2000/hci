@@ -47,7 +47,7 @@ public class AirConditionStartupAlert extends JFrame {
         setResizable( false );
         setIconImage( Toolkit.getDefaultToolkit()
                 .getImage( getClass().getClassLoader().getResource( Singleton.getInstance().getFrameIcon() ) ) );
-        setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        setDefaultCloseOperation( WindowConstants.DO_NOTHING_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
         this.contentPane = new JPanel();
         this.contentPane.setBackground( Color.WHITE );
