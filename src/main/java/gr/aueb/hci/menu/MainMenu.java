@@ -120,6 +120,7 @@ public class MainMenu extends JFrame {
      * Default constructor.
      */
     public MainMenu() {
+        setTitle( "\u039A\u03B5\u03BD\u03C4\u03C1\u03B9\u03BA\u03CC \u03BC\u03B5\u03BD\u03BF\u03CD" );
         init();
 
         this.temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );

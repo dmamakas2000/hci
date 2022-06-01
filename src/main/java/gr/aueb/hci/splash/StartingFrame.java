@@ -56,6 +56,7 @@ public class StartingFrame extends JFrame {
      * Default constructor.
      */
     public StartingFrame() {
+        setTitle( "\u0391\u03C1\u03C7\u03B9\u03BA\u03AE \u03BF\u03B8\u03CC\u03BD\u03B7" );
         setIconImage( Toolkit.getDefaultToolkit()
                 .getImage( getClass().getClassLoader().getResource( Singleton.getInstance().getFrameIcon() ) ) );
         setResizable( false );
