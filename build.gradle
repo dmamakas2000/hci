@@ -1,6 +1,4 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
 
@@ -18,11 +16,11 @@ repositories {
 	mavenCentral()
 }
 
+def versionLombok = '1.18.24'
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.projectlombok:lombok:' + versionLombok
+	annotationProcessor 'org.projectlombok:lombok:' + versionLombok
 }
 
 tasks.named('test') {
