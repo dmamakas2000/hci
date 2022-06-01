@@ -109,7 +109,8 @@ public class ExtraFunctionsMenu extends JFrame {
         setTitle(
                 "\u039C\u03B5\u03BD\u03BF\u03CD \u03C3\u03CD\u03BD\u03B8\u03B5\u03C4\u03C9\u03BD \u03B5\u03C0\u03B9\u03BB\u03BF\u03B3\u03CE\u03BD" );
         setResizable( false );
-        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
+        setIconImage( Toolkit.getDefaultToolkit()
+                .getImage( getClass().getClassLoader().getResource( Singleton.getInstance().getFrameIcon() ) ) );
         this.c = getContentPane();
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );
