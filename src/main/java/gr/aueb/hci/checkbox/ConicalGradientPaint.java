@@ -1,5 +1,11 @@
 package gr.aueb.hci.checkbox;
 
+/**
+ * Class which applies canonical gradient painting to custom components.
+ *
+ * @author hansolo
+ *
+ */
 public final class ConicalGradientPaint implements java.awt.Paint {
     private final java.awt.geom.Point2D CENTER;
     private final double[] FRACTION_ANGLES;

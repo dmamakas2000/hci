@@ -2,7 +2,18 @@ package gr.aueb.hci.checkbox;
 
 import javax.swing.JCheckBox;
 
+/**
+ * Custom checkbox class.
+ *
+ * @author hansolo
+ *
+ */
 public class SteelCheckBox extends JCheckBox {
+
+    /**
+     * Generated serial version UID.
+     */
+    private static final long serialVersionUID = -4880697188037634920L;
 
     private boolean colored = false;
     private boolean rised = false;

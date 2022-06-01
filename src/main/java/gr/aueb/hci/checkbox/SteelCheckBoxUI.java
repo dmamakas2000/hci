@@ -1,8 +1,14 @@
 package gr.aueb.hci.checkbox;
 
+/**
+ * Custom checkbox user interface.
+ *
+ * @author hansolo
+ *
+ */
 public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
         implements java.beans.PropertyChangeListener, java.awt.event.ComponentListener, java.awt.event.MouseListener {
-    // <editor-fold defaultstate="collapsed" desc="Variable declaration">
+
     private final SteelCheckBox CHECKBOX;
     private boolean mouseOver = false;
     private boolean mousePressed = false;
@@ -18,9 +24,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
     private java.awt.Color[] foregroundColors = { new java.awt.Color( 241, 242, 242, 255 ), new java.awt.Color( 224, 225, 226, 255 ),
             new java.awt.Color( 166, 169, 171, 255 ), new java.awt.Color( 124, 124, 124, 255 ) };
     private java.awt.LinearGradientPaint foregroundGradient;
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Constructor">
     public SteelCheckBoxUI( final SteelCheckBox CHECKBOX ) {
         this.CHECKBOX = CHECKBOX;
         this.CHECKBOX.addComponentListener( this );
@@ -28,9 +32,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
         this.CHECKBOX.addPropertyChangeListener( this );
         init();
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Initialization">
     private void init() {
         this.foreground = new java.awt.geom.RoundRectangle2D.Double(
                 this.pos.x + this.backgroundImage.getWidth() * 0.03846153989434242,
@@ -54,9 +56,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
         super.uninstallUI( COMPONENT );
         this.CHECKBOX.removeComponentListener( this );
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Paint method">
     @Override
     public synchronized void paint( final java.awt.Graphics g, final javax.swing.JComponent component ) {
         final java.awt.Graphics2D G2 = ( java.awt.Graphics2D ) g.create();
@@ -122,9 +122,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
 
         G2.dispose();
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Image creation methods">
     private java.awt.image.BufferedImage create_KNOB_Image( final int WIDTH, final boolean PRESSED ) {
         if ( WIDTH <= 0 ) {
             return null;
@@ -196,7 +194,6 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
                 java.awt.RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY );
         G2.setRenderingHint( java.awt.RenderingHints.KEY_COLOR_RENDERING, java.awt.RenderingHints.VALUE_COLOR_RENDER_QUALITY );
         G2.setRenderingHint( java.awt.RenderingHints.KEY_STROKE_CONTROL, java.awt.RenderingHints.VALUE_STROKE_PURE );
-        // G2.setRenderingHint(java.awt.RenderingHints.KEY_TEXT_ANTIALIASING, java.awt.RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         final int IMAGE_WIDTH = IMAGE.getWidth();
         final int IMAGE_HEIGHT = IMAGE.getHeight();
@@ -234,9 +231,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
 
         return IMAGE;
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Utility methods">
     public java.awt.geom.Point2D getCenteredTextPosition( final java.awt.Graphics2D G2, final java.awt.geom.Rectangle2D BOUNDARY,
             final java.awt.Font FONT, final String TEXT, final int ORIENTATION ) {
         // Get the visual center of the component.
@@ -275,9 +270,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
 
         return new java.awt.geom.Point2D.Double( TEXT_X, TEXT_Y );
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="MouseListener methods">
     @Override
     public void mouseClicked( final java.awt.event.MouseEvent event ) {
         this.mousePressed = false;
@@ -307,9 +300,7 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
         this.mouseOver = false;
         this.CHECKBOX.repaint();
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="ComponentListener methods">
     @Override
     public void componentResized( final java.awt.event.ComponentEvent EVENT ) {
         init();
@@ -330,15 +321,12 @@ public class SteelCheckBoxUI extends javax.swing.plaf.basic.BasicCheckBoxUI
     public void componentHidden( final java.awt.event.ComponentEvent EVENT ) {
 
     }
-    // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="PropertyChangeListener method">
     @Override
     public void propertyChange( final java.beans.PropertyChangeEvent EVENT ) {
         init();
         this.CHECKBOX.repaint();
     }
-    // </editor-fold>
 
     @Override
     public String toString() {

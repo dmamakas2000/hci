@@ -1,5 +1,11 @@
 package gr.aueb.hci.checkbox;
 
+/**
+ * Defines main colors used for checkboxes.
+ *
+ * @author hansolo
+ *
+ */
 public enum ColorDef {
 
     RED(new java.awt.Color( 162, 0, 0, 255 ), new java.awt.Color( 214, 62, 50, 255 ), new java.awt.Color( 252, 29, 0, 255 )), ORANGE(
