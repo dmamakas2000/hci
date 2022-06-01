@@ -42,6 +42,11 @@ public class TemperatureAdjustMenu extends JFrame {
     private ImageIcon saveChangesIcon = new ImageIcon( "assets/images/verification/check.png" );
 
     /**
+     * Font.
+     */
+    private static final String FONT = Singleton.getInstance().getFont();
+
+    /**
      * Temperature constants.
      */
     private static final int MAX_TEMPERATURE = 35;
@@ -90,7 +95,7 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( celciusLabel );
 
         final JButton increaseTempButton = new JButton( "+" );
-        increaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
+        increaseTempButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 50 ) );
         increaseTempButton.setBounds( 239, 127, 89, 46 );
         increaseTempButton.setFocusPainted( false );
         increaseTempButton.setOpaque( false );
@@ -118,7 +123,7 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( increaseTempButton );
 
         final JButton decreaseTempButton = new JButton( "-" );
-        decreaseTempButton.setFont( new Font( "Arial", Font.PLAIN, 50 ) );
+        decreaseTempButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 50 ) );
         decreaseTempButton.setBounds( 239, 348, 89, 46 );
         decreaseTempButton.setFocusPainted( false );
         decreaseTempButton.setBorder( null );
@@ -148,7 +153,7 @@ public class TemperatureAdjustMenu extends JFrame {
         final JButton goBackButton = new JButton(
                 " \u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
-        goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        goBackButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
         goBackButton.setBounds( 32, 539, 300, 55 );
         goBackButton.setFocusPainted( false );
         goBackButton.setIcon( this.goBackIcon );
@@ -190,7 +195,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton saveChangesButton = new JButton();
         saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        saveChangesButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 563, 208, 100, 100 );
@@ -221,7 +226,7 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( saveChangesButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        needHelpLabel.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 472, 539, 182, 46 );
         this.contentPane.add( needHelpLabel );
 
@@ -280,7 +285,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JLabel lblNewLabel = new JLabel(
                 "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
-        lblNewLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        lblNewLabel.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
         lblNewLabel.setBounds( 478, 319, 269, 39 );
         this.contentPane.add( lblNewLabel );
     }
