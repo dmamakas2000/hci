@@ -454,7 +454,7 @@ public class MainMenu extends JFrame {
                             "Κεντρικό μενού", 1 );
                 }
                 else {
-                    final ExtraFunctionsMenuNewVersion extraFunctionsMenu = new ExtraFunctionsMenuNewVersion(
+                    final ExtraFunctionsMenu extraFunctionsMenu = new ExtraFunctionsMenu(
                             Integer.valueOf( MainMenu.this.temperatureLabel.getText() ) );
                     extraFunctionsMenu.setVisible( true );
                     MainMenu.this.dispose();

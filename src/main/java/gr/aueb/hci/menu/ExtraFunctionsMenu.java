@@ -27,7 +27,7 @@ import gr.aueb.hci.panels.ExtraFunctionsMenuPanel;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.ExtraState;
 
-public class ExtraFunctionsMenuNewVersion extends JFrame {
+public class ExtraFunctionsMenu extends JFrame {
 
     /**
      * Generated serial version UID.
@@ -96,7 +96,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
     /**
      * Create the frame.
      */
-    public ExtraFunctionsMenuNewVersion( final int temp ) {
+    public ExtraFunctionsMenu( final int temp ) {
         /*
          * Basic frame settings.
          */
@@ -154,29 +154,29 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
 
         final JLabel lblNewLabel = new JLabel(
                 "\u039C\u03C0\u03BF\u03C1\u03B5\u03AF\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03BC\u03AF\u03B1 \u03B1\u03C0\u03CC \u03C4\u03B9\u03C2 \u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9" );
-        lblNewLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 30 ) );
+        lblNewLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 30 ) );
         lblNewLabel.setBounds( 94, 70, 612, 36 );
         this.pan.add( lblNewLabel );
 
         final JLabel lblNewLabel_1 = new JLabel(
                 "\u03B4\u03B9\u03B1\u03B8\u03AD\u03C3\u03B9\u03BC\u03B5\u03C2 \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B5\u03C2" );
-        lblNewLabel_1.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 30 ) );
+        lblNewLabel_1.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 30 ) );
         lblNewLabel_1.setBounds( 245, 99, 329, 36 );
         this.pan.add( lblNewLabel_1 );
 
-        this.economyLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        this.economyLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         this.economyLabel.setBounds( 94, 217, 273, 26 );
 
         this.pan.add( this.economyLabel );
-        this.turboLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        this.turboLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         this.turboLabel.setBounds( 94, 267, 273, 26 );
 
         this.pan.add( this.turboLabel );
-        this.swingLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        this.swingLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         this.swingLabel.setBounds( 94, 317, 273, 26 );
 
         this.pan.add( this.swingLabel );
-        this.inverterLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        this.inverterLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         this.inverterLabel.setBounds( 94, 367, 273, 26 );
 
         this.pan.add( this.inverterLabel );
@@ -189,27 +189,27 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             public void itemStateChanged( final ItemEvent e ) {
                 if ( e.getStateChange() == ItemEvent.SELECTED ) {
                     // Economy mode has been selected
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Επιλεγμένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Επιλεγμένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
                 }
                 else {
                     // Economy mode has been deselected
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
                 }
             }
         } );
@@ -219,28 +219,28 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             public void itemStateChanged( final ItemEvent e ) {
                 if ( e.getStateChange() == ItemEvent.SELECTED ) {
                     // Economy mode has been selected
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Επιλεγμένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Επιλεγμένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
 
                 }
                 else {
                     // Economy mode has been deselected
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
                 }
             }
         } );
@@ -250,27 +250,27 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             public void itemStateChanged( final ItemEvent e ) {
                 if ( e.getStateChange() == ItemEvent.SELECTED ) {
                     // Economy mode has been selected
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Επιλεγμένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Επιλεγμένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
                 }
                 else {
                     // Economy mode has been deselected
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.inverterMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
                 }
             }
         } );
@@ -280,34 +280,34 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             public void itemStateChanged( final ItemEvent e ) {
                 if ( e.getStateChange() == ItemEvent.SELECTED ) {
                     // Economy mode has been selected
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Επιλεγμένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Επιλεγμένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
                 }
                 else {
                     // Economy mode has been deselected
-                    ExtraFunctionsMenuNewVersion.this.inverterMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.inverterMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setText( "(Απενεργοποιημένο)" );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.swingMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.economyMode.setText( "(Απενεργοποιημένο)" );
+                    ExtraFunctionsMenu.this.turboMode.setText( "(Απενεργοποιημένο)" );
 
-                    ExtraFunctionsMenuNewVersion.this.swingMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.economyMode.setSelected( false );
-                    ExtraFunctionsMenuNewVersion.this.turboMode.setSelected( false );
+                    ExtraFunctionsMenu.this.swingMode.setSelected( false );
+                    ExtraFunctionsMenu.this.economyMode.setSelected( false );
+                    ExtraFunctionsMenu.this.turboMode.setSelected( false );
                 }
             }
         } );
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
-        goBackButton.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        goBackButton.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.setFocusPainted( false );
         goBackButton.setBounds( 31, 553, 273, 45 );
@@ -317,7 +317,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             @Override
             public void actionPerformed( final ActionEvent e ) {
                 final MainMenu menu = new MainMenu( temp );
-                ExtraFunctionsMenuNewVersion.this.dispose();
+                ExtraFunctionsMenu.this.dispose();
                 menu.setVisible( true );
             }
         } );
@@ -334,20 +334,19 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.needHelpButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                JOptionPane.showMessageDialog( null, ExtraFunctionsMenuNewVersion.HELP_MESSAGE, "Μενού βοήθειας σύνθετων επιλογών",
-                        1 );
+                JOptionPane.showMessageDialog( null, ExtraFunctionsMenu.HELP_MESSAGE, "Μενού βοήθειας σύνθετων επιλογών", 1 );
             }
         } );
         this.pan.add( this.needHelpButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        needHelpLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.pan.add( needHelpLabel );
 
         final JButton saveChangesButton = new JButton( "" );
         saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
+        saveChangesButton.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 329, 434, 100, 100 );
@@ -361,11 +360,11 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         saveChangesButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                if ( ExtraFunctionsMenuNewVersion.this.economyMode.isSelected() ) {
+                if ( ExtraFunctionsMenu.this.economyMode.isSelected() ) {
                     // Switch into economy mode
                     Singleton.getInstance().setExtraState( ExtraState.ECONOMY );
                     final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.ECONOMY );
-                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    ExtraFunctionsMenu.this.dispose();
                     alert.setVisible( true );
                     new java.util.Timer().schedule( new java.util.TimerTask() {
                         @Override
@@ -376,11 +375,11 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
                         }
                     }, 3000 );
                 }
-                else if ( ExtraFunctionsMenuNewVersion.this.turboMode.isSelected() ) {
+                else if ( ExtraFunctionsMenu.this.turboMode.isSelected() ) {
                     // Switch into turbo mode
                     Singleton.getInstance().setExtraState( ExtraState.TURBO );
                     final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.TURBO );
-                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    ExtraFunctionsMenu.this.dispose();
                     alert.setVisible( true );
                     new java.util.Timer().schedule( new java.util.TimerTask() {
                         @Override
@@ -391,11 +390,11 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
                         }
                     }, 3000 );
                 }
-                else if ( ExtraFunctionsMenuNewVersion.this.swingMode.isSelected() ) {
+                else if ( ExtraFunctionsMenu.this.swingMode.isSelected() ) {
                     // Switch into swing mode
                     Singleton.getInstance().setExtraState( ExtraState.SWING );
                     final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.SWING );
-                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    ExtraFunctionsMenu.this.dispose();
                     alert.setVisible( true );
                     new java.util.Timer().schedule( new java.util.TimerTask() {
                         @Override
@@ -406,11 +405,11 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
                         }
                     }, 3000 );
                 }
-                else if ( ExtraFunctionsMenuNewVersion.this.inverterMode.isSelected() ) {
+                else if ( ExtraFunctionsMenu.this.inverterMode.isSelected() ) {
                     // Switch into inverter mode
                     Singleton.getInstance().setExtraState( ExtraState.INVERTER );
                     final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.INVERTER );
-                    ExtraFunctionsMenuNewVersion.this.dispose();
+                    ExtraFunctionsMenu.this.dispose();
                     alert.setVisible( true );
                     new java.util.Timer().schedule( new java.util.TimerTask() {
                         @Override
@@ -475,7 +474,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             @Override
             public void run() {
                 try {
-                    final ExtraFunctionsMenuNewVersion frame = new ExtraFunctionsMenuNewVersion( 25 );
+                    final ExtraFunctionsMenu frame = new ExtraFunctionsMenu( 25 );
                     frame.setVisible( true );
                 }
                 catch ( final Exception e ) {
