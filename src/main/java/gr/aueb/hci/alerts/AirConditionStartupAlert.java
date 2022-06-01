@@ -66,6 +66,9 @@ public class AirConditionStartupAlert extends JFrame {
         verificationIconLabel.setIcon( this.verificationIcon );
         this.contentPane.add( verificationIconLabel );
 
+        /*
+         * Sound functionality.
+         */
         try {
             final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/start.wav" ) );
             final Clip clip = AudioSystem.getClip();

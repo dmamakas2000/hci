@@ -65,6 +65,9 @@ public class CoolingAlert extends JFrame {
         iconLabel.setIcon( this.snowFlakeIcon );
         this.contentPane.add( iconLabel );
 
+        /*
+         * Sound functionality.
+         */
         try {
             final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/cool.wav" ) );
             final Clip clip = AudioSystem.getClip();

@@ -25,27 +25,20 @@ public class ExtraFunctionalityAlert extends JFrame {
      */
     private static final long serialVersionUID = -8775861957547811528L;
 
+    /**
+     * Content pane.
+     */
     private JPanel contentPane;
 
+    /**
+     * Icon.
+     */
     private ImageIcon verificationIcon = new ImageIcon( "assets/images/verification/verification_icon.png" );
 
     /**
-     * Launch the application.
+     * Font.
      */
-    public static void main( final String[] args ) {
-        EventQueue.invokeLater( new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final ExtraFunctionalityAlert frame = new ExtraFunctionalityAlert( ExtraState.TURBO );
-                    frame.setVisible( true );
-                }
-                catch ( final Exception e ) {
-                    e.printStackTrace();
-                }
-            }
-        } );
-    }
+    private static final String FONT = Singleton.getInstance().getFont();
 
     /**
      * Create the frame.
@@ -62,13 +55,13 @@ public class ExtraFunctionalityAlert extends JFrame {
 
         final JLabel labelFirst = new JLabel(
                 "\u0388\u03C7\u03B5\u03C4\u03B5 \u03B5\u03BD\u03B5\u03C1\u03B3\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03B5\u03B9 \u03C4\u03B7\u03BD \u03BB\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1" );
-        labelFirst.setFont( new Font( "Arial", Font.PLAIN, 45 ) );
+        labelFirst.setFont( new Font( ExtraFunctionalityAlert.FONT, Font.PLAIN, 45 ) );
         labelFirst.setBounds( 30, 48, 752, 73 );
         this.contentPane.add( labelFirst );
 
         final JLabel labelSecond = new JLabel( "" );
-        labelSecond.setFont( new Font( "Arial", Font.PLAIN, 45 ) );
-        labelSecond.setBounds( 165, 132, 581, 73 );
+        labelSecond.setFont( new Font( ExtraFunctionalityAlert.FONT, Font.PLAIN, 45 ) );
+        labelSecond.setBounds( 165, 116, 581, 73 );
         this.contentPane.add( labelSecond );
 
         final JLabel imageLabel = new JLabel( "" );
@@ -105,6 +98,9 @@ public class ExtraFunctionalityAlert extends JFrame {
                     audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/swing.wav" ) );
                     break;
             }
+            /*
+             * Sound functionality.
+             */
             final Clip clip = AudioSystem.getClip();
             clip.open( audio );
             clip.start();
@@ -112,5 +108,23 @@ public class ExtraFunctionalityAlert extends JFrame {
         catch ( final Exception e ) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Launch the application.
+     */
+    public static void main( final String[] args ) {
+        EventQueue.invokeLater( new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final ExtraFunctionalityAlert frame = new ExtraFunctionalityAlert( ExtraState.TURBO );
+                    frame.setVisible( true );
+                }
+                catch ( final Exception e ) {
+                    e.printStackTrace();
+                }
+            }
+        } );
     }
 }

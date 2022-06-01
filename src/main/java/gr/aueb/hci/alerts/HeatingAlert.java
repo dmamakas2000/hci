@@ -30,6 +30,9 @@ public class HeatingAlert extends JFrame {
      */
     private JPanel contentPane;
 
+    /**
+     * Icon.
+     */
     ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
 
     /**
@@ -62,6 +65,9 @@ public class HeatingAlert extends JFrame {
         fire.setIcon( this.fireIcon );
         this.contentPane.add( fire );
 
+        /*
+         * Sound functionality.
+         */
         try {
             final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/heat.wav" ) );
             final Clip clip = AudioSystem.getClip();

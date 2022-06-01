@@ -30,7 +30,15 @@ public class AirConditionShutdownAlert extends JFrame {
      */
     private JPanel contentPane;
 
+    /**
+     * Icon.
+     */
     private ImageIcon verificationIcon = new ImageIcon( "assets/images/verification/verification_icon.png" );
+
+    /**
+     * Font.
+     */
+    private static final String FONT = Singleton.getInstance().getFont();
 
     /**
      * Create the frame.
@@ -47,12 +55,12 @@ public class AirConditionShutdownAlert extends JFrame {
 
         final JLabel verificationMessage1 = new JLabel(
                 "\u03A4\u03BF \u03BA\u03BB\u03B9\u03BC\u03B1\u03C4\u03B9\u03C3\u03C4\u03B9\u03BA\u03CC \u03B1\u03C0\u03B5\u03BD\u03B5\u03C1\u03B3\u03BF\u03C0\u03BF\u03B9\u03AE\u03B8\u03B7\u03BA\u03B5" );
-        verificationMessage1.setFont( new Font( "Arial", Font.PLAIN, 45 ) );
+        verificationMessage1.setFont( new Font( AirConditionShutdownAlert.FONT, Font.PLAIN, 45 ) );
         verificationMessage1.setBounds( 34, 67, 721, 69 );
         this.contentPane.add( verificationMessage1 );
 
         final JLabel verificationMessage2 = new JLabel( "\u03B5\u03C0\u03B9\u03C4\u03C5\u03C7\u03CE\u03C2!" );
-        verificationMessage2.setFont( new Font( "Arial", Font.PLAIN, 45 ) );
+        verificationMessage2.setFont( new Font( AirConditionShutdownAlert.FONT, Font.PLAIN, 45 ) );
         verificationMessage2.setBounds( 285, 128, 225, 52 );
         this.contentPane.add( verificationMessage2 );
 
@@ -61,6 +69,9 @@ public class AirConditionShutdownAlert extends JFrame {
         verificationLabel.setIcon( this.verificationIcon );
         this.contentPane.add( verificationLabel );
 
+        /*
+         * Sound functionality.
+         */
         try {
             final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/end.wav" ) );
             final Clip clip = AudioSystem.getClip();
