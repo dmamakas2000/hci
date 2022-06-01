@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import javax.swing.ImageIcon;
@@ -157,13 +156,9 @@ public class MainMenu extends JFrame {
         this.contentPane.setLayout( null );
 
         // Current date-time initialization
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "E, MMM dd yyyy HH:mm" );
-        final String formattedDate = LocalDateTime.now().format( formatter );
-        final String day = formattedDate.substring( 0, 3 );
-        final String month = formattedDate.substring( 5, 8 );
-        final String dayNum = formattedDate.substring( 9, 11 );
-        final String yearAndTime = formattedDate.substring( 12 );
-        this.dateTimeString = translator( day, month, dayNum, yearAndTime );
+        final LocalDateTime dateTimeNow = LocalDateTime.now();
+        this.dateTimeString = translator( dateTimeNow.getDayOfWeek().toString(), dateTimeNow.getMonth().toString(),
+                dateTimeNow.getDayOfMonth(), dateTimeNow.getHour(), dateTimeNow.getMinute(), dateTimeNow.getYear() );
     }
 
     /**
@@ -505,34 +500,35 @@ public class MainMenu extends JFrame {
      * @param yearTime Current year.
      * @return Concatenated string containing all those attributes.
      */
-    private String translator( final String day, final String month, final String numDate, final String yearTime ) {
+    private String translator( final String day, final String month, final int dayMonth, final int hour, final int minute,
+            final int year ) {
         String translatedDay = "";
         switch ( day ) {
-            case "Δευ":
+            case "MONDAY":
                 translatedDay = "Δευτέρα";
                 break;
 
-            case "Τρι":
+            case "TUESDAY":
                 translatedDay = "Τρίτη";
                 break;
 
-            case "Τετ":
+            case "WEDNESDAY":
                 translatedDay = "Τετάρτη";
                 break;
 
-            case "Πεμ":
+            case "THURSDAY":
                 translatedDay = "Πέμπτη";
                 break;
 
-            case "Παρ":
+            case "FRIDAY":
                 translatedDay = "Παρασκευή";
                 break;
 
-            case "Σαβ":
+            case "SATURDAY":
                 translatedDay = "Σάββατο";
                 break;
 
-            case "Κυρ":
+            case "SUNDAY":
                 translatedDay = "Κυριακή";
                 break;
 
@@ -543,39 +539,51 @@ public class MainMenu extends JFrame {
 
         String translatedMonth = "";
         switch ( month ) {
-            case "Απρ":
+            case "JANUARY":
+                translatedMonth = "Ιανουαρίου";
+                break;
+
+            case "FEBRUARY":
+                translatedMonth = "Φεβρουαρίου";
+                break;
+
+            case "MARCH":
+                translatedMonth = "Μαρτίου";
+                break;
+
+            case "APRIL":
                 translatedMonth = "Απριλίου";
                 break;
 
-            case "Μαι":
-                translatedMonth = "Μαίου";
+            case "MAY":
+                translatedMonth = "Μαΐου";
                 break;
 
-            case "Ιουν":
+            case "JUNE":
                 translatedMonth = "Ιουνίου";
                 break;
 
-            case "Ιουλ":
+            case "JULY":
                 translatedMonth = "Ιουλίου";
                 break;
 
-            case "Αυγ":
+            case "AUGUST":
                 translatedMonth = "Αυγούστου";
                 break;
 
-            case "Σεπ":
+            case "SEPTEMBER":
                 translatedMonth = "Σεπτεμβρίου";
                 break;
 
-            case "Οκτ":
+            case "OCTOBER":
                 translatedMonth = "Οκτωβρίου";
                 break;
 
-            case "Νοε":
+            case "NOVEMBER":
                 translatedMonth = "Νοεμβρίου";
                 break;
 
-            case "Δεκ":
+            case "DECEMBER":
                 translatedMonth = "Δεκεμβρίου";
                 break;
 
@@ -583,7 +591,7 @@ public class MainMenu extends JFrame {
                 translatedMonth = month;
                 break;
         }
-        return translatedDay + ", " + numDate + " " + translatedMonth + " " + yearTime;
+        return translatedDay + ", " + dayMonth + " " + translatedMonth + " " + year + " - " + hour + ":" + minute;
     }
 
     /**
