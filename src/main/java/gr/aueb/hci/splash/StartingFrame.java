@@ -43,8 +43,8 @@ public class StartingFrame extends JFrame {
     /**
      * Icons.
      */
-    private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
-    private ImageIcon hermes = new ImageIcon( "./assets/images/hermes/3_AUEB-emblem-HR.png" );
+    private ImageIcon needHelpIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/help/info.png" ) );
+    private ImageIcon hermes = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/hermes/3_AUEB-emblem-HR.png" ) );
 
     /**
      * Help message.
@@ -56,7 +56,8 @@ public class StartingFrame extends JFrame {
      * Default constructor.
      */
     public StartingFrame() {
-        setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
+        setIconImage( Toolkit.getDefaultToolkit()
+                .getImage( getClass().getClassLoader().getResource( Singleton.getInstance().getFrameIcon() ) ) );
         setResizable( false );
         setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setBounds( 100, 100, Singleton.getInstance().getWindowSizeWidth(), Singleton.getInstance().getWindowSizeHeight() );

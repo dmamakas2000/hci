@@ -40,10 +40,12 @@ public class TemperatureAdjustMenu extends JFrame {
     /**
      * Icons.
      */
-    private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
-    private ImageIcon thermometerIcon = new ImageIcon( "assets/images/thermometer/thermometer_icon.png" );
-    private ImageIcon goBackIcon = new ImageIcon( "assets/images/back/go-back.png" );
-    private ImageIcon saveChangesIcon = new ImageIcon( "assets/images/verification/check.png" );
+    private ImageIcon needHelpIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/help/info.png" ) );
+    private ImageIcon thermometerIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/thermometer/thermometer_icon.png" ) );
+    private ImageIcon goBackIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/back/go-back.png" ) );
+    private ImageIcon saveChangesIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/verification/check.png" ) );
 
     /**
      * Font.

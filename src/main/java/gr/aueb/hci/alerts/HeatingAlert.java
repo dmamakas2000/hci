@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.io.File;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -37,7 +36,7 @@ public class HeatingAlert extends JFrame {
     /**
      * Icon.
      */
-    ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
+    private ImageIcon fireIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/heat/fire.png" ) );
 
     /**
      * Create the frame.
@@ -73,7 +72,8 @@ public class HeatingAlert extends JFrame {
          * Sound functionality.
          */
         try {
-            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/heat.wav" ) );
+            final AudioInputStream audio = AudioSystem
+                    .getAudioInputStream( getClass().getClassLoader().getResource( "assets/sound/heat.wav" ) );
             final Clip clip = AudioSystem.getClip();
             clip.open( audio );
             clip.start();

@@ -43,14 +43,18 @@ public class MainMenu extends JFrame {
     /**
      * Icons.
      */
-    private ImageIcon fireIcon = new ImageIcon( "assets/images/heat/fire.png" );
-    private ImageIcon snowFlakeIcon = new ImageIcon( "assets/images/cool/snowflake.png" );
-    private ImageIcon fireIconForButton = new ImageIcon( "assets/images/heat/fire_icon.png" );
-    private ImageIcon snowFlakeIconForButton = new ImageIcon( "assets/images/cool/snowflake_icon.png" );
-    private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
-    private ImageIcon shutDownIcon = new ImageIcon( "assets/images/shutdown/shutdown_icon.png" );
-    private ImageIcon adjustIcon = new ImageIcon( "assets/images/adjust/adjust-icon.png" );
-    private ImageIcon settingIcon = new ImageIcon( "assets/images/setting/setting.png" );
+    private ImageIcon fireIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/heat/fire.png" ) );
+    private ImageIcon snowFlakeIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/cool/snowflake.png" ) );
+    private ImageIcon fireIconForButton = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/heat/fire_icon.png" ) );
+    private ImageIcon snowFlakeIconForButton = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/cool/snowflake_icon.png" ) );
+    private ImageIcon needHelpIconForButton = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/help/info.png" ) );
+    private ImageIcon shutDownIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/shutdown/shutdown_icon.png" ) );
+    private ImageIcon adjustIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/adjust/adjust-icon.png" ) );
+    private ImageIcon settingIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/setting/setting.png" ) );
 
     /**
      * Starting temperature constant.

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.io.File;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -32,7 +31,8 @@ public class AirConditionStartupAlert extends JFrame {
     /**
      * Icon.
      */
-    private ImageIcon verificationIcon = new ImageIcon( "assets/images/verification/verification_icon.png" );
+    private ImageIcon verificationIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/verification/verification_icon.png" ) );
 
     /**
      * Content pane.
@@ -74,7 +74,8 @@ public class AirConditionStartupAlert extends JFrame {
          * Sound functionality.
          */
         try {
-            final AudioInputStream audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/start.wav" ) );
+            final AudioInputStream audio = AudioSystem
+                    .getAudioInputStream( getClass().getClassLoader().getResource( "assets/sound/start.wav" ) );
             final Clip clip = AudioSystem.getClip();
             clip.open( audio );
             clip.start();
