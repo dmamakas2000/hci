@@ -24,6 +24,7 @@ import gr.aueb.hci.alerts.AirConditionShutdownAlert;
 import gr.aueb.hci.alerts.CoolingAlert;
 import gr.aueb.hci.alerts.HeatingAlert;
 import gr.aueb.hci.panels.MainMenuPanel;
+import gr.aueb.hci.service.DateTimeTranslatorService;
 import gr.aueb.hci.singleton.Singleton;
 import gr.aueb.hci.singleton.Singleton.State;
 import gr.aueb.hci.splash.StartingFrame;
@@ -38,6 +39,11 @@ public class MainMenu extends JFrame {
      * Serial version UID.
      */
     private static final long serialVersionUID = 7391903381566791295L;
+
+    /**
+     * Date & time translator service.
+     */
+    DateTimeTranslatorService translatorService = new DateTimeTranslatorService();
 
     /**
      * Icons.
@@ -157,8 +163,9 @@ public class MainMenu extends JFrame {
 
         // Current date-time initialization
         final LocalDateTime dateTimeNow = LocalDateTime.now();
-        this.dateTimeString = translator( dateTimeNow.getDayOfWeek().toString(), dateTimeNow.getMonth().toString(),
-                dateTimeNow.getDayOfMonth(), dateTimeNow.getHour(), dateTimeNow.getMinute(), dateTimeNow.getYear() );
+        this.dateTimeString = this.translatorService.dateTimeTranslator( dateTimeNow.getDayOfWeek().toString(),
+                dateTimeNow.getMonth().toString(), dateTimeNow.getDayOfMonth(), dateTimeNow.getHour(), dateTimeNow.getMinute(),
+                dateTimeNow.getYear() );
     }
 
     /**
@@ -489,109 +496,6 @@ public class MainMenu extends JFrame {
                 MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() );
                 break;
         }
-    }
-
-    /**
-     * Translates a given String constants into the preferred format.
-     *
-     * @param day Current day.
-     * @param month Current month.
-     * @param numDate Current date.
-     * @param yearTime Current year.
-     * @return Concatenated string containing all those attributes.
-     */
-    private String translator( final String day, final String month, final int dayMonth, final int hour, final int minute,
-            final int year ) {
-        String translatedDay = "";
-        switch ( day ) {
-            case "MONDAY":
-                translatedDay = "Δευτέρα";
-                break;
-
-            case "TUESDAY":
-                translatedDay = "Τρίτη";
-                break;
-
-            case "WEDNESDAY":
-                translatedDay = "Τετάρτη";
-                break;
-
-            case "THURSDAY":
-                translatedDay = "Πέμπτη";
-                break;
-
-            case "FRIDAY":
-                translatedDay = "Παρασκευή";
-                break;
-
-            case "SATURDAY":
-                translatedDay = "Σάββατο";
-                break;
-
-            case "SUNDAY":
-                translatedDay = "Κυριακή";
-                break;
-
-            default:
-                translatedDay = day;
-                break;
-        }
-
-        String translatedMonth = "";
-        switch ( month ) {
-            case "JANUARY":
-                translatedMonth = "Ιανουαρίου";
-                break;
-
-            case "FEBRUARY":
-                translatedMonth = "Φεβρουαρίου";
-                break;
-
-            case "MARCH":
-                translatedMonth = "Μαρτίου";
-                break;
-
-            case "APRIL":
-                translatedMonth = "Απριλίου";
-                break;
-
-            case "MAY":
-                translatedMonth = "Μαΐου";
-                break;
-
-            case "JUNE":
-                translatedMonth = "Ιουνίου";
-                break;
-
-            case "JULY":
-                translatedMonth = "Ιουλίου";
-                break;
-
-            case "AUGUST":
-                translatedMonth = "Αυγούστου";
-                break;
-
-            case "SEPTEMBER":
-                translatedMonth = "Σεπτεμβρίου";
-                break;
-
-            case "OCTOBER":
-                translatedMonth = "Οκτωβρίου";
-                break;
-
-            case "NOVEMBER":
-                translatedMonth = "Νοεμβρίου";
-                break;
-
-            case "DECEMBER":
-                translatedMonth = "Δεκεμβρίου";
-                break;
-
-            default:
-                translatedMonth = month;
-                break;
-        }
-        return translatedDay + ", " + dayMonth + " " + translatedMonth + " " + year + " - " + hour + ":" + minute;
     }
 
     /**
