@@ -30,21 +30,36 @@ import gr.aueb.hci.singleton.Singleton.ExtraState;
 public class ExtraFunctionsMenuNewVersion extends JFrame {
 
     /**
-     *
+     * Generated serial version UID.
      */
     private static final long serialVersionUID = 7579920525804346619L;
 
+    /**
+     * Container.
+     */
     Container c;
 
+    /**
+     * Panel.
+     */
     private ExtraFunctionsMenuPanel pan = new ExtraFunctionsMenuPanel();
 
+    /**
+     * Button.
+     */
     private JButton needHelpButton;
 
-    SteelCheckBox economyMode = new SteelCheckBox();
-    SteelCheckBox inverterMode = new SteelCheckBox();
-    SteelCheckBox turboMode = new SteelCheckBox();
-    SteelCheckBox swingMode = new SteelCheckBox();
+    /**
+     * Checkboxes.
+     */
+    private SteelCheckBox economyMode = new SteelCheckBox();
+    private SteelCheckBox inverterMode = new SteelCheckBox();
+    private SteelCheckBox turboMode = new SteelCheckBox();
+    private SteelCheckBox swingMode = new SteelCheckBox();
 
+    /**
+     * Font.
+     */
     private static final String FONT = Singleton.getInstance().getFont();
 
     /**
@@ -66,6 +81,9 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
             + "Σε περίπτωση που θέλετε να επιστρέψετε στην αρχική οθόνη χωρίς κάποια επιπλέον αλλαγή πατήστε <<Πήγαινε με πίσω>>"
             + "· \n";
 
+    /**
+     * Labels.
+     */
     private final JLabel economyLabel = new JLabel(
             "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 \u03BF\u03B9\u03BA\u03BF\u03BD\u03BF\u03BC\u03AF\u03B1\u03C2" );
     private final JLabel turboLabel = new JLabel(
@@ -79,6 +97,11 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
      * Create the frame.
      */
     public ExtraFunctionsMenuNewVersion( final int temp ) {
+        /*
+         * Basic frame settings.
+         */
+        setTitle(
+                "\u039C\u03B5\u03BD\u03BF\u03CD \u03C3\u03CD\u03BD\u03B8\u03B5\u03C4\u03C9\u03BD \u03B5\u03C0\u03B9\u03BB\u03BF\u03B3\u03CE\u03BD" );
         setResizable( false );
         setIconImage( Toolkit.getDefaultToolkit().getImage( Singleton.getInstance().getFrameIcon() ) );
         this.c = getContentPane();
@@ -88,6 +111,9 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.setBorder( new EmptyBorder( 5, 5, 5, 5 ) );
         this.pan.setLayout( null );
 
+        /*
+         * Checkboxes settings.
+         */
         this.economyMode.setBounds( 485, 217, 206, 26 );
         this.economyMode.setColored( true );
         this.economyMode.setFocusPainted( false );
@@ -96,7 +122,6 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.economyMode.setText( "(Απενεργοποιημένο)" );
         this.pan.add( this.economyMode );
 
-        this.turboMode.setBackground( Color.WHITE );
         this.turboMode.setBounds( 485, 267, 206, 26 );
         this.turboMode.setColored( true );
         this.turboMode.setFocusPainted( false );
@@ -106,7 +131,6 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.turboMode.setText( "(Απενεργοποιημένο)" );
         this.pan.add( this.turboMode );
 
-        this.swingMode.setBackground( Color.WHITE );
         this.swingMode.setBounds( 485, 317, 206, 26 );
         this.swingMode.setColored( true );
         this.swingMode.setFocusPainted( false );
@@ -116,7 +140,6 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.swingMode.setText( "(Απενεργοποιημένο)" );
         this.pan.add( this.swingMode );
 
-        this.inverterMode.setBackground( Color.WHITE );
         this.inverterMode.setBounds( 485, 367, 206, 26 );
         this.inverterMode.setColored( true );
         this.inverterMode.setFocusPainted( false );
@@ -141,23 +164,26 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         lblNewLabel_1.setBounds( 245, 99, 329, 36 );
         this.pan.add( lblNewLabel_1 );
 
-        this.economyLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        this.economyLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         this.economyLabel.setBounds( 94, 217, 273, 26 );
 
         this.pan.add( this.economyLabel );
-        this.turboLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        this.turboLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         this.turboLabel.setBounds( 94, 267, 273, 26 );
 
         this.pan.add( this.turboLabel );
-        this.swingLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        this.swingLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         this.swingLabel.setBounds( 94, 317, 273, 26 );
 
         this.pan.add( this.swingLabel );
-        this.inverterLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        this.inverterLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         this.inverterLabel.setBounds( 94, 367, 273, 26 );
 
         this.pan.add( this.inverterLabel );
 
+        /*
+         * Checkboxes functionality.
+         */
         this.economyMode.addItemListener( new ItemListener() {
             @Override
             public void itemStateChanged( final ItemEvent e ) {
@@ -281,7 +307,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
 
         final JButton goBackButton = new JButton( "\u03A0\u03AE\u03B3\u03B1\u03B9\u03BD\u03B5 \u03BC\u03B5 \u03C0\u03AF\u03C3\u03C9" );
         goBackButton.setBackground( Color.WHITE );
-        goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        goBackButton.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.setFocusPainted( false );
         goBackButton.setBounds( 31, 553, 273, 45 );
@@ -315,13 +341,13 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         this.pan.add( this.needHelpButton );
 
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
-        needHelpLabel.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        needHelpLabel.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.pan.add( needHelpLabel );
 
         final JButton saveChangesButton = new JButton( "" );
         saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
+        saveChangesButton.setFont( new Font( ExtraFunctionsMenuNewVersion.FONT, Font.PLAIN, 25 ) );
         saveChangesButton.setFocusPainted( false );
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 329, 434, 100, 100 );
@@ -437,10 +463,6 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
                 break;
 
             default:
-                this.economyMode.setSelected( false );
-                this.inverterMode.setSelected( false );
-                this.swingMode.setSelected( false );
-                this.turboMode.setSelected( false );
                 break;
         }
     }
