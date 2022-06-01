@@ -3,7 +3,11 @@ package gr.aueb.hci.alerts;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -72,26 +76,41 @@ public class ExtraFunctionalityAlert extends JFrame {
         imageLabel.setIcon( this.verificationIcon );
         this.contentPane.add( imageLabel );
 
-        switch ( state ) {
-            case INVERTER:
-                labelSecond.setText( "αφύγρανσης επιτυχώς!" );
-                break;
+        try {
+            final AudioInputStream audio;
+            switch ( state ) {
 
-            case ECONOMY:
-                labelSecond.setText( "οικονομίας επιτυχώς!" );
-                break;
+                case INVERTER:
+                    labelSecond.setText( "αφύγρανσης επιτυχώς!" );
+                    audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/inverter.wav" ) );
+                    break;
 
-            case TURBO:
-                labelSecond.setText( "ενίσχυσης επιτυχώς!" );
-                break;
+                case ECONOMY:
+                    labelSecond.setText( "οικονομίας επιτυχώς!" );
+                    audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/economy.wav" ) );
+                    break;
 
-            case SWING:
-                labelSecond.setText( "περιστροφής επιτυχώς!" );
-                break;
+                case TURBO:
+                    labelSecond.setText( "ενίσχυσης επιτυχώς!" );
+                    audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/turbo.wav" ) );
+                    break;
 
-            default:
-                labelSecond.setText( "" );
-                break;
+                case SWING:
+                    labelSecond.setText( "περιστροφής επιτυχώς!" );
+                    audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/swing.wav" ) );
+                    break;
+
+                default:
+                    labelSecond.setText( "" );
+                    audio = AudioSystem.getAudioInputStream( new File( "./assets/sound/swing.wav" ) );
+                    break;
+            }
+            final Clip clip = AudioSystem.getClip();
+            clip.open( audio );
+            clip.start();
+        }
+        catch ( final Exception e ) {
+            e.printStackTrace();
         }
     }
 }
