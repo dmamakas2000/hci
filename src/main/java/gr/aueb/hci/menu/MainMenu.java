@@ -46,6 +46,7 @@ public class MainMenu extends JFrame {
     private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
     private ImageIcon shutDownIcon = new ImageIcon( "assets/images/shutdown/shutdown_icon.png" );
     private ImageIcon adjustIcon = new ImageIcon( "assets/images/adjust/adjust-icon.png" );
+    private ImageIcon settingIcon = new ImageIcon( "assets/images/setting/setting.png" );
 
     /**
      * Starting temperature constant.
@@ -349,7 +350,7 @@ public class MainMenu extends JFrame {
         temperatureAdjustButton.setBackground( Color.WHITE );
         temperatureAdjustButton.setBounds( 172, 427, 450, 57 );
         temperatureAdjustButton.setFocusPainted( false );
-        temperatureAdjustButton.setIcon( new ImageIcon( "icons8-hot-48.png" ) );
+        temperatureAdjustButton.setIcon( this.adjustIcon );
         temperatureAdjustButton.setContentAreaFilled( false );
         temperatureAdjustButton.setVerticalTextPosition( SwingConstants.CENTER );
         temperatureAdjustButton.setHorizontalTextPosition( SwingConstants.LEADING );
@@ -432,7 +433,7 @@ public class MainMenu extends JFrame {
         extraFunctionsButton.setFocusPainted( false );
         extraFunctionsButton.setBackground( Color.WHITE );
         extraFunctionsButton.setBounds( 172, 495, 450, 57 );
-        extraFunctionsButton.setIcon( new ImageIcon( "icons8-setting-64.png" ) );
+        extraFunctionsButton.setIcon( this.settingIcon );
         extraFunctionsButton.setContentAreaFilled( false );
         extraFunctionsButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         extraFunctionsButton.addActionListener( new ActionListener() {

@@ -51,6 +51,8 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
      * Icons.
      */
     private ImageIcon needHelpIconForButton = new ImageIcon( "assets/images/help/info.png" );
+    private ImageIcon goBackIcon = new ImageIcon( "assets/images/back/go-back.png" );
+    private ImageIcon saveChangesIcon = new ImageIcon( "assets/images/verification/check.png" );
 
     /**
      * Help message.
@@ -283,7 +285,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.setFocusPainted( false );
         goBackButton.setBounds( 31, 553, 273, 45 );
-        goBackButton.setIcon( new ImageIcon( "icons8-previous-32.png" ) );
+        goBackButton.setIcon( this.goBackIcon );
         goBackButton.setContentAreaFilled( false );
         goBackButton.addActionListener( new ActionListener() {
             @Override
@@ -324,7 +326,7 @@ public class ExtraFunctionsMenuNewVersion extends JFrame {
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 329, 434, 100, 100 );
         saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setIcon( new ImageIcon( "icons8-check-circle-96.png" ) );
+        saveChangesButton.setIcon( this.saveChangesIcon );
         saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
         saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
         saveChangesButton.setOpaque( false );

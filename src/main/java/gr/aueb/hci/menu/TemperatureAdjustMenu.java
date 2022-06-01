@@ -36,8 +36,10 @@ public class TemperatureAdjustMenu extends JFrame {
     /**
      * Icons.
      */
-    ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
-    ImageIcon thermometerIcon = new ImageIcon( "assets/images/thermometer/thermometer_icon.png" );
+    private ImageIcon needHelpIcon = new ImageIcon( "assets/images/help/info.png" );
+    private ImageIcon thermometerIcon = new ImageIcon( "assets/images/thermometer/thermometer_icon.png" );
+    private ImageIcon goBackIcon = new ImageIcon( "assets/images/back/go-back.png" );
+    private ImageIcon saveChangesIcon = new ImageIcon( "assets/images/verification/check.png" );
 
     /**
      * Temperature constants.
@@ -149,7 +151,7 @@ public class TemperatureAdjustMenu extends JFrame {
         goBackButton.setFont( new Font( "Arial", Font.PLAIN, 25 ) );
         goBackButton.setBounds( 32, 539, 300, 55 );
         goBackButton.setFocusPainted( false );
-        goBackButton.setIcon( new ImageIcon( "icons8-previous-32.png" ) );
+        goBackButton.setIcon( this.goBackIcon );
         goBackButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         goBackButton.addActionListener( new ActionListener() {
             @Override
@@ -193,7 +195,7 @@ public class TemperatureAdjustMenu extends JFrame {
         saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         saveChangesButton.setBounds( 563, 208, 100, 100 );
         saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setIcon( new ImageIcon( "icons8-check-circle-96.png" ) );
+        saveChangesButton.setIcon( this.saveChangesIcon );
         saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
         saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
         saveChangesButton.setOpaque( false );
