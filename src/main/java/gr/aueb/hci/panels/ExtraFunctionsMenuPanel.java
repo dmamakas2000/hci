@@ -8,6 +8,10 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+/**
+ * Panel used on {@code gr.aueb.hci.menu.ExtraFunctionsMenu.java} in order to create gradient.
+ *
+ */
 public class ExtraFunctionsMenuPanel extends JPanel {
 
     /**
@@ -15,6 +19,9 @@ public class ExtraFunctionsMenuPanel extends JPanel {
      */
     private static final long serialVersionUID = -1813449087016414410L;
 
+    /**
+     * Paints the panel using gradient.
+     */
     @Override
     protected void paintComponent( final Graphics g ) {
         super.paintComponent( g );

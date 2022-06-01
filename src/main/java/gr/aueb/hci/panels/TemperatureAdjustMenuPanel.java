@@ -8,6 +8,10 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+/**
+ * Panel used on {@code gr.aueb.hci.menu.TemperatureAdjustMenu.java} in order to create gradient.
+ *
+ */
 public class TemperatureAdjustMenuPanel extends JPanel {
 
     /**
@@ -15,6 +19,9 @@ public class TemperatureAdjustMenuPanel extends JPanel {
      */
     private static final long serialVersionUID = -3486180005084278822L;
 
+    /**
+     * Paints the panel using gradient.
+     */
     @Override
     protected void paintComponent( final Graphics g ) {
         super.paintComponent( g );

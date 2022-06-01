@@ -13,6 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Panel used on {@code gr.aueb.hci.menu.MainMenu.java} in order to create gradient.
+ *
+ */
 @AllArgsConstructor
 @Getter
 @Setter
@@ -23,8 +27,14 @@ public class MainMenuPanel extends JPanel {
      */
     private static final long serialVersionUID = 3552956647717203346L;
 
+    /**
+     * Color changing depending on the state.
+     */
     private State state;
 
+    /**
+     * Paints the panel using gradient.
+     */
     @Override
     protected void paintComponent( final Graphics g ) {
         super.paintComponent( g );
