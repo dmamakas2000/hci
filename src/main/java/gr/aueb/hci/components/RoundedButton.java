@@ -6,10 +6,22 @@ import java.awt.Insets;
 
 import javax.swing.border.Border;
 
+/**
+ * Rounded border class used to represent rounded buttons.
+ *
+ */
 public class RoundedButton implements Border {
 
+    /**
+     * Border radius.
+     */
     private int r;
 
+    /**
+     * Main constructor.
+     *
+     * @param r Wanted radius.
+     */
     public RoundedButton( final int r ) {
         this.r = r;
     }
