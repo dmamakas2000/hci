@@ -125,7 +125,6 @@ public class MainMenu extends JFrame {
      * Default constructor.
      */
     public MainMenu() {
-        setTitle( "\u039A\u03B5\u03BD\u03C4\u03C1\u03B9\u03BA\u03CC \u03BC\u03B5\u03BD\u03BF\u03CD" );
         init();
 
         this.temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
@@ -140,6 +139,7 @@ public class MainMenu extends JFrame {
      * Initializes main common components.
      */
     private void init() {
+        setTitle( "\u039A\u03B5\u03BD\u03C4\u03C1\u03B9\u03BA\u03CC \u03BC\u03B5\u03BD\u03BF\u03CD" );
         setResizable( false );
         setIconImage( Toolkit.getDefaultToolkit()
                 .getImage( getClass().getClassLoader().getResource( Singleton.getInstance().getFrameIcon() ) ) );
@@ -212,7 +212,7 @@ public class MainMenu extends JFrame {
                     panel.add( new JLabel(
                             "Αυτή τη στιγμή βρίσκεστε σε λειτουργία ψύξης. Θέλετε να μεταβείτε σε κατάσταση θέρμανσης;" ) );
 
-                    final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
+                    final int result = JOptionPane.showOptionDialog( null, panel, "Κύριο μενού - Αλλαγή κατάστασης",
                             JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
                     if ( result == JOptionPane.YES_OPTION ) {
                         Singleton.getInstance().setState( State.HEAT );
@@ -300,7 +300,7 @@ public class MainMenu extends JFrame {
                     panel.add( new JLabel(
                             "Αυτή τη στιγμή βρίσκεστε σε λειτουργία θέρμανσης. Θέλετε να μεταβείτε σε κατάσταση ψύξης;" ) );
 
-                    final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
+                    final int result = JOptionPane.showOptionDialog( null, panel, "Κύριο μενού - Αλλαγή κατάστασης",
                             JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
                     if ( result == JOptionPane.YES_OPTION ) {
                         final CoolingAlert coolingAlert = new CoolingAlert();
@@ -398,7 +398,6 @@ public class MainMenu extends JFrame {
         this.switchOffButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                Singleton.getInstance().setState( State.START );
                 MainMenu.this.dispose();
                 final AirConditionShutdownAlert alert = new AirConditionShutdownAlert();
                 alert.setVisible( true );

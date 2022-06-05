@@ -276,6 +276,8 @@ public class TemperatureAdjustMenu extends JFrame {
      * @param temp The temperature to start the frame with.
      */
     public TemperatureAdjustMenu( final int temp ) {
+        setTitle(
+                "\u039C\u03B5\u03BD\u03BF\u03CD \u03C0\u03C1\u03BF\u03C3\u03B1\u03C1\u03BC\u03BF\u03B3\u03AE\u03C2 \u03B8\u03B5\u03C1\u03BC\u03BF\u03BA\u03C1\u03B1\u03C3\u03AF\u03B1\u03C2" );
         this.temperature = temp;
         init();
 

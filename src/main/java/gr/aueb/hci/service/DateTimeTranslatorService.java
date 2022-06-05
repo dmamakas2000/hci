@@ -109,6 +109,14 @@ public class DateTimeTranslatorService {
                 translatedMonth = month;
                 break;
         }
-        return translatedDay + ", " + dayMonth + " " + translatedMonth + " " + year + " - " + hour + ":" + minute;
+        return translatedDay + ", " + dayMonth + " " + translatedMonth + " " + year + " - " + formatDigits( hour ) + ":"
+                + formatDigits( minute );
+    }
+
+    private String formatDigits( final int number ) {
+        if ( String.valueOf( number ).length() == 1 ) {
+            return "0" + number;
+        }
+        return String.valueOf( number );
     }
 }
