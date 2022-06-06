@@ -172,11 +172,6 @@ public class MainMenu extends JFrame {
      * Creates more main common components.
      */
     private void createMainMenuComponents( final int temp ) {
-        final JLabel cityLabel = new JLabel( "\u0391\u03B8\u03AE\u03BD\u03B1" );
-        cityLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 40 ) );
-        cityLabel.setBounds( 32, 9, 131, 62 );
-        this.contentPane.add( cityLabel );
-
         final JLabel dateLabel = new JLabel( this.dateTimeString );
         dateLabel.setFont( new Font( MainMenu.FONT, Font.PLAIN, 20 ) );
         dateLabel.setBounds( 32, 71, 737, 53 );
