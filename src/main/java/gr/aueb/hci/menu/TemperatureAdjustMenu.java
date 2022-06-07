@@ -95,12 +95,12 @@ public class TemperatureAdjustMenu extends JFrame {
     private void createTemperatureAdjustMenuComponents( final JLabel temperatureLabel, final int temperature ) {
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
         celciusLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 50 ) );
-        celciusLabel.setBounds( 325, 232, 56, 68 );
+        celciusLabel.setBounds( 439, 234, 56, 68 );
         this.contentPane.add( celciusLabel );
 
         final JButton increaseTempButton = new JButton( "+" );
         increaseTempButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 50 ) );
-        increaseTempButton.setBounds( 239, 127, 89, 46 );
+        increaseTempButton.setBounds( 353, 129, 89, 46 );
         increaseTempButton.setFocusPainted( false );
         increaseTempButton.setOpaque( false );
         increaseTempButton.setContentAreaFilled( false );
@@ -128,7 +128,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JButton decreaseTempButton = new JButton( "-" );
         decreaseTempButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 50 ) );
-        decreaseTempButton.setBounds( 239, 348, 89, 46 );
+        decreaseTempButton.setBounds( 353, 350, 89, 46 );
         decreaseTempButton.setFocusPainted( false );
         decreaseTempButton.setBorder( null );
         decreaseTempButton.setOpaque( false );
@@ -224,7 +224,7 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( needHelpButton );
 
         final JLabel thermometerLabel = new JLabel( "" );
-        thermometerLabel.setBounds( 112, 190, 96, 128 );
+        thermometerLabel.setBounds( 226, 192, 96, 128 );
         thermometerLabel.setIcon( this.thermometerIcon );
         this.contentPane.add( thermometerLabel );
     }
@@ -242,7 +242,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( temp ) );
         temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 80 ) );
-        temperatureLabel.setBounds( 218, 181, 110, 151 );
+        temperatureLabel.setBounds( 332, 183, 110, 151 );
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, temp );
@@ -259,7 +259,7 @@ public class TemperatureAdjustMenu extends JFrame {
 
         final JLabel temperatureLabel = new JLabel( String.valueOf( 25 ) );
         temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 80 ) );
-        temperatureLabel.setBounds( 218, 181, 110, 151 );
+        temperatureLabel.setBounds( 332, 183, 110, 151 );
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, 25 );
