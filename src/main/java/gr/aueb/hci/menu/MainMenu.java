@@ -236,8 +236,7 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                                MainMenu.this.inActionLabel
-                                        .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                                MainMenu.this.inActionLabel.setText( MainMenu.HEAT_MESSAGE );
                             }
                         }, 3000 );
                     }
@@ -259,8 +258,7 @@ public class MainMenu extends JFrame {
                             MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                            MainMenu.this.inActionLabel
-                                    .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                            MainMenu.this.inActionLabel.setText( MainMenu.HEAT_MESSAGE );
                         }
                     }, 3000 );
                 }
@@ -327,8 +325,7 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
-                                MainMenu.this.inActionLabel
-                                        .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                                MainMenu.this.inActionLabel.setText( MainMenu.COOL_MESSAGE );
                             }
                         }, 3000 );
                     }
@@ -349,8 +346,7 @@ public class MainMenu extends JFrame {
                             MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
-                            MainMenu.this.inActionLabel
-                                    .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                            MainMenu.this.inActionLabel.setText( MainMenu.COOL_MESSAGE );
                         }
                     }, 3000 );
                 }
@@ -429,8 +425,7 @@ public class MainMenu extends JFrame {
                     MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                    MainMenu.this.inActionLabel
-                            .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                    MainMenu.this.inActionLabel.setText( MainMenu.HEAT_MESSAGE );
                     this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                     this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                     break;
@@ -440,8 +435,7 @@ public class MainMenu extends JFrame {
                     MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
-                    MainMenu.this.inActionLabel
-                            .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
+                    MainMenu.this.inActionLabel.setText( MainMenu.COOL_MESSAGE );
                     this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                     this.coolingButton.setBackground( new Color( 1, 1, 1 ) );
                     break;
@@ -488,23 +482,19 @@ public class MainMenu extends JFrame {
 
         switch ( Singleton.getInstance().getExtraState() ) {
             case ECONOMY:
-                MainMenu.this.inActionLabel.setText(
-                        MainMenu.this.inActionLabel.getText() + " (οικονομίας - " + Singleton.getInstance().getWingDegree() + "°)" );
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (οικονομίας)" );
                 break;
 
             case INVERTER:
-                MainMenu.this.inActionLabel.setText(
-                        MainMenu.this.inActionLabel.getText() + " (αφύγρανσης - " + Singleton.getInstance().getWingDegree() + "°)" );
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (αφύγρανσης)" );
                 break;
 
             case TURBO:
-                MainMenu.this.inActionLabel.setText(
-                        MainMenu.this.inActionLabel.getText() + " (ενίσχυσης - " + Singleton.getInstance().getWingDegree() + "°)" );
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (ενίσχυσης)" );
                 break;
 
             case SWING:
-                MainMenu.this.inActionLabel.setText(
-                        MainMenu.this.inActionLabel.getText() + " (περιστροφής - " + Singleton.getInstance().getWingDegree() + "°)" );
+                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (περιστροφής)" );
                 break;
 
             default:
