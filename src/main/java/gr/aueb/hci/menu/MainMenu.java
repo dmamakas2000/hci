@@ -385,7 +385,7 @@ public class MainMenu extends JFrame {
         this.switchOffButton = new JButton( "" );
         this.switchOffButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.switchOffButton.setBackground( Color.WHITE );
-        this.switchOffButton.setBounds( 669, 108, 100, 100 );
+        this.switchOffButton.setBounds( 669, 38, 100, 100 );
         this.switchOffButton.setIcon( this.shutDownIcon );
         this.switchOffButton.setFocusPainted( false );
         this.switchOffButton.setContentAreaFilled( false );
