@@ -16,11 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import gr.aueb.hci.alerts.ExtraFunctionalityAlert;
 import gr.aueb.hci.checkbox.ColorDef;
 import gr.aueb.hci.checkbox.SteelCheckBox;
 import gr.aueb.hci.panels.ExtraFunctionsMenuPanel;
@@ -72,8 +71,6 @@ public class ExtraFunctionsMenu extends JFrame {
     private ImageIcon needHelpIconForButton = new ImageIcon(
             getClass().getClassLoader().getResource( "assets/images/help/info.png" ) );
     private ImageIcon goBackIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/back/go-back.png" ) );
-    private ImageIcon saveChangesIcon = new ImageIcon(
-            getClass().getClassLoader().getResource( "assets/images/verification/check.png" ) );
 
     /**
      * Help message.
@@ -323,6 +320,22 @@ public class ExtraFunctionsMenu extends JFrame {
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
+                if ( !getSelectedState().equals( Singleton.getInstance().getExtraState() ) ) {
+                    // Changes have been performed
+                    final Object[] options1 = { "Ναι", "Όχι" };
+
+                    final JPanel panel = new JPanel();
+                    panel.add( new JLabel(
+                            "Έχετε επιλέξει νέα σύνθετη λειτουργία για το κλιματιστικό. Θέλετε να αποθηκεύσετε αυτή την αλλαγή;" ) );
+
+                    final int result = JOptionPane.showOptionDialog( null, panel, "Επιλογή σύνθετης λειτουργίας",
+                            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
+                    if ( result == JOptionPane.YES_OPTION ) {
+                        // Yes, perform the change
+                        updateCurrentExtraState(); // Update extra state
+                    }
+                }
+                // Go back in main menu
                 final MainMenu menu = new MainMenu( temp );
                 ExtraFunctionsMenu.this.dispose();
                 menu.setVisible( true );
@@ -350,99 +363,11 @@ public class ExtraFunctionsMenu extends JFrame {
         needHelpLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.pan.add( needHelpLabel );
-
-        final JButton saveChangesButton = new JButton( "" );
-        saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
-        saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        saveChangesButton.setBounds( 329, 434, 100, 100 );
-        saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setIcon( this.saveChangesIcon );
-        saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
-        saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
-        saveChangesButton.setOpaque( false );
-        saveChangesButton.setContentAreaFilled( false );
-        saveChangesButton.setBorder( null );
-        saveChangesButton.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed( final ActionEvent e ) {
-                if ( ExtraFunctionsMenu.this.economyMode.isSelected() ) {
-                    // Switch into economy mode
-                    Singleton.getInstance().setExtraState( ExtraState.ECONOMY );
-                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.ECONOMY );
-                    ExtraFunctionsMenu.this.dispose();
-                    alert.setVisible( true );
-                    new java.util.Timer().schedule( new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            alert.dispose();
-                            final MainMenu menu = new MainMenu( temp );
-                            menu.setVisible( true );
-                        }
-                    }, 3000 );
-                }
-                else if ( ExtraFunctionsMenu.this.turboMode.isSelected() ) {
-                    // Switch into turbo mode
-                    Singleton.getInstance().setExtraState( ExtraState.TURBO );
-                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.TURBO );
-                    ExtraFunctionsMenu.this.dispose();
-                    alert.setVisible( true );
-                    new java.util.Timer().schedule( new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            alert.dispose();
-                            final MainMenu menu = new MainMenu( temp );
-                            menu.setVisible( true );
-                        }
-                    }, 3000 );
-                }
-                else if ( ExtraFunctionsMenu.this.swingMode.isSelected() ) {
-                    // Switch into swing mode
-                    Singleton.getInstance().setExtraState( ExtraState.SWING );
-                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.SWING );
-                    ExtraFunctionsMenu.this.dispose();
-                    alert.setVisible( true );
-                    new java.util.Timer().schedule( new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            alert.dispose();
-                            final MainMenu menu = new MainMenu( temp );
-                            menu.setVisible( true );
-                        }
-                    }, 3000 );
-                }
-                else if ( ExtraFunctionsMenu.this.inverterMode.isSelected() ) {
-                    // Switch into inverter mode
-                    Singleton.getInstance().setExtraState( ExtraState.INVERTER );
-                    final ExtraFunctionalityAlert alert = new ExtraFunctionalityAlert( ExtraState.INVERTER );
-                    ExtraFunctionsMenu.this.dispose();
-                    alert.setVisible( true );
-                    new java.util.Timer().schedule( new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            alert.dispose();
-                            final MainMenu menu = new MainMenu( temp );
-                            menu.setVisible( true );
-                        }
-                    }, 3000 );
-                }
-                else {
-                    if ( Singleton.getInstance().getExtraState().equals( ExtraState.START ) ) {
-                        JOptionPane.showMessageDialog( null, "Παρακαλώ επιλέξτε κάποια από εκ των διαθέσιμων σύνθετων λειτουργιών",
-                                "Μενού σύνθετων επιλογών", 1 );
-                    }
-                    else {
-                        Singleton.getInstance().setExtraState( ExtraState.START );
-                        JOptionPane.showMessageDialog( null, "Έχετε απενεργοποιήσει τις επιπλέον λειτουργίες επιτυχώς!",
-                                "Μενού πρόσθετων επιλογών", 1 );
-                    }
-                }
-            }
-        } );
-        this.pan.add( saveChangesButton );
     }
 
+    /**
+     * Checks the equilavent checkbox at the UI based on the current extra state selected.
+     */
     private void checkForCheckboxes() {
         switch ( Singleton.getInstance().getExtraState() ) {
             case ECONOMY:
@@ -470,6 +395,50 @@ public class ExtraFunctionsMenu extends JFrame {
 
             default:
                 break;
+        }
+    }
+
+    /**
+     * Retrieves the extra function selected from the UI.
+     *
+     * @return ExtraState instance indicating the extra function selected.
+     */
+    private ExtraState getSelectedState() {
+        if ( this.economyMode.isSelected() ) {
+            return ExtraState.ECONOMY;
+        }
+        else if ( this.inverterMode.isSelected() ) {
+            return ExtraState.INVERTER;
+        }
+        else if ( this.swingMode.isSelected() ) {
+            return ExtraState.SWING;
+        }
+        else if ( this.turboMode.isSelected() ) {
+            return ExtraState.TURBO;
+        }
+        else {
+            return ExtraState.START;
+        }
+    }
+
+    /**
+     * Updates Singleton's extra state field based on user's selection.
+     */
+    private void updateCurrentExtraState() {
+        if ( this.economyMode.isSelected() ) {
+            Singleton.getInstance().setExtraState( ExtraState.ECONOMY );
+        }
+        else if ( this.inverterMode.isSelected() ) {
+            Singleton.getInstance().setExtraState( ExtraState.INVERTER );
+        }
+        else if ( this.swingMode.isSelected() ) {
+            Singleton.getInstance().setExtraState( ExtraState.SWING );
+        }
+        else if ( this.turboMode.isSelected() ) {
+            Singleton.getInstance().setExtraState( ExtraState.TURBO );
+        }
+        else {
+            Singleton.getInstance().setExtraState( ExtraState.START );
         }
     }
 

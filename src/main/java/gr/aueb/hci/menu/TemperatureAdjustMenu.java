@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -44,8 +43,6 @@ public class TemperatureAdjustMenu extends JFrame {
     private ImageIcon thermometerIcon = new ImageIcon(
             getClass().getClassLoader().getResource( "assets/images/thermometer/thermometer_icon.png" ) );
     private ImageIcon goBackIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/back/go-back.png" ) );
-    private ImageIcon saveChangesIcon = new ImageIcon(
-            getClass().getClassLoader().getResource( "assets/images/verification/check.png" ) );
 
     /**
      * Font.
@@ -205,44 +202,6 @@ public class TemperatureAdjustMenu extends JFrame {
         } );
         this.contentPane.add( goBackButton );
 
-        final JButton saveChangesButton = new JButton();
-        saveChangesButton.setBackground( Color.WHITE );
-        saveChangesButton.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
-        saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
-        saveChangesButton.setBounds( 563, 208, 100, 100 );
-        saveChangesButton.setFocusPainted( false );
-        saveChangesButton.setIcon( this.saveChangesIcon );
-        saveChangesButton.setVerticalTextPosition( SwingConstants.CENTER );
-        saveChangesButton.setHorizontalTextPosition( SwingConstants.RIGHT );
-        saveChangesButton.setOpaque( false );
-        saveChangesButton.setContentAreaFilled( false );
-        saveChangesButton.setBorder( null );
-        saveChangesButton.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed( final ActionEvent e ) {
-                final Object[] options1 = { "Ναι, άλλαξε την θερμοκρασία", "Όχι, μην την αλλάξεις" };
-
-                final JPanel panel = new JPanel();
-                panel.add( new JLabel( "Είστε βέβαιοι πως θέλετε να αλλάξετε την θερμοκρασία;" ) );
-
-                final int result = JOptionPane.showOptionDialog( null, panel, "Προσαρμογή θερμοκρασίας",
-                        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null );
-                if ( result == JOptionPane.YES_OPTION ) {
-                    if ( TemperatureAdjustMenu.this.temperature >= TemperatureAdjustMenu.MAX_TEMPERATURE ) {
-                        TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MAX_TEMPERATURE - 1;
-                    }
-                    else if ( TemperatureAdjustMenu.this.temperature <= TemperatureAdjustMenu.MIN_TEMPERATURE ) {
-                        TemperatureAdjustMenu.this.temperature = TemperatureAdjustMenu.MIN_TEMPERATURE + 1;
-                    }
-                    TemperatureAdjustMenu.this.dispose();
-                    final MainMenu mainMenu = new MainMenu( TemperatureAdjustMenu.this.temperature );
-                    mainMenu.setVisible( true );
-                }
-            }
-        } );
-        this.contentPane.add( saveChangesButton );
-
         final JLabel needHelpLabel = new JLabel( "\u0398\u03AD\u03BB\u03C9 \u03B2\u03BF\u03AE\u03B8\u03B5\u03B9\u03B1" );
         needHelpLabel.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 472, 539, 182, 46 );
@@ -304,12 +263,6 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, 25 );
-
-        final JLabel lblNewLabel = new JLabel(
-                "\u0395\u03C0\u03B9\u03B2\u03B5\u03B2\u03B1\u03AF\u03C9\u03C3\u03B7 \u03B1\u03BB\u03BB\u03B1\u03B3\u03CE\u03BD" );
-        lblNewLabel.setFont( new Font( TemperatureAdjustMenu.FONT, Font.PLAIN, 25 ) );
-        lblNewLabel.setBounds( 478, 319, 269, 39 );
-        this.contentPane.add( lblNewLabel );
     }
 
     /**
