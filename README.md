@@ -14,3 +14,4 @@
 
 * Link to assets (images, sound): [Click here](src/main/resources/assets/).
 * Link to commercial video: [Click here](https://www.youtube.com/channel/UCKxS5aW-5cVe1sbj4L6GKxw).
+* Jar file: [Click here](jar/).
