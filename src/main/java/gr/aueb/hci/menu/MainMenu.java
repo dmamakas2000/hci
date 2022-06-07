@@ -115,7 +115,7 @@ public class MainMenu extends JFrame {
 
         this.temperatureLabel = new JLabel( String.valueOf( temp ) );
         this.temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
-        this.temperatureLabel.setBounds( 32, 127, 141, 93 );
+        this.temperatureLabel.setBounds( 32, 100, 141, 93 );
         this.contentPane.add( this.temperatureLabel );
 
         this.createMainMenuComponents( Integer.valueOf( this.temperatureLabel.getText() ) );
@@ -129,7 +129,7 @@ public class MainMenu extends JFrame {
 
         this.temperatureLabel = new JLabel( String.valueOf( MainMenu.START_TEMPERATURE ) );
         this.temperatureLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 78 ) );
-        this.temperatureLabel.setBounds( 32, 127, 141, 93 );
+        this.temperatureLabel.setBounds( 32, 100, 141, 93 );
         this.contentPane.add( this.temperatureLabel );
 
         this.createMainMenuComponents( Integer.valueOf( this.temperatureLabel.getText() ) );
@@ -174,12 +174,12 @@ public class MainMenu extends JFrame {
     private void createMainMenuComponents( final int temp ) {
         final JLabel dateLabel = new JLabel( this.dateTimeString );
         dateLabel.setFont( new Font( MainMenu.FONT, Font.PLAIN, 20 ) );
-        dateLabel.setBounds( 32, 71, 737, 53 );
+        dateLabel.setBounds( 32, 12, 737, 53 );
         this.contentPane.add( dateLabel );
 
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
         celciusLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 52 ) );
-        celciusLabel.setBounds( 128, 155, 71, 53 );
+        celciusLabel.setBounds( 128, 130, 71, 53 );
         this.contentPane.add( celciusLabel );
 
         this.heatingButton = new JButton( "\u0398\u03AD\u03C1\u03BC\u03B1\u03BD\u03C3\u03B7     " );
