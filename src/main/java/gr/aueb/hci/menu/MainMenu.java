@@ -177,6 +177,11 @@ public class MainMenu extends JFrame {
         dateLabel.setBounds( 32, 12, 737, 53 );
         this.contentPane.add( dateLabel );
 
+        final JLabel switchOffLabel = new JLabel( "Απενεργοποίηση" );
+        switchOffLabel.setFont( new Font( MainMenu.FONT, Font.PLAIN, 20 ) );
+        switchOffLabel.setBounds( 630, 130, 737, 53 );
+        this.contentPane.add( switchOffLabel );
+
         final JLabel celciusLabel = new JLabel( "\u00B0C" );
         celciusLabel.setFont( new Font( Singleton.getInstance().getFont(), Font.PLAIN, 52 ) );
         celciusLabel.setBounds( 128, 130, 71, 53 );
@@ -385,7 +390,7 @@ public class MainMenu extends JFrame {
         this.switchOffButton = new JButton( "" );
         this.switchOffButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
         this.switchOffButton.setBackground( Color.WHITE );
-        this.switchOffButton.setBounds( 669, 38, 100, 100 );
+        this.switchOffButton.setBounds( 660, 38, 100, 100 );
         this.switchOffButton.setIcon( this.shutDownIcon );
         this.switchOffButton.setFocusPainted( false );
         this.switchOffButton.setContentAreaFilled( false );
