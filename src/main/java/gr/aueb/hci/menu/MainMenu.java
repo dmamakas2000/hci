@@ -108,6 +108,12 @@ public class MainMenu extends JFrame {
             + "Τέλος, εάν θέλετε να απενεργοποιήσετε το κλιματιστικό επιλέξτε το κόκκινο κουμπί στο ενδιάμεσο και δεξιά της οθόνης του μενού.";
 
     /**
+     * Other messages.
+     */
+    private static final String HEAT_MESSAGE = "Σε λειτουργία θέρμανσης";
+    private static final String COOL_MESSAGE = "Σε λειτουργία ψύξης";
+
+    /**
      * Main constructor (parsing temperature).
      */
     public MainMenu( final int temp ) {
@@ -230,7 +236,8 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                                MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                                MainMenu.this.inActionLabel
+                                        .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                             }
                         }, 3000 );
                     }
@@ -252,7 +259,8 @@ public class MainMenu extends JFrame {
                             MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                            MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                            MainMenu.this.inActionLabel
+                                    .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                         }
                     }, 3000 );
                 }
@@ -319,7 +327,8 @@ public class MainMenu extends JFrame {
                                 MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                                 MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                                 MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
-                                MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                                MainMenu.this.inActionLabel
+                                        .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                             }
                         }, 3000 );
                     }
@@ -340,7 +349,8 @@ public class MainMenu extends JFrame {
                             MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
                             MainMenu.this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                             MainMenu.this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
-                            MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                            MainMenu.this.inActionLabel
+                                    .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                         }
                     }, 3000 );
                 }
@@ -419,7 +429,8 @@ public class MainMenu extends JFrame {
                     MainMenu.this.contentPane.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.needHelpButton.setBackground( new Color( 255, 245, 204 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 255, 245, 204 ) );
-                    MainMenu.this.inActionLabel.setText( "Σε λειτουργία θέρμανσης" );
+                    MainMenu.this.inActionLabel
+                            .setText( MainMenu.HEAT_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                     this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                     this.coolingButton.setBackground( new Color( 255, 255, 255 ) );
                     break;
@@ -429,7 +440,8 @@ public class MainMenu extends JFrame {
                     MainMenu.this.contentPane.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.needHelpButton.setBackground( new Color( 212, 242, 255 ) );
                     MainMenu.this.switchOffButton.setBackground( new Color( 212, 242, 255 ) );
-                    MainMenu.this.inActionLabel.setText( "Σε λειτουργία ψύξης" );
+                    MainMenu.this.inActionLabel
+                            .setText( MainMenu.COOL_MESSAGE + " (" + Singleton.getInstance().getWingDegree() + "°)" );
                     this.heatingButton.setBackground( new Color( 255, 255, 255 ) );
                     this.coolingButton.setBackground( new Color( 1, 1, 1 ) );
                     break;
@@ -476,19 +488,23 @@ public class MainMenu extends JFrame {
 
         switch ( Singleton.getInstance().getExtraState() ) {
             case ECONOMY:
-                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (οικονομίας)" );
+                MainMenu.this.inActionLabel.setText(
+                        MainMenu.this.inActionLabel.getText() + " (οικονομίας - " + Singleton.getInstance().getWingDegree() + "°)" );
                 break;
 
             case INVERTER:
-                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (αφύγρανσης)" );
+                MainMenu.this.inActionLabel.setText(
+                        MainMenu.this.inActionLabel.getText() + " (αφύγρανσης - " + Singleton.getInstance().getWingDegree() + "°)" );
                 break;
 
             case TURBO:
-                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (ενίσχυσης)" );
+                MainMenu.this.inActionLabel.setText(
+                        MainMenu.this.inActionLabel.getText() + " (ενίσχυσης - " + Singleton.getInstance().getWingDegree() + "°)" );
                 break;
 
             case SWING:
-                MainMenu.this.inActionLabel.setText( MainMenu.this.inActionLabel.getText() + " (περιστροφής)" );
+                MainMenu.this.inActionLabel.setText(
+                        MainMenu.this.inActionLabel.getText() + " (περιστροφής - " + Singleton.getInstance().getWingDegree() + "°)" );
                 break;
 
             default:

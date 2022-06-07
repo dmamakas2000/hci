@@ -263,6 +263,16 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, 25 );
+
+        final JButton testButton = new JButton( "" );
+        testButton.setIcon( new ImageIcon( "swing-middle.png" ) );
+        testButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+            }
+        } );
+        testButton.setBounds( 565, 318, 67, 60 );
+        this.contentPane.add( testButton );
     }
 
     /**

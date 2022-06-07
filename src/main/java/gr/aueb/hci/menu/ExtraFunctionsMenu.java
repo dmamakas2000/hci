@@ -71,6 +71,16 @@ public class ExtraFunctionsMenu extends JFrame {
     private ImageIcon needHelpIconForButton = new ImageIcon(
             getClass().getClassLoader().getResource( "assets/images/help/info.png" ) );
     private ImageIcon goBackIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/back/go-back.png" ) );
+    private ImageIcon wingUpIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/wing/swing-up.png" ) );
+    private ImageIcon wingUpSelectedIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/wing/swing-up-selected.png" ) );
+    private ImageIcon wingMiddleIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/wing/swing-middle.png" ) );
+    private ImageIcon wingMiddleSelectedIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/wing/swing-middle-selected.png" ) );
+    private ImageIcon wingDownIcon = new ImageIcon( getClass().getClassLoader().getResource( "assets/images/wing/swing-down.png" ) );
+    private ImageIcon wingDownSelectedIcon = new ImageIcon(
+            getClass().getClassLoader().getResource( "assets/images/wing/swing-down-selected.png" ) );
 
     /**
      * Help message.
@@ -95,6 +105,12 @@ public class ExtraFunctionsMenu extends JFrame {
             "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 \u03C0\u03B5\u03C1\u03B9\u03C3\u03C4\u03C1\u03BF\u03C6\u03AE\u03C2" );
     private final JLabel inverterLabel = new JLabel(
             "\u039B\u03B5\u03B9\u03C4\u03BF\u03C5\u03C1\u03B3\u03AF\u03B1 \u03B1\u03C6\u03CD\u03B3\u03C1\u03B1\u03BD\u03C3\u03B7\u03C2" );
+    private final JButton upWingButton = new JButton( "" );
+    private final JButton middleWingButton = new JButton( "" );
+    private final JButton downWingButton = new JButton( "" );
+    private final JLabel upLabel = new JLabel( "0\u00B0" );
+    private final JLabel middleLabel = new JLabel( "45\u00B0" );
+    private final JLabel downLabel = new JLabel( "85\u00B0" );
 
     /**
      * Create the frame.
@@ -155,6 +171,7 @@ public class ExtraFunctionsMenu extends JFrame {
         this.c.add( this.pan );
 
         checkForCheckboxes();
+        checkForWingDegree();
 
         final JLabel lblNewLabel = new JLabel(
                 "\u039C\u03C0\u03BF\u03C1\u03B5\u03AF\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03BC\u03AF\u03B1 \u03B1\u03C0\u03CC \u03C4\u03B9\u03C2 \u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9" );
@@ -320,7 +337,8 @@ public class ExtraFunctionsMenu extends JFrame {
         goBackButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed( final ActionEvent e ) {
-                if ( !getSelectedState().equals( Singleton.getInstance().getExtraState() ) ) {
+                if ( !getSelectedState().equals( Singleton.getInstance().getExtraState() )
+                        || getSelectedWingDegree() != Singleton.getInstance().getWingDegree() ) {
                     // Changes have been performed
                     final Object[] options1 = { "Íáé", "¼÷é" };
 
@@ -363,6 +381,71 @@ public class ExtraFunctionsMenu extends JFrame {
         needHelpLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
         needHelpLabel.setBounds( 524, 553, 203, 43 );
         this.pan.add( needHelpLabel );
+
+        final JLabel wingLabel = new JLabel( "\u039A\u03BB\u03AF\u03C3\u03B7 \u03C6\u03C4\u03B5\u03C1\u03BF\u03CD" );
+        wingLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 25 ) );
+        wingLabel.setBounds( 94, 443, 256, 26 );
+        this.pan.add( wingLabel );
+
+        this.upWingButton.setBounds( 405, 428, 67, 60 );
+        this.upWingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        this.upWingButton.setFocusPainted( false );
+        this.upWingButton.setContentAreaFilled( false );
+        this.upWingButton.setBorder( null );
+        this.upWingButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                ExtraFunctionsMenu.this.upWingButton.setIcon( ExtraFunctionsMenu.this.wingUpSelectedIcon );
+                ExtraFunctionsMenu.this.middleWingButton.setIcon( ExtraFunctionsMenu.this.wingMiddleIcon );
+                ExtraFunctionsMenu.this.downWingButton.setIcon( ExtraFunctionsMenu.this.wingDownIcon );
+                Singleton.getInstance().setWingDegree( 0 );
+            }
+        } );
+        this.pan.add( this.upWingButton );
+
+        this.middleWingButton.setBounds( 500, 428, 67, 60 );
+        this.middleWingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        this.middleWingButton.setFocusPainted( false );
+        this.middleWingButton.setContentAreaFilled( false );
+        this.middleWingButton.setBorder( null );
+        this.middleWingButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                ExtraFunctionsMenu.this.upWingButton.setIcon( ExtraFunctionsMenu.this.wingUpIcon );
+                ExtraFunctionsMenu.this.middleWingButton.setIcon( ExtraFunctionsMenu.this.wingMiddleSelectedIcon );
+                ExtraFunctionsMenu.this.downWingButton.setIcon( ExtraFunctionsMenu.this.wingDownIcon );
+                Singleton.getInstance().setWingDegree( 45 );
+            }
+        } );
+        this.pan.add( this.middleWingButton );
+
+        this.downWingButton.setBounds( 595, 428, 67, 60 );
+        this.downWingButton.setCursor( Cursor.getPredefinedCursor( Cursor.HAND_CURSOR ) );
+        this.downWingButton.setFocusPainted( false );
+        this.downWingButton.setContentAreaFilled( false );
+        this.downWingButton.setBorder( null );
+        this.downWingButton.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( final ActionEvent e ) {
+                ExtraFunctionsMenu.this.upWingButton.setIcon( ExtraFunctionsMenu.this.wingUpIcon );
+                ExtraFunctionsMenu.this.middleWingButton.setIcon( ExtraFunctionsMenu.this.wingMiddleIcon );
+                ExtraFunctionsMenu.this.downWingButton.setIcon( ExtraFunctionsMenu.this.wingDownSelectedIcon );
+                Singleton.getInstance().setWingDegree( 85 );
+            }
+        } );
+        this.pan.add( this.downWingButton );
+        this.upLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 20 ) );
+        this.upLabel.setBounds( 431, 484, 31, 26 );
+
+        this.pan.add( this.upLabel );
+        this.middleLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 20 ) );
+        this.middleLabel.setBounds( 510, 484, 31, 26 );
+
+        this.pan.add( this.middleLabel );
+        this.downLabel.setFont( new Font( ExtraFunctionsMenu.FONT, Font.PLAIN, 20 ) );
+        this.downLabel.setBounds( 605, 484, 31, 26 );
+
+        this.pan.add( this.downLabel );
     }
 
     /**
@@ -399,6 +482,27 @@ public class ExtraFunctionsMenu extends JFrame {
     }
 
     /**
+     * Checks the equilavent button at the UI based on the current wing degree position.
+     */
+    private void checkForWingDegree() {
+        if ( Singleton.getInstance().getWingDegree() == 0 ) {
+            ExtraFunctionsMenu.this.upWingButton.setIcon( this.wingUpSelectedIcon );
+            ExtraFunctionsMenu.this.middleWingButton.setIcon( this.wingMiddleIcon );
+            ExtraFunctionsMenu.this.downWingButton.setIcon( this.wingDownIcon );
+        }
+        else if ( Singleton.getInstance().getWingDegree() == 45 ) {
+            ExtraFunctionsMenu.this.upWingButton.setIcon( this.wingUpIcon );
+            ExtraFunctionsMenu.this.middleWingButton.setIcon( this.wingMiddleSelectedIcon );
+            ExtraFunctionsMenu.this.downWingButton.setIcon( this.wingDownIcon );
+        }
+        else if ( Singleton.getInstance().getWingDegree() == 85 ) {
+            ExtraFunctionsMenu.this.upWingButton.setIcon( this.wingUpIcon );
+            ExtraFunctionsMenu.this.middleWingButton.setIcon( this.wingMiddleIcon );
+            ExtraFunctionsMenu.this.downWingButton.setIcon( this.wingDownSelectedIcon );
+        }
+    }
+
+    /**
      * Retrieves the extra function selected from the UI.
      *
      * @return ExtraState instance indicating the extra function selected.
@@ -418,6 +522,23 @@ public class ExtraFunctionsMenu extends JFrame {
         }
         else {
             return ExtraState.START;
+        }
+    }
+
+    /**
+     * Retrieves the wing degree selected from the UI.
+     *
+     * @return Integer containing the desired wing degree.
+     */
+    private int getSelectedWingDegree() {
+        if ( this.upWingButton.getIcon().equals( this.wingUpIcon ) ) {
+            return 0;
+        }
+        else if ( this.middleWingButton.getIcon().equals( this.wingDownIcon ) ) {
+            return 45;
+        }
+        else {
+            return 85;
         }
     }
 

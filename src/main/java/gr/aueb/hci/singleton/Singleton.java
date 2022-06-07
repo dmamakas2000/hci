@@ -22,7 +22,16 @@ public final class Singleton {
      * Main font.
      */
     private final String font = "Arial";
+
+    /**
+     * Frame icon.
+     */
     private final String frameIcon = "assets/images/window/hermes.png";
+
+    /**
+     * Wing degree.
+     */
+    private int wingDegree = 45;
 
     /**
      * Main states.
