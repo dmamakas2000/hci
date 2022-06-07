@@ -65,8 +65,7 @@ public class TemperatureAdjustMenu extends JFrame {
      */
     private static final String HELP_MESSAGE = "Βρίσκεστε στην οθόνη ρύθμισης θερμοκρασίας. \n \n"
             + "Στην οθόνη απεικονίζεται η θερμοκρασία που αυτή τη στιγμή έχει επιλεγεί. \nΜπορείτε να την αυξομειώσετε πατώντας στις επιλογές \n«+» και «-», οι οποίες βρίσκονται τοποθετημένες πάνω και \nκάτω από την θερμοκρασία αντίστοιχα. "
-            + "Αφότου επιλέξετε την επιθυμητή θερμοκρασία, \nμπορείτε να πατήσετε «Επιβεβαίωση αλλαγών» προκειμένου να ρυθμιστεί \nη θερμορασία του κλιματιστικού σας αντίστοιχα.\n\n"
-            + "Εάν δεν επιθυμείτε να πραγματοποιήσετε κάποια αλλαγή μπορείτε να πατήσετε την επιλογή \n«Πήγαινε με πίσω» προκειμένου να ανακατευθυνθείτε ξανά στο κεντρικό μενού";
+            + "\nΕάν επιθυμείτε να πραγματοποιήσετε κάποια αλλαγή μπορείτε να πατήσετε την επιλογή \n«Πήγαινε με πίσω» προκειμένου να ανακατευθυνθείτε ξανά στο κεντρικό μενού";
 
     /**
      * Initializes main common components.
@@ -263,16 +262,6 @@ public class TemperatureAdjustMenu extends JFrame {
         this.contentPane.add( temperatureLabel );
 
         createTemperatureAdjustMenuComponents( temperatureLabel, 25 );
-
-        final JButton testButton = new JButton( "" );
-        testButton.setIcon( new ImageIcon( "swing-middle.png" ) );
-        testButton.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed( final ActionEvent e ) {
-            }
-        } );
-        testButton.setBounds( 565, 318, 67, 60 );
-        this.contentPane.add( testButton );
     }
 
     /**
