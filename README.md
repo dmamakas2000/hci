@@ -1,6 +1,5 @@
 # Air Conditioner Interface Using Java Swing :computer: :snowflake: :sun_with_face:
-
-Lorem ipsum - Java Swing.
+An accessible air conditioner interface designed with Java Swing, focusing on simplicity and usability for elderly users. Developed using the Spiral Model, the project emphasizes iterative design, user feedback, and enhanced accessibility features, such as intuitive navigation and real-time feedback.
 
 <br>
 
