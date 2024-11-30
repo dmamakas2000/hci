@@ -33,6 +33,42 @@ This project seeks to enhance the user experience for air conditioner interfaces
 **Tablet Integration:**
 - Designed for a touch-screen tablet with optional internet connectivity.
 
+## Development Process
+
+***First Phase: Requirements Analysis and Initial Design*** <br>
+- Conducted interviews and distributed questionnaires to gather feedback from everyday users, particularly elderly individuals, on current air conditioner interfaces.
+- Key findings:
+  - Over 75% of users found traditional remotes confusing due to too many buttons and complex options.
+  - Elderly users particularly struggled with understanding icons and lacked technological familiarity.
+-Initial focus: Design a simplified interface tailored for elderly users with intuitive options and clear feedback mechanisms.
+- Developed usability goals:
+  - Minimize cognitive load with simple buttons and clear labels.
+  - Provide real-time feedback on system status and user actions.
+  - Ensure accessibility through larger text, recognizable icons, and consistent design.
+
+***Second Phase: Prototyping and Usability Evaluation*** <br>
+- Created low- and mid-fidelity prototypes incorporating insights from Phase 1.
+  - Features:
+    - Core functionalities (temperature adjustment, cooling/heating mode) with large, intuitive buttons.
+    - Visual aids like color-coded states and familiar icons (e.g., snowflake for cooling, flame for heating).
+- Conducted usability testing using:
+  - Cognitive walkthroughs.
+  - Keystroke-level modeling for efficiency analysis.
+  - User surveys and interviews for subjective feedback.
+- Iteratively refined the interface based on results, such as simplifying navigation and improving feedback mechanisms.
+
+***Third Phase: Final Implementation and Advanced Evaluation*** <br>
+- Finalized the interface design, introducing additional features:
+  - Support for advanced functions (e.g., turbo mode, economy mode).
+  - Enhanced help and guidance options tailored to elderly users.
+  - Voice feedback for interaction confirmation, particularly useful for visually impaired users.
+- Conducted comprehensive usability evaluations, including:
+  - Heuristic evaluation to ensure compliance with usability principles.
+  - Detailed task analysis using real-world scenarios.
+  - User feedback collection on the improved interface.
+- Achieved a polished, user-friendly interface validated for its simplicity, accessibility, and effectiveness.
+
+
 ## Installation
 We strictly recommend advising the following instructions.
 
