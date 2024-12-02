@@ -83,8 +83,27 @@ cd your-repository-name
 
 :mega: Click **[here](https://www.youtube.com/watch?v=fudltjPybo8)** to review a free demonstrational video! :mega:
 
+
+## Directory Structure
+```
+hci/
+│
+├── src/                            # Core application files
+│   ├── main/                       # Main application logic and resources
+│   │   ├── java/                   # Java source code for the project
+│   │   ├── resources/              # UI resources (e.g., layouts, icons)
+│   │   └── AndroidManifest.xml     # Application configuration and permissions
+│   └── test/                       # Unit tests for the application
+│
+├── jar/                            # Executable Java archive
+│   └── app.jar                     # Precompiled application jar file
+```
+
 ## Authors
 | Full Name  | University's Registration Number |
 | ------------- |:-------------:|
 | Petros Tsotsi      | 3180193     |
 | Dimitrios Mamakas      | 3180102    |
+
+## License
+This project is licensed under the **MIT License** - see the **[LICENSE](LICENSE)** file for details.
